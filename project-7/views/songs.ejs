@@ -1,0 +1,77 @@
+<%
+function format_seconds(s) {
+    if (typeof s != 'number' || Number.isNaN(s)) {
+        return '?:??';
+    }
+
+    if (s == 0 || s == 00 || s < 1 && s > 0 || s > -1 && s < 0) {
+        return '0:00';
+    }
+
+    if (s > 0) {
+        var minutes = Math.trunc(s / 60);
+        var seconds = Math.trunc(s % 60);
+        if (seconds <= 9) {
+            seconds = '0' + seconds;
+        }
+        return minutes + ':' + seconds;
+    }
+
+    if (s < 0) {
+        var minutes = Math.abs(Math.trunc(s / 60));
+        var seconds = Math.abs(Math.trunc(s % 60));
+        if (seconds <= 9) {
+            seconds = '0' + seconds;
+        }
+        return '-' + minutes + ':' + seconds;
+    }
+}
+%>
+<nav class="home">  <img src = "images/place.svg" alt="Place" class="home" id="place"/>
+    <a href="/" target="_blank" class="home link" >Homepage</a>
+    <a href="/songs/" target="_blank" class="home link" id="current">Song catalog</a>
+    <a href="/songs/upload" target="_blank" class="home link" >Song Upload Form</a>                                
+</nav>
+<main class="song_table">     
+    <header>
+        <form  id='searchForm'onsubmit="return false;" >
+            <input type="text" name="search" placeholder="Search for songs" id='searchSong'>
+            <button type="button">Search</button>
+        </form>
+        <a href="songs.html?sort=filename">Filename</a>
+        <a href="songs.html?sort=duration">Duration (MM:SS)</a>
+        <a href="songs.html?sort=size">Size (MB)</a>
+        <a href="songs.html?sort=title">Title</a>
+        <a href="songs.html?sort=albu">Album</a>
+        <a href="songs.html?sort=artis">Artist</a>
+        <a href="songs.html?sort=genr">Genre</a>
+    </header>
+    <section id='onlySongs'>
+    <% song_List.forEach((n)=>{ %>
+        <% if (n.missing_file != true) { %>
+            <article class="song" id="<%= n._id %>">
+                <button type="button" class="play_button" >Play</button></a>
+                <button type="button" class="add_button" >Add</button></a>
+                <button type="button" class="edit_button" >Edit</button></a>
+                <button type="button" class="delete_button" >Delete</button></a>
+                <span class="filename"><%= n.filename %></span>
+                <span class="duration"><%= format_seconds(Math.ceil(n.duration)) %></span>
+                <span class="size"><%= n.size %></span>
+                <span class="title"><%= n.title %></span>
+                <span class="album"><%= n.album %></span>
+                <span class="artist"><%= n.artist %></span>
+                <span class="genre"><%= n.genre %></span>
+                <a class="download_button" href=../music/<%= n.filename %> download=<%= n.filename %> >
+                <button type="button" class="download_button" >Download</button></a>
+            </article>
+        <% } %>
+    <% }); %>
+    </section>
+</main>
+
+<aside class="songs" id='sidebar';> 
+    <p class="songs" id="gentitle"> <% if (side_Type == 'genre') { %>Genres<% }else if (side_Type == 'artist'){ %>Artists<% }else if (side_Type == 'album'){ %> Albums<% }else if (side_Type == 'enjoy'){ %> Enjoy the music!<% }%></p>
+    <% side_List.forEach((n)=>{ %>
+        <a href="../songs?<%= side_Type %>=<%= n %>" target="_blank" class="home fastlink" ><%= n %></a>
+    <% }); %>
+</aside>

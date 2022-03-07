@@ -1,0 +1,31 @@
+
+    <body class="player" id="player_body" onload="init()">
+        <!-- The content of the player should be dynamically generated.
+            Do not manually add any HTML here -->
+        <h1>Exercise 5 - Object-Oriented JavaScript - Playlist</h1>
+
+        
+        <script src="public/js/script.js"></script>
+        <!-- Script where the init_player_with_playlist function is implemented -->
+        <script src="public/js/init.js"></script>
+        <script src="public/js/data.js"></script>
+
+        <script>
+            //This function will call the init_player function passing a test playlist
+            //You are welcome to change the playlist
+
+            function init() {
+                let songs = ['music/one.mp3', 'music/two.mp3', 'music/three.mp3', 'music/four.mp3', 'music/five.mp3', 'music/seven.mp3', 'music/six.mp3'];
+
+                let songs2 = [ 'music/five.mp3', 'music/two.mp3', 'music/four.mp3', 'music/one.mp3', 'music/seven.mp3', 'music/six.mp3', 'music/three.mp3'];
+
+                let dom = document.getElementById("player_body");
+
+                init_player_with_playlist(dom, "pl", songs);
+
+                //init_player_with_playlist(dom, "pl2", songs2);
+
+                //init_player_with_playlist(dom, "pl3", songs2);
+
+            }
+        </script>

@@ -1,0 +1,50 @@
+
+<nav class="home">  <img src = "images/place.svg" alt="Place" class="home" id="place"/>
+    <a href="/" target="_blank" class="home link" id="current">Homepage</a>
+    <a href="/songs/" target="_blank" class="home link" >Song catalog</a>
+    <a href="/songs/upload" target="_blank" class="home link" >Song Upload Form</a>                                
+</nav>
+<main class="home">
+    <p class="home" id="statstitle"> Stats </p>
+    <article class="home" id="stats"> 
+        <figure>
+                <img src="images/songs.svg" alt="Songs" style="width:75%" class="home statsicon">
+                <figcaption class="home figcap" id="song_number"><%= data[0]%> Songs</figcaption>
+        </figure>
+        <figure>
+                <img src="images/albums.svg" alt="Albums" style="width:75%" class="home statsicon">
+                <figcaption class="home figcap" id="album_number"><%= data[1]%> Albums</figcaption>
+        </figure> 
+        <figure>
+                <img src="images/playlist.svg" alt="Playlist" style="width:75%" class="home statsicon">
+                <figcaption class="home figcap" id="artist_number"><%= data[3]%> Artists</figcaption>
+        </figure>   
+        <figure>
+                <img src="images/genres.svg" alt="Genres" style="width:85%" class="home statsicon">
+                <figcaption class="home figcap" id="genre_number"><%= data[2]%> Genres</figcaption>
+        </figure>                    
+    </article>
+    <p class="home" id="fasttitle"> Jump right into it </p>
+    <article class="home" id="lists">
+        <article class="home" id="artists_list"> 
+            <p class="home" id="arttitle"> List of artists </p>
+            <% a_List.forEach((n)=>{ %>
+                <a href="songs?artist=<%= n %>" target="_blank" class="home fastlink" ><%= n %></a>
+            <% }); %>
+        </article>
+        <article class="home" id="genres_list"> 
+            <p class="home" id="gentitle"> List of genres </p>
+            <% gen_List.forEach((n)=>{ %>
+                <a href="songs?genre=<%= n %>" target="_blank" class="home fastlink" ><%= n %></a>
+            <% }); %>
+        </article>
+    </article>
+</main>
+
+<aside class="home" id="favs">
+    <p class="home" id="gentitle"> Favourite songs </p>
+        <% fav_List.forEach((n)=>{ %>
+            <a href="songs?fav=<%= n._id %>" class="home fastlink" ><%= n.title %></a>
+        <% }); %>
+</aside>
+

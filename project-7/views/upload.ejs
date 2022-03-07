@@ -1,0 +1,62 @@
+<nav class="home">  <img src = "images/place.svg" alt="Place" class="home" id="place"/>
+    <a href="/" target="_blank" class="home link" >Homepage</a>
+    <a href="/songs/" target="_blank" class="home link" >Song catalog</a>
+    <a href="/songs/upload" target="_blank" class="home link" id="current">Song Upload Form</a>                                
+</nav>
+<main class="upload">
+    <header class="upload" id="uptitle"> Upload a song</header>
+    
+    <form class="upload" id="upsec" method="POST" action="/songs" encType="multipart/form-data">
+    
+        <label class="upload label" for="inputName">Title </label>
+        <input class="input upload" type="text" id="inputName" name="title" list="titles" placeholder="Title"/>
+        <datalist id='titles'>
+            <% titles.forEach(o=>{ -%>
+                <option value="<%=o%>"><%=o%></option>
+            <% }) -%>
+        </datalist>
+
+        <p class="upload label" >Artist</p>
+        <input class="input upload" type="text" name="artist" list="artists" placeholder="Artist"/>
+        <datalist id='artists'>
+            <% art.forEach(o=>{ -%>
+                <option value="<%=o%>"><%=o%></option>
+            <% }) -%>
+        </datalist>
+
+        <p class="upload label" >Album</p>
+        <input class="input upload" type="text" name="album" list="albums" placeholder="Album"/>
+        <datalist id='albums'>
+            <% alb.forEach(o=>{ -%>
+                <option value="<%=o%>"><%=o%></option>
+            <% }) -%>
+        </datalist>
+        
+        <p class="upload" id="label">Genre</p>
+        <input type="text" id="dropdown" name="genre" list="genres" placeholder="Genre">
+        <datalist id='genres'>
+            <% gen.forEach(o=>{ -%>
+                <option value="<%=o%>"><%=o%></option>
+            <% }) -%>
+        </datalist>
+
+        <p class="upload label" > Description</p>
+        <textarea class="upload" id="description" name="desc"></textarea>
+        
+        <p class="upload label" > Upload file</p>
+        <p><input class="upload input" type="file" name="file"></p>
+
+        <p class="upload label" > Favourite</p>
+        <p class="upload star"><input class="upload" type="checkbox" title="favourite" id="star" name="favourite" value=true></p>
+
+        <p class="upload label" >Quality (1 - 10)</p>
+        <input class="upload" type="range" min="1" max="10" id="qualityrange" name="quality"/>
+
+        <p class="upload label" id="labelS"></p>
+        <input class="upload" id="submit" type="submit" method="POST" value="SUBMIT" />
+    </form>
+    
+</main>
+
+<aside class="upload">
+</aside>
