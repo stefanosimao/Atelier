@@ -1,0 +1,210 @@
+/* BASE STYLE - CSS */
+/* version: 19.12.2021 */
+
+/* GENERAL RULES */
+html, body {
+    height: 100vh;
+    color: #000;
+    font-family: "Avantgarde", "TeX Gyre Adventor", "URW Gothic L", "sans-serif";
+    font-weight: normal;
+    display: grid;
+    grid-template-rows: 1fr 5fr 0.5fr;
+    grid-template-columns: 1fr;
+    background-color: #f1f2f7b0;
+    padding: 0;
+    margin: 0;
+}
+
+@font-face {
+    font-family: "Avantgarde";
+    src: url(../font/AvantGardeBookBT.ttf);
+}
+
+body a {
+    text-decoration: none;
+    color: #000;
+}
+
+/* HEADER */
+header.header {
+    grid-column: 1 / span 2;
+    text-align: center;
+    width: 100%;
+    display: grid;
+    align-items: center;
+}
+
+header.header img {
+    width: 250px;
+    height: auto;
+    display: inline-block;
+    margin: 0 auto;
+}
+
+
+/* FOOTER */
+footer {
+    grid-column: 1 / span 2;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+/* OVERLAY */
+div.display_overlay#overlay {
+    position: fixed;
+    width: 100%;
+    height: 110%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div.display_overlay#overlay p {
+    width: 30%;
+    height: 25%;
+    min-width: 300px;
+    background: rgb(201 202 204);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 150%;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    color: black;
+    border-bottom-left-radius: 20px 300px;
+    border-bottom-right-radius: 300px 20px;
+    border-top-left-radius: 300px 20px;
+    border-top-right-radius: 20px 300px;
+    text-align: center;
+}
+
+div.hide_overlay#overlay {
+    display: none;
+}
+
+/* DARKMODE */
+.dark-mode {
+    background-color: #393c47;
+    color: white;
+}
+
+.dark-mode a {
+    color: white;
+}
+
+.dark-mode div.display_overlay#overlay p {
+    background: rgb(79 82 90);
+    border-color: white;
+    color: white;
+}
+
+/* DARKMODE SLIDER */
+.switch div {
+    position: relative;
+    display: grid;
+    background: rgb(206, 206, 206);
+    width: 50px;
+    border-radius: 50px;
+    padding: 5px;
+    box-sizing: border-box;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    background-color: rgb(102, 101, 101);
+    transition: 0.4s;
+    border-radius: 34px;
+    height: 12px;
+    width: 12px;
+    display: inline-block;
+    position: relative;
+}
+
+/* move the slider */
+input:checked+.slider {
+    transform: translateX(30px);
+}
+
+
+.circle_right {
+    position: fixed;
+    border-radius: 50%;
+    background-color: rgb(0, 0, 0);
+    opacity: 0.1;
+    min-width: 60vmin;
+    min-height: 60vmin;
+    bottom: -15vmin;
+    right: -15vmin;
+}
+
+.small_circle_right {
+    position: fixed;
+    border-radius: 50%;
+    background-color: rgb(0, 0, 0);
+    opacity: 0.1;
+    min-width: 40vmin;
+    min-height: 40vmin;
+    bottom: -10vmin;
+    right: -10vmin;
+}
+
+.circle_left {
+    position: fixed;
+    background-color: rgb(0, 0, 0);
+    border-radius: 50%;
+    opacity: 0.1;
+    top: -10vmin;
+    left: -10vmin;
+    min-width: 40vmin;
+    min-height: 40vmin;
+}
+
+.small_circle_left {
+    position: fixed;
+    background-color: rgb(0, 0, 0);
+    border-radius: 50%;
+    opacity: 0.1;
+    top: 15vmin;
+    left: 15vmin;
+    min-width: 20vmin;
+    min-height: 20vmin;
+}
+
+
+/* MOBILE VIEWPORT */
+@media screen and (max-width: 768px), (max-height: 480px) {
+
+    /* GENERAL RULES */
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* HEADER */
+    header {
+        flex: 1.5;
+    }
+
+    header.header img {
+        width: 200px;
+        height: auto;
+        display: inline-block;
+        margin: 0 auto;
+    }
+
+    /* FOOTER */
+    footer {
+        flex: 0.5;
+    }
+}

@@ -1,0 +1,103 @@
+/* PODIUM - CSS */
+/* version: 19.12.2021 */
+
+/* MAIN */
+main.podium {
+    display: flex;
+    font-size: 130%;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main.podium table#podium {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    border-spacing: 25px;
+}
+
+main.podium table#podium td {
+    height: 75px;
+    text-align: center;
+    max-width: 165px;
+    width: 165px;
+    overflow-x: hidden;
+}
+
+main.podium table#podium td.gold, main.podium table#podium td.silver, main.podium table#podium td.bronze {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: 0;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    border-bottom-left-radius: 20px 300px;
+    border-bottom-right-radius: 300px 20px;
+    border-top-left-radius: 300px 20px;
+    border-top-right-radius: 20px 300px;
+    box-shadow: rgba(0, 0, 0, .2) 2px 10px 10px 2px;
+}
+
+main.podium table#podium td.gold {
+    background-color: goldenrod;
+    background-image: url(../images/medal.png);
+    background-size: 70px;
+}
+
+main.podium table#podium td.silver {
+    background-color: silver;
+    background-image: url(../images/medal.png);
+    background-size: 50px;
+}
+
+main.podium table#podium td.bronze {
+    background-color: #CD7F32;
+    background-image: url(../images/medal.png);
+    background-size: 20px;
+}
+
+
+main.podium button#podium_leave {
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    color: black;
+    font-size: 20px;
+    transition: all 250ms ease-in-out;
+    border-bottom-left-radius: 20px 300px;
+    border-bottom-right-radius: 300px 20px;
+    border-top-left-radius: 300px 20px;
+    border-top-right-radius: 20px 300px;
+    background-color: transparent;
+    height: 75px;
+    width: 75px;
+    align-self: flex-end;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+main.podium button#podium_leave:hover {
+    box-shadow: rgba(0, 0, 0, .2) 2px 10px 10px 2px;
+    transform: translate3d(0, 2px, 0);
+}
+
+/* DARK MODE */
+.dark-mode main.podium table#podium td.gold, .dark-mode main.podium table#podium td.silver, .dark-mode main.podium table#podium td.bronze { 
+    color: black;
+}
+
+.dark-mode main.podium button#podium_leave {
+    border-color: white;
+    color: white;
+}
+
+/* MOBILE VIEWPORT (IN CASE THE USER MAKES THE DESKTOP WINDOW VERY SMALL) */
+@media screen and (max-width: 768px), (max-height: 480px) {
+
+    /* MAIN */
+    main.podium {
+        flex: 6;
+    }
+}

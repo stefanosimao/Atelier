@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>UsiHoot</title>
+        <meta name="viewport" content="width=device-width">
+        <link href="css/base_style.css" rel="stylesheet" />
+        <link href="css/question_style.css" rel="stylesheet" />
+        <script src="js/style.js"></script>
+    </head>
+
+    <body>
+        <div class="circle_right"></div>
+        <div class="small_circle_right"></div>
+        <div class="circle_left"></div>
+        <div class="small_circle_left"></div>
+        <header class="header" id="header">
+            <a href="index.html">
+                <img src="images/UsiHoot_logo_colorful.png" alt="UsiHoot Logo">
+            </a>
+        </header>
+        <main class="question">
+            <h2>What is the capital city of Switzerland?</h2>
+            <!--
+            remove style attribute when css is available
+            button sends msg to server via socket
+        -->
+            <h4 id="timer" class="timer_next">3</h4>
+            <div id="answer_grid">
+                <button class="wrong" id="answer_a">
+                    <p id="img_a"></p>
+                    <p class="answer">Zurich</p>
+                </button>
+                <button id="answer_b">
+                    <p id="img_b"></p>
+                    <p class="answer">Bern</p>
+                </button>
+                <button class="clicked wrong" id="answer_c">
+                    <p id="img_c"></p>
+                    <p class="answer">Geneva</p>
+                </button>
+                <button class="wrong" id="answer_d">
+                    <p id="img_d"></p>
+                    <p class="answer">Lugano</p>
+                </button>
+            </div>
+            <!-- button below is visible only by host
+            <div id="question_next">
+                <button id="question_next"><a href="topplayers.html">Next</a></button>
+            </div> -->
+        </main>
+        <footer>
+            <p>&copy; UsiHoot Team, last update 10.12.2021</p>
+            <!-- <input type="checkbox" name="darkmode" id="darkmode"> -->
+            <label class="switch">
+                <div>
+                    <input type="checkbox" onclick="darkMode()" />
+                    <span class="slider round"></span>
+                </div>
+            </label>
+        </footer>
+    </body>
+
+</html>

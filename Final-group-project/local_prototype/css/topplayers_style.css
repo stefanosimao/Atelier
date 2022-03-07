@@ -1,0 +1,85 @@
+/* TOP PLAYERS - CSS */
+/* version: 19.12.2021 */
+
+/* MAIN */
+main.top_players {
+    display: flex;
+    position: relative;
+    align-items: center;
+    flex-direction: column;
+}
+
+main.top_players table {
+    font-size: large;
+    border-collapse: collapse;
+    background-color: transparent;
+    width: 45%;
+}
+
+main.top_players th {
+    background-color: #d8d9dc;
+    height: 55px;
+}
+
+main.top_players th, main.top_players td {
+    text-align: right;
+    width: 25%;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+main.top_players tr {
+   height: 100%;
+   height: 65px;
+}
+
+main.top_players th:first-child, main.top_players td:first-child {
+    text-align: left;
+    width: 75%;
+}
+
+main.top_players button#players_next {
+    margin-top: auto;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    color: black;
+    font-size: 20px;
+    transition: all 250ms ease-in-out;
+    border-bottom-left-radius: 20px 300px;
+    border-bottom-right-radius: 300px 20px;
+    border-top-left-radius: 300px 20px;
+    border-top-right-radius: 20px 300px;
+    background-color: transparent;
+    height: 75px;
+    width: 75px;
+    align-self: flex-end;
+    cursor: pointer;
+}
+
+main.top_players button#players_next:hover {
+    box-shadow: rgba(0, 0, 0, .2) 2px 10px 10px 2px;
+    transform: translate3d(0, 2px, 0);
+}
+
+/* DARK MODE */
+.dark-mode main.top_players th {
+    background-color: #32353f;
+}
+
+.dark-mode main.top_players button#players_next {
+    border-color: white;
+}
+
+/* MOBILE VIEWPORT (IN CASE THE USER MAKES THE DESKTOP WINDOW VERY SMALL) */
+@media screen and (max-width: 768px), (max-height: 480px) {
+
+    /* MAIN */
+    main.top_players {
+        flex: 6;
+    }
+
+    main.top_players table {
+        width: 80%;
+    }
+}

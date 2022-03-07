@@ -1,0 +1,119 @@
+/* LOBBY - CSS */
+/* version: 18.12.2021 */
+
+/* MAIN */
+main.lobby {
+    display: flex;
+    position: relative;
+    font-size: 18px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+main.lobby button {
+    align-self: center;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    color: black;
+    font-size: 20px;
+    padding: 15px;
+    transition: all 250ms ease-in-out;
+    border-bottom-left-radius: 20px 300px;
+    border-bottom-right-radius: 300px 20px;
+    border-top-left-radius: 300px 20px;
+    border-top-right-radius: 20px 300px;
+    background-color: transparent;
+    height: 85px;
+    width: 85px;
+    cursor: pointer;
+}
+
+main.lobby button:hover {
+    box-shadow: rgba(0, 0, 0, .2) 2px 10px 10px 2px;
+    transform: translate3d(0, 2px, 0);
+}
+
+main.lobby h1 {
+    font-size: 40px;
+    align-self: center;
+}
+
+main.lobby p#connected {
+    font-size: 20px;
+    align-self: center;
+}
+
+main.lobby div#lobby_button {
+    width: 98%;
+    display: grid;
+    grid-template-columns: 1fr 10fr 1fr;
+}
+
+main.lobby button#lobby_mute {
+    grid-column: 1;
+    justify-self: flex-start;
+}
+
+main.lobby button#lobby_start {
+    grid-column: 3;
+    justify-self: flex-end;
+    background-image: url(../images/play.png);
+    background-repeat: no-repeat;
+    background-size: 40%;
+    background-position: center;
+}
+
+main.lobby ul {
+    list-style-type: none;
+    padding: 0;
+    columns: 3;
+    text-align: center;
+    flex-grow: 1;
+}
+
+main.lobby ul li {
+    margin-bottom: 15px;
+}
+
+main.lobby button.no_sound#lobby_mute {
+    background-image: url(../images/mute.png);
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+main.lobby button.with_sound#lobby_mute {
+    background-image: url(../images/speaker.png);
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* DARK MODE */
+.dark-mode main.lobby button {
+    border-color: white;
+    color: white;
+}
+
+.dark-mode main.lobby button.no_sound#lobby_mute {
+    background-image: url(../images/mute_white.png);
+}
+
+.dark-mode main.lobby button.with_sound#lobby_mute {
+    background-image: url(../images/speaker_white.png);
+}
+
+.dark-mode main.lobby button#lobby_start {
+    background-image: url(../images/play_white.png);
+}
+
+/* MOBILE VIEWPORT (IN CASE THE USER MAKES THE DESKTOP WINDOW VERY SMALL) */
+@media screen and (max-width: 768px), (max-height: 480px) {
+
+    /* MAIN */
+    main.lobby {
+        flex: 6;
+    }
+}

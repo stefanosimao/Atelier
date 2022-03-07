@@ -1,0 +1,51 @@
+/* INDEX - CSS */
+/* version: 18.12.2021 */
+
+/* MAIN */
+main.index {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column-reverse;
+    position: relative;
+}
+
+main.index a#create, main.index a#host, main.index a#join {
+    align-self: center;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    color: black;
+    line-height: 50px;
+    font-size: 24px;
+    padding: 15px;
+    transition: all 250ms ease-in-out;
+    border-bottom-left-radius: 20px 300px;
+    border-bottom-right-radius: 300px 20px;
+    border-top-left-radius: 300px 20px;
+    border-top-right-radius: 20px 300px;
+}
+
+main.index a#create:hover, main.index a#host:hover, main.index a#join:hover {
+    box-shadow: rgba(0, 0, 0, .2) 2px 10px 10px 2px;
+    transform: translate3d(0, 2px, 0);
+}
+
+/* DARK MODE */
+.dark-mode main.index a#create, .dark-mode main.index a#host, .dark-mode main.index a#join {
+    border-color: white;
+    color: white;
+}
+
+/* MOBILE VIEWPORT */
+@media screen and (max-width: 768px), (max-height: 480px) {
+
+    /* MAIN */
+    main.index {
+        flex: 6;
+    }
+
+    main.index a#create, main.index a#host {
+        display: none;
+    }
+}

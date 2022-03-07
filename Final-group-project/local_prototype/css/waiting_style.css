@@ -1,0 +1,25 @@
+/* WAITING ROOM - CSS */
+/* version: 18.12.2021 */
+
+/* MAIN */
+main.waiting {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    font-size: 120%;
+    position: relative;
+}
+
+main.waiting p {
+    text-align: center;
+}
+
+/* MOBILE VIEWPORT */
+@media screen and (max-width: 768px), (max-height: 480px) {
+
+    /* MAIN */
+    main.waiting {
+        flex: 6;
+    }
+
+}

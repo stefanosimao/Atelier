@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>UsiHoot</title>
+        <meta name="viewport" content="width=device-width">
+        <link href="css/base_style.css" rel="stylesheet" />
+        <link href="css/hostgame_style.css" rel="stylesheet" />
+        <script src="js/style.js"></script>
+    </head>
+
+    <body>
+        <div class="circle_right"></div>
+        <div class="small_circle_right"></div>
+        <div class="circle_left"></div>
+        <div class="small_circle_left"></div>
+        <header class="header" id="header">
+            <a href="index.html">
+                <img src="images/UsiHoot_logo_colorful.png" alt="UsiHoot Logo">
+            </a>
+        </header>
+        <main class="host">
+            <h1>Select a game to host</h1>
+            <!-- 
+            All ul.details invisible, but
+            when hovering on article make ul.details show. 
+
+            Edit buttons disabled for now.
+            Temporary links on button to go to the next page.
+        -->
+            <article class="quiz" id="fromDB0">
+                <span class="Quizname">
+                    <p>Quiz 1</p>
+                    <ul class="details">
+                        <li>First question</li>
+                        <li>Second question</li>
+                    </ul>
+                </span>
+                <div id="host_buttons">
+                    <button disabled="disabled" id="host_edit"></button>
+                    <button type="button" id="host_remove"></button>
+                    <button type="button" id="host_play"><a href="lobby.html"></a></button>
+                </div>
+            </article>
+            <article class="quiz" id="fromDB1">
+                <span class="Quizname">
+                    <p>Quiz 2</p>
+                    <ul class="details">
+                        <li>First question</li>
+                        <li>Second question</li>
+                        <li>Last question</li>
+                    </ul>
+                </span>
+                <div id="host_buttons">
+                    <button disabled="disabled" id="host_edit"></button>
+                    <button type="button" id="host_remove"></button>
+                    <button type="button" id="host_play"><a href="lobby.html"></a></button>
+                </div>
+            </article>
+            <article class="quiz" id="fromDB2">
+                <span class="Quizname">
+                    <p>Quiz 3</p>
+                    <ul class="details">
+                        <li>Only one question</li>
+                    </ul>
+                </span>
+                <div id="host_buttons">
+                    <button disabled="disabled" id="host_edit"></button>
+                    <button type="button" id="host_remove"></button>
+                    <button type="button" id="host_play"><a href="lobby.html"></a></button>
+                </div>
+            </article>
+            <article class="quiz" id="fromDB3">
+                <span class="Quizname">
+                    <p>Quiz 4</p>
+                    <ul class="details">
+                        <li>First question </li>
+                        <li>Second question</li>
+                        <li>Third question</li>
+                    </ul>
+                </span>
+                <div id="host_buttons">
+                    <button disabled="disabled" id="host_edit"></button>
+                    <button type="button" id="host_remove"></button>
+                    <button type="button" id="host_play" ><a href="lobby.html"></a></button>
+                </div>
+            </article>
+            <article class="quiz" id="fromDB4">
+                <span class="Quizname">
+                    <p>Quiz 5</p>
+                    <ul class="details">
+                        <li>Too</li>
+                        <li>Many</li>
+                        <li>Questions</li>
+                        <li>To Display</li>
+                        <li>...</li>
+                    </ul>
+                </span>
+                <div id="host_buttons">
+                    <button disabled="disabled" id="host_edit"></button>
+                    <button type="button" id="host_remove"></button>
+                    <button type="button" id="host_play"><a href="lobby.html"></a></button>
+                </div>
+            </article>
+            <article class="quiz" id="fromDB4">
+                <span class="Quizname">
+                    <p>Quiz 5</p>
+                    <ul class="details">
+                        <li>Too</li>
+                        <li>Many</li>
+                        <li>Questions</li>
+                        <li>To Display</li>
+                        <li>...</li>
+                    </ul>
+                </span>
+                <div id="host_buttons">
+                    <button disabled="disabled" id="host_edit"></button>
+                    <button type="button" id="host_remove"></button>
+                    <button type="button" id="host_play"><a href="lobby.html"></a></button>
+                </div>
+            </article>
+            <article class="quiz" id="fromDB4">
+                <span class="Quizname">
+                    <p>Quiz 5</p>
+                    <ul class="details">
+                        <li>Too</li>
+                        <li>Many</li>
+                        <li>Questions</li>
+                        <li>To Display</li>
+                        <li>...</li>
+                    </ul>
+                </span>
+                <div id="host_buttons">
+                    <button disabled="disabled" id="host_edit"></button>
+                    <button type="button" id="host_remove"></button>
+                    <button type="button" id="host_play"><a href="lobby.html"></a></button>
+                </div>
+            </article>
+        </main>
+        <footer>
+            <p>&copy; UsiHoot Team, last update 10.12.2021</p>
+            <!-- <input type="checkbox" name="darkmode" id="darkmode"> -->
+            <label class="switch">
+                <div>
+                    <input type="checkbox" onclick="darkMode()" />
+                    <span class="slider round"></span>
+                </div>
+            </label>
+        </footer>
+    </body>
+
+</html>

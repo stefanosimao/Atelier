@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>UsiHoot</title>
+        <meta name="viewport" content="width=device-width">
+        <link href="css/base_style.css" rel="stylesheet" />
+        <link href="css/createquiz_style.css" rel="stylesheet" />
+        <script src="js/style.js"></script>
+    </head>
+
+    <body onload="init()">
+        <div class="circle_right"></div>
+        <div class="small_circle_right"></div>
+        <div class="circle_left"></div>
+        <div class="small_circle_left"></div>
+        <header class="header" id="header">
+            <a href="index.html">
+                <img src="images/UsiHoot_logo_colorful.png" alt="UsiHoot Logo">
+            </a>
+        </header>
+        <!-- <nav>
+            <a href="index.html">Return to Homepage</a>
+           
+        </nav> -->
+        <main class="create">
+            <h1>Create New Quiz</h1>
+            <form>
+                <article>
+                    <h3>Question 1</h3>
+                    <button type="button" id="remove_button" disabled></button>
+                    <label for="question_0">Question:</label>
+                    <input type="text" name="question_0" id="question_0">
+                    <label for="correct_0">Correct answer:</label>
+                    <input type="text" name="correct_0" id="correct_0">
+                    <label for="wrong0_0">Wrong answer:</label>
+                    <input type="text" name="wrong0_0" id="wrong0_0">
+                    <label for="wrong1_0">Wrong answer:</label>
+                    <input type="text" name="wrong1_0" id="wrong1_0">
+                    <label for="wrong2_0">Wrong answer:</label>
+                    <input type="text" name="wrong2_0" id="wrong2_0" class="invalid">
+                    <label for="difficulty_0">Difficulty:</label>
+                    <input type="range" name="difficulty_0" id="difficulty_0" min="0" max="2">
+                </article>
+            </form>
+            <div id="add_question">
+                <button type="button" id="addQuestion">+</button>
+            </div>
+            <div id="createquiz">
+                <button type="button" id="cancel"><a href="index.html">Cancel</a></button>
+                <button type="button" id="submit">Submit</button>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; UsiHoot Team, last update 10.12.2021</p>
+            <!-- <input type="checkbox" name="darkmode" id="darkmode"> -->
+            <label class="switch">
+                <div>
+                    <input type="checkbox" onclick="darkMode()" />
+                    <span class="slider round"></span>
+                </div>
+            </label>
+        </footer>
+        <script src="js/init.js"></script>
+        <script src="js/form.js"></script>
+        <script>
+            function init() {
+                setEventFormRequest();
+                setEventAddQuestion();
+            }
+        </script>
+    </body>
+
+</html>

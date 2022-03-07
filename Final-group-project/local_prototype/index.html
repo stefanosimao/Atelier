@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>UsiHoot</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <link href="css/base_style.css" rel="stylesheet" />
+        <link href="css/index_style.css" rel="stylesheet" />
+        <script src="js/style.js"></script>
+    </head>
+
+    <body>
+        <div class="circle_right"></div>
+        <div class="small_circle_right"></div>
+        <div class="circle_left"></div>
+        <div class="small_circle_left"></div>
+        <header class="header" id="header">
+            <a href="index.html">
+                <img src="images/UsiHoot_logo_colorful.png" alt="UsiHoot Logo">
+            </a>
+        </header>
+        <main class="index">
+            <a href="createquiz.html" id="create">Create a New Quiz</a>
+            <a href="hostgame.html" id="host">Host a Game</a>
+            <a href="joingame.html" id="join">Join an existing Game</a>
+            <div id="overlay" class="hide_overlay">No game available!</div>
+        </main>
+        <footer>
+            <p>&copy; UsiHoot Team, last update 10.12.2021</p>
+            <!-- <input type="checkbox" name="darkmode" id="darkmode"> -->
+            <label class="switch">
+                <div>
+                    <input type="checkbox" onclick="darkMode()" />
+                    <span class="slider round"></span>
+                </div>
+            </label>
+        </footer>
+    </body>
+
+</html>
