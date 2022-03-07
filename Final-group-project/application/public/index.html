@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>UsiHoot</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <link href="css/base_style.css" rel="stylesheet" />
+        <link href="css/index_style.css" rel="stylesheet" />
+        <link href="css/createquiz_style.css" rel="stylesheet" />
+        <link href="css/joingame_style.css" rel="stylesheet" />
+        <link href="css/hostgame_style.css" rel="stylesheet" />
+        <link href="css/question_style.css" rel="stylesheet" />
+        <link href="css/lobby_style.css" rel="stylesheet" />
+        <link href="css/waiting_style.css" rel="stylesheet" />
+        <link href="css/topplayers_style.css" rel="stylesheet" />
+        <link href="css/rank_style.css" rel="stylesheet" />
+        <link href="css/podium_style.css" rel="stylesheet" />
+        <script src="js/style.js"></script>
+    </head>
+
+    <body onload="init()">
+        <div id="overlay" class="hide_overlay" onclick="off()"><p>No game available!</p></div>
+        <div class="circle_right"></div>
+        <div class="small_circle_right"></div>
+        <div class="circle_left"></div>
+        <div class="small_circle_left"></div>
+
+        <header class="header" id="header">
+            <a id="home">
+                <img src="images/UsiHoot_logo_colorful.png" alt="UsiHoot Logo">
+            </a>
+        </header>
+
+        <main class="index">
+            <a href="/createQuiz" id="create">Create a New Quiz</a>
+            <a href="/hostGame" id="host">Host a Game</a>
+            <a href="/joinGame" id="join">Join an existing Game</a>
+        </main>
+
+        <footer>
+            <p>&copy; UsiHoot Team, last update 20.12.2021</p>
+            <label class="switch">
+                <div>
+                    <input type="checkbox" onclick="darkMode()" />
+                    <span class="slider round"></span>
+                </div>
+            </label>
+        </footer>
+
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="js/ejs.min.js"></script>
+        <script src="js/views.js"></script>
+        <script src="js/ajax.js"></script>
+        <script src="/js/lobby_music.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+       
+    </body>
+
+</html>

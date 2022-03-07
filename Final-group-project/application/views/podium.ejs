@@ -1,0 +1,55 @@
+<!-- 3 by 4 table -->
+    <table id="podium">
+        <tr>
+            <!-- First row-->
+            <td>
+                <br>
+            </td>
+            <td>
+                <% if (players.length > 0) { %>
+                <%= players[0].username %>
+                <% } %>
+            </td>
+            <td>
+                <br>
+            </td>
+        </tr>
+        <!-- Second row-->
+        <tr>
+            <td>
+                <% if (players.length > 1) { %>
+                <%= players[1].username %>
+                <% } %>
+            </td>
+            <td rowspan="3" class="gold">
+                <% if (players.length > 0) { %>
+                <%= players[0].points %>
+                <% } %>
+            </td>
+            <td>
+                <br>
+            </td>
+        </tr>
+        <tr>
+            <!-- Third row-->
+            <td rowspan="2" class="silver">
+                <% if (players.length > 1) { %>
+                <%= players[1].points %>
+                <% } %>
+            </td>
+            <td>
+                <% if (players.length > 2) { %>
+                <%= players[2].username %>
+                <% } %>
+            </td>
+        </tr>
+        <tr>
+            <!-- Fourth row-->
+            <td class="bronze">
+                <% if (players.length > 2) { %>
+                <%= players[2].points %>
+                <% } %>
+            </td>
+        </tr>
+    </table>
+    <button type="button" id="podium_leave">Leave</button>

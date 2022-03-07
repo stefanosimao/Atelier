@@ -1,0 +1,25 @@
+<h1>Top 5 Players</h1>
+<table>
+    <tr>
+        <th>
+            Player
+        </th>
+        <th>
+            Points
+        </th>
+    </tr>
+    <% //players is a non sorted list !!! %>
+    <% let max = 5; %>
+    <% if (players.length < max) { max = players.length } %>
+    <% for (let i = 0; i < max; i++) { %>
+    <tr>
+        <td>
+            <%= players[i].username %>
+        </td>
+        <td>
+            <%= players[i].points %>
+        </td>
+    </tr>
+    <% } %>
+</table>
+<button id="players_next"><a >Next</a></button>

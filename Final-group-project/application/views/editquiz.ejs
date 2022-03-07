@@ -1,0 +1,34 @@
+<h1>Edit Quiz</h1>
+<form>
+    <% for (let i = 0; i < questions.length; i++) { %>
+        <article id="article_<%= i %>">
+            <h3>Question <%= i + 1 %></h3>
+            <button type="button" id="remove_button"></button>
+        
+            <label for="question_<%= i %>">Question:</label>
+            <input type="text" name="question_<%= i %>" id="question_<%= i %>" value="<%= questions[i].q %>">
+        
+            <label for="correct_<%= i %>">Correct answer:</label>
+            <input type="text" name="correct_<%= i %>" id="correct_<%= i %>" value="<%= questions[i].right_answer %>">
+        
+            <label for="wrong0_<%= i %>">Wrong answer:</label>
+            <input type="text" name="wrong0_<%= i %>" id="wrong0_<%= i %>" value="<%= questions[i].wrong_answers[0] %>">
+        
+            <label for="wrong1_<%= i %>">Wrong answer:</label>
+            <input type="text" name="wrong1_<%= i %>" id="wrong1_<%= i %>" value="<%= questions[i].wrong_answers[1] %>">
+        
+            <label for="wrong2_<%= i %>">Wrong answer:</label>
+            <input type="text" name="wrong2_<%= i %>" id="wrong2_<%= i %>" value="<%= questions[i].wrong_answers[2] %>">
+        
+            <label for="difficulty_<%= i %>">Difficulty:</label>
+            <input type="range" name="difficulty_<%= i %>" id="difficulty_<%= i %>" min="0" max="2" value="<%= questions[i].difficulty %>">
+        </article>
+    <% } %>
+</form>
+<div id="add_question">
+    <button type="button" id="addQuestion">+</button>
+</div>
+<div id="createquiz">
+    <button type="button" id="cancel">Cancel</button>
+    <button type="button" id="submit">Submit</button>
+</div>

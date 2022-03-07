@@ -1,0 +1,34 @@
+<h1>Select a game to host</h1>
+<!-- 
+    All ul.details invisible, but
+    when hovering on article make ul.details show. 
+
+    Edit buttons disabled for now.
+    Temporary links on button to go to the next page.
+-->
+<% let j = 1 %>
+<% quiz.forEach(e => { %>
+    <% let i = 0; %>
+    <article class="quiz" id="<%= e._id %>">
+        <span class="Quizname">
+            <p>Quiz <%= j %></p>
+            <ul class="details">
+                <% e.questions.forEach(q => { %>
+                    <% if (i < 4) { %>
+                    <li><%= q.q %></li>
+                    <% } %>
+                    <% i += 1; %>
+                <% }); %>
+                <% if (e.questions.length > 4) { %>
+                <li>...</li>
+                <% } %>
+            </ul>
+        </span>
+        <div id="host_buttons">
+            <button type="button" class="edit" id="host_edit"></button>
+            <button type="button" class="delete" id="host_remove"></button>
+            <button type="button" class="playgame" id="host_play"></button>
+        </div>
+    </article>
+    <% j += 1 %>
+<% }); %>

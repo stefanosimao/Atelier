@@ -1,0 +1,17 @@
+<h1>Lobby</h1>
+<p id="connected">Players connected: <%= users.length %></p>
+<ul>
+    <% users.forEach((player) => { %>
+    <li><%= player.username %></li>
+    <% }); %>
+</ul>
+
+<div id="player" onload="play()">
+    <audio loop muted id="audio">
+        <source src="/music/come-on-boy-8018.mp3" type="audio/mp3">
+    </audio>
+</div>
+<div id="lobby_button">
+    <button type="button" id="lobby_mute" class="no_sound"></button>
+    <button type="button" id="lobby_start"><a></a></button>
+</div>
