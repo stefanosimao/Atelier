@@ -1,0 +1,29 @@
+Initial Structure of the USIhoot
+
+It will be a Single Page Application that will work with a database to store and organize 
+the games, as well as using WebSockets for the real-time game sessions.
+
+-Database to handle games:
+    Each game is a set of questions and answers, organized as an array of objects.
+    An object is made of a question and four answers, of which one is correct and three wrong.
+    Each game as an _id to be differentiated by the others, and a name.
+
+-Game creation:
+    A form will be used to create each question with answers, and will be submitted
+    only once the full set of questions is completed.
+    It can expand to allow to add new questions. This can be handled with AJAX to add HTML
+    to the page.
+
+    
+-Game lobby:
+    A client can connect to a wating room until the host will start the game.
+    A WebSocket can connect and count the number of players.
+    The sets of questions will be available to the host to be picked and used for the session.
+
+-Game session:
+    All clients connected will be presented with the first question at the same time.
+    The game will advance to the next question when all players answer, or when a timer runs out.
+    A WebSocket will be used for the synchronization.
+    Points will be awarded for the answers. A temporary storage will be used to keep track of each
+    player's points.
+    At the end, a podium will be computed and each client given a link to return to the main page.
