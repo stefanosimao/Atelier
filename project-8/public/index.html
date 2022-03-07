@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title> Homepage </title>
+        <meta name="author" content="Stefano Gonçalves Simao">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="/public/style.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
+    </head>
+    <body onload="init()" class="home">
+        <header class="home" id="bigtitle"> Stefano's Music</header>
+        <hr class="home">
+        <section class="home" id="secChange">
+
+            <nav class="home">  <img src = "images/place.svg" alt="Place" class="home" id="place"/>
+                <a href="/" target="_blank" class="home link" id="current">Homepage</a>
+                <a href="/songs/" target="_blank" class="home link" >Song catalog</a>
+                <a href="/songs/upload" target="_blank" class="home link" >Song Upload Form</a>                                
+            </nav>
+            <main class="home">
+            </main>
+
+            <aside class="home" id="favs">
+            </aside>
+        
+        </section>
+        
+        <footer class="home"> 
+            
+        </footer>
+
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="js/ajax.js"></script>
+        <script src="js/ejs.min.js"></script>
+        <script src="js/views.js"></script>
+    </body>
+    </html>

@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title> <%= title %> </title>
+        <meta name="author" content="Stefano Gonçalves Simao">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="<% if (type == 'player') { %>/public/styleP.css <% }else { %> /public/style.css <% } %>" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
+    </head>
+    <body onload="init()" class="<%= type %>">
+        <header class="<%= type %>" id="bigtitle"> Stefano's Music </header>
+        <hr class="<%= type %>">
+        <section class="<%= type %>">
+            
+            <nav class="<%= type %>">  <img src = "<% if (title == 'Homepage') { %>images/place.svg<% }else if(title == 'Edit'){ %>../../images/place.svg<% }else{ %>../images/place.svg<% } %>" alt="Place" class="<%= type %>" id="place"/>
+                <a href="/" target="_blank" class="<%= type %> link" <% if (title == 'Homepage') { %>id="current"<% } %>>Homepage</a>
+                <a href="/songs/" target="_blank" class="<%= type %> link" <% if (title == 'Songs') { %>id="current"<% } %>>Song catalog</a>
+                <a href="/songs/upload" target="_blank" class="<%= type %> link" <% if (title == 'Upload') { %>id="current"<% } %>>Song Upload Form</a>                                
+            </nav>

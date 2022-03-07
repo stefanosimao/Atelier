@@ -1,0 +1,17 @@
+<%- include('includes/header', {title: "Player", type: "player"}); -%>
+<main class="player" id="player">
+    <header class="player" >
+        <p class="title rest artist"></p>
+        <p class="title titleSong"></p>  
+        <p class="title rest album"></p>  
+    </header>
+    <section class="play buttons">
+        <button type="button" id="play"></button>
+        <button type="button" id="pause"></button>
+    </section>
+
+</main>  
+<aside class="songs" id='sidebar';> 
+</aside>
+<script src="/socket.io/socket.io.js"></script>
+<script src="../js/player.js"></script>
