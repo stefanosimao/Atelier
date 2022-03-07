@@ -1,0 +1,49 @@
+<%- include('includes/header', {title: "Upload", type: "upload"}); -%>
+            <main class="upload">
+                <header class="upload" id="uptitle"> Upload a song</header>
+                
+                <form class="upload" id="upsec" method="POST" action="/songs" encType="multipart/form-data">
+                
+                    <label class="upload label" for="inputName">Title </label>
+                    <input class="input upload" type="text" placeholder="Title" id="inputName" name="title"/>
+
+                    <p class="upload label" >Artist</p>
+                    <input class="input upload" type="text" placeholder="Artist" name="artist"/>
+
+                    <p class="upload label" >Album</p>
+                    <input class="input upload" type="text" placeholder="Album" name="album"/>
+                    
+                    <p class="upload" id="label">Genre</p>
+                    <select id="dropdown" name="genre">
+                        <option ></option>
+                        <option value="Classical">Classical</option>
+                        <option value="Jazz">Jazz</option>
+                        <option value="Pop">Pop</option>
+                        <option value="Tango">Tango</option>
+                        <option value="Hip-Hop">Hip-Hop</option>
+                        <option value="Rap">Rap</option>
+                        <option value="Rock">Rock</option>
+                    </select>
+
+                    <p class="upload label" > Description</p>
+                    <textarea class="upload" id="description" name="desc"></textarea>
+                    
+                    <p class="upload label" > Upload file</p>
+                    <p><input class="upload input" type="file" name="file"></p>
+
+                    <p class="upload label" > Favourite</p>
+                    <p class="upload star"><input class="upload" type="checkbox" title="favourite" id="star" name="favourite" value=true></p>
+
+                    <p class="upload label" >Quality (1 - 10)</p>
+                    <input class="upload" type="range" min="1" max="10" id="qualityrange" name="quality"/>
+
+                    <p class="upload" id="labelS"></p>
+                    <input class="upload" id="submit" type="submit" method="POST" value="SUBMIT" />
+                </form>
+                
+            </main>
+
+            <aside class="upload">
+            </aside>
+        </section>
+<%- include('includes/footer', {type: "upload"}); -%>

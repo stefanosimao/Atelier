@@ -1,0 +1,462 @@
+<html><head><title>exercises/5-express</title><link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Fira+Sans|Fira+Mono"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.0/build/styles/default.min.css"><style>body,* {font-family: "Fira Sans";scroll-behavior: smooth;}body {margin: 1em;}#usi-logo {width: 75px;height: 75px;}header {display: flex;align-content: space-between;width: 100%;justify-items: center;}header ul {list-style: none;}header .title {flex: 1;margin-left: 1em;}html {min-height: 100vh;}pre,code {font-family: "Fira Mono"}pre {background: rgb(202, 227, 255);padding: 1em;}td {text-align: center}td:last-child {text-align: left;}th {font-weight: normal;color: rgb(0, 61, 131);border-bottom: 1px solid #003d83;}table {width: 100%}table tr:hover {background-color: rgb(151, 195, 236);}span.task {display: inline-flex;border-radius: 50%;border: 1px solid white;background: #ffbc00;width: 4em;height: 4em;justify-content: center;align-items: center;font-weight: normal;margin-top: 2em;}.deadline {text-align: right;}p.deadline {font-size: 2em;}.deadline b {border-bottom: 1px solid black;}span.get {font-weight: bold; color: #43a047;}span.post {font-weight: bold; color: #F3C142;}span.delete {font-weight: bold; color: #FF0000;}span.put {font-weight: bold; color: #4a90e2;}span.patch {font-weight: bold; color: #666666;}</style></head><body><header>    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="usi-logo" x="0px" y="0px" width="200" height="200" viewBox="0 0 200 200" style="enable-background:new 0 0 200 200;" xml:space="preserve" class="injected-svg svg"><g><path d="M180,41.7h-51.1V31.1h42.2C153.1,12.5,127.8,1,99.9,1C45.2,1.1,0.9,45.4,1,100.1c0,26.8,10.7,51.1,28.1,68.9   c-1.4-2-2.4-4.1-3-6.1c-1-3.5-1-5.9-1.1-15.8v-47.1h14.8v48.5c0,3.4-0.1,6.6,1,9.6c3,7.6,11.3,8.5,16,8.5c2.3,0,8.3-0.1,12.6-3.9   c4.4-3.9,4.4-8.4,4.4-15v-47.7h14.9v49.7c-0.1,8.9-0.1,16.3-8.5,23.5c-8,7-18.4,7.7-23.8,7.7c-4.8,0-9.5-0.6-14-2.1   c-1.8-0.6-3.5-1.4-5-2.3c17.1,14,39,22.4,62.8,22.4c54.7-0.1,99-44.4,98.9-99.1C199,78.1,191.9,58,180,41.7z M175.3,94.4l-6.3-9   c2.1-1.4,8.7-5.7,8.7-17.7c0-2-0.2-4.1-1-6.2c-1.7-4.1-4.6-4.9-6.6-4.9c-3.6,0-4.9,2.5-5.7,4.3c-0.5,1.3-0.6,1.5-1.8,6.6l-1.5,6.9   c-0.9,3.6-1.3,5.4-2,7.2c-1.1,2.6-4.5,9.6-14,9.6c-10.9,0-17.8-9.2-17.8-22.6c0-12.3,6.1-19,11.6-23l6.6,8.8   c-2.8,1.9-8.5,5.7-8.5,14.8c0,5.8,2.6,10.8,7,10.8c4.9,0,5.8-5.3,6.8-10.5l1.3-5.9c1.6-7.7,4.8-18.6,17-18.6   c13.1,0,18.4,12.2,18.4,24.3c0,3.2-0.3,6.7-1.3,10.2C185.1,83.4,182.3,90.1,175.3,94.4z"></path></g></svg><div class="title"><h2>Web Atelier 2021</h2><h1>Exercise  5 - Express and EJS</h1></div><div class="deadline"><p>21.10.2021</p><p class="deadline">Deadline: <b>29.10.2021</b></p></div><ul><li>Prof. Cesare Pautasso</li><li>Dr. Andrea Gallidabino</li><li>Susanna Ardig&ograve;</li><li>Fabio Di Lauro</li><li>Souhaila Serbout</li><li>Abdalazim Nouran Ayman Roushdy </li></ul></header><aside><h1>GitHub Classroom: <a href="https://classroom.github.com/a/Y0atiUkI">Invite Link</a></h1></aside><h1 id="goal">Goal</h1>
+<p>The goal of these exercises is to deepen your understanding of JavaScript as a server-side programming language in the context of the Express MVC framework.</p>
+<p>This week you will build your music application using express.js and EJS views to render data objects into HTML on the server-side. The application will also expose a Web API to manage the full lifecycle of the content of the song collection using JSON representations.</p>
+<p>The data managed by the application will be loaded from the <code>data.json</code> file produced in the previous assignment. The content of this file will be kept up to date as the Web application changes the state of the song collection. </p>
+<img src="https://i.imgur.com/vkI7J3J.png" alt="API structure" style="height: 512px">
+
+<p>This exercise builds on and extends the code of the previous assignments. </p>
+<p>Also in this assignment, to solve the required tasks you should not need to run any JavaScript code in the browser.</p>
+<h1 id="tests">Tests</h1>
+<p>As you develop your code, please run the automated tests to check your solution. Only submit solutions which pass all the tests.</p>
+<p>To run the tests use this command:</p>
+<pre><code class="language-bash">yarn <span class="hljs-keyword">run</span><span class="bash"> <span class="hljs-built_in">test</span></span>
+</code></pre>
+<p>You can check the results on the command line.</p>
+<p><strong>Getting Started</strong>: To install the dependencies for the tests use:</p>
+<pre><code class="language-bash">yarn <span class="hljs-keyword">install</span>
+</code></pre>
+<p>Important: </p>
+<ul>
+<li>The Web server should be manually started before running the tests. </li>
+<li>The test assumes that your Web server listens on port 8888. </li>
+<li>If some of the test fail with a connection refused error, it may mean that the server has crashed while running the tests.</li>
+</ul>
+<p>Very Important: While you are free to place your .mp3 collection in any folder, please <strong>DO NOT</strong> modify the <code>.mp3</code> files in the <code>tests/assets</code> folder.</p>
+<p>Also, please do not push your <code>.mp3</code> collection to github with your solution.</p>
+<h2 id="task---json-api"><span class='task'>Task 1.</span>  JSON API</h2>
+<p>Your Web application manages a song collection, which can be accessed and edited by clients using the following routes</p>
+<pre><span class='get'>GET</span> /songs
+<span class='post'>POST</span> /songs
+<span class='get'>GET</span> /songs/<i class="param">:id</i>
+<span class='put'>PUT</span> /songs/<i class="param">:id</i>
+<span class='delete'>DELETE</span> /songs/<i class="param">:id </i>
+</pre><p>All routes accept and return messages encoded using either <code>application/json</code>, <code>application/x-www-form-urlencoded</code>, or <code>multipart/formdata</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Path</th>
+<th>Request Parameters</th>
+<th>Status Code</th>
+<th>Response</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code><span class='get'>GET</span></code></td>
+<td><code>/songs</code></td>
+<td></td>
+<td>200</td>
+<td>The entire song collection</td>
+</tr>
+<tr>
+<td><code><span class='post'>POST</span></code></td>
+<td><code>/songs</code></td>
+<td>The song to be uploaded together with its metadata.</td>
+<td>201</td>
+<td>The song metadata including the new song identifier</td>
+</tr>
+<tr>
+<td><code><span class='get'>GET</span></code></td>
+<td><code>/songs/:id</code></td>
+<td><code>:id</code> existing song identifier</td>
+<td>200</td>
+<td>The song metadata</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>404</td>
+<td>Empty response (if the song does not exist with the given identifier)</td>
+</tr>
+<tr>
+<td><code><span class='put'>PUT</span></code></td>
+<td><code>/songs/:id</code></td>
+<td><code>:id</code> song identifier, the new song file (optional) and metadata.</td>
+<td>200</td>
+<td>The updated song metadata (if the song already exists)</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>201</td>
+<td>The newly created song metadata (if the song did not already exists)</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>404</td>
+<td>Empty response (if the song does not exist with the given identifier)</td>
+</tr>
+<tr>
+<td><code><span class='delete'>DELETE</span></code></td>
+<td><code>/songs/:id</code></td>
+<td><code>:id</code> existing song identifier</td>
+<td>204</td>
+<td>Empty response</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>404</td>
+<td>Empty response (if the song does not exist with the given identifier)</td>
+</tr>
+</tbody></table>
+<p>The JSON metadata associated with the songs should have at least the following fields:</p>
+<table>
+<thead>
+<tr>
+<th>Field Name</th>
+<th>Type</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>_id</code></td>
+<td></td>
+<td></td>
+<td>Unique identifier</td>
+</tr>
+<tr>
+<td><code>title</code></td>
+<td>String</td>
+<td><code>&quot;&quot;</code></td>
+<td>Title of the song</td>
+</tr>
+<tr>
+<td><code>artist</code></td>
+<td>String</td>
+<td><code>&quot;&quot;</code></td>
+<td>Name of the song artist</td>
+</tr>
+<tr>
+<td><code>album</code></td>
+<td>String</td>
+<td><code>&quot;&quot;</code></td>
+<td>Album of the song</td>
+</tr>
+<tr>
+<td><code>genre</code></td>
+<td>String</td>
+<td><code>&quot;&quot;</code></td>
+<td>Genre of the song</td>
+</tr>
+<tr>
+<td><code>desc</code></td>
+<td>String</td>
+<td><code>&quot;&quot;</code></td>
+<td>Description of the song</td>
+</tr>
+<tr>
+<td><code>favourite</code></td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td>Favourite flag</td>
+</tr>
+<tr>
+<td><code>filename</code></td>
+<td>String</td>
+<td></td>
+<td>song file name</td>
+</tr>
+<tr>
+<td><code>src</code></td>
+<td>URL</td>
+<td><code>/music/*.mp3</code></td>
+<td>URL to download the song file with <span class='get'>GET</span></td>
+</tr>
+<tr>
+<td><code>quality</code></td>
+<td>Integer</td>
+<td><code>5</code></td>
+<td>Quality rating (from 0 to 10)</td>
+</tr>
+</tbody></table>
+<p>The HTML form used to upload new songs should have at least the following fields:</p>
+<table>
+<thead>
+<tr>
+<th>Field Name</th>
+<th>Type</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>file</code></td>
+<td>File</td>
+<td></td>
+<td>song mp3 file</td>
+</tr>
+<tr>
+<td><code>desc</code></td>
+<td>String</td>
+<td><code>&quot;&quot;</code></td>
+<td>Description of the song</td>
+</tr>
+<tr>
+<td><code>favourite</code></td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td>Favourite flag</td>
+</tr>
+<tr>
+<td><code>quality</code></td>
+<td>Integer</td>
+<td><code>5</code></td>
+<td>Quality rating (from 0 to 10)</td>
+</tr>
+</tbody></table>
+<p>The HTML form used to edit existing songs should have at least the following fields:</p>
+<table>
+<thead>
+<tr>
+<th>Field Name</th>
+<th>Type</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>file</code></td>
+<td>File</td>
+<td></td>
+<td>song mp3 file</td>
+</tr>
+<tr>
+<td><code>title</code></td>
+<td>String</td>
+<td><code>&quot;&quot;</code></td>
+<td>Title of the song</td>
+</tr>
+<tr>
+<td><code>artist</code></td>
+<td>String</td>
+<td><code>&quot;&quot;</code></td>
+<td>Name of the song artist</td>
+</tr>
+<tr>
+<td><code>album</code></td>
+<td>String</td>
+<td><code>&quot;&quot;</code></td>
+<td>Album of the song</td>
+</tr>
+<tr>
+<td><code>genre</code></td>
+<td>String</td>
+<td><code>&quot;&quot;</code></td>
+<td>Genre of the song</td>
+</tr>
+<tr>
+<td><code>desc</code></td>
+<td>String</td>
+<td><code>&quot;&quot;</code></td>
+<td>Description of the song</td>
+</tr>
+<tr>
+<td><code>favourite</code></td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td>Favourite flag</td>
+</tr>
+<tr>
+<td><code>quality</code></td>
+<td>Integer</td>
+<td><code>5</code></td>
+<td>Quality rating (from 0 to 10)</td>
+</tr>
+</tbody></table>
+<p>The JSON objects and the HTML forms used to submit requests to interact with picture objects should have the same field names as listed above.</p>
+<h3 id="metadata">Metadata</h3>
+<p>Reuse the existing <code>jsmediatags</code> code so that the metadata for the <code>artist</code>, <code>title</code>, <code>album</code>, <code>genre</code> is automatically extracted from the uploaded <code>.mp3</code> file.</p>
+<p>The extraction should happen in the <code><span class='post'>POST</span> /songs</code> and in the <code><span class='put'>PUT</span> /songs/:id</code> routes, if a new <code>file</code> is uploaded.</p>
+<h2 id="task---server-side-views"><span class='task'>Task 2.</span>  Server-side Views</h2>
+<p>Implement EJS views for these routes</p>
+<pre><span class='get'>GET</span> /
+<span class='get'>GET</span> /songs
+<span class='get'>GET</span> /songs<i class="param">?artist</i>
+<span class='get'>GET</span> /songs<i class="param">?genre</i>
+<span class='get'>GET</span> /songs<i class="param">?album</i>
+<span class='get'>GET</span> /songs/upload </pre><p>The <code>/songs/:id/edit</code> and <code>songs/upload</code> views should contain forms which will be used to upload new songs and edit their metadata.</p>
+<p>The content of the pages should be dynamically generated based on the content of the song collection.</p>
+<p>Developer Productivity Hint: To solve this task you should reuse and adapt your solution from previous assignments as much as possible.</p>
+<h3 id="get-"><span class='get'>GET</span> /</h3>
+<p>When requested from a Web browser (with the <code>Accept: text/html</code> header) this should render the application home page from the previous assignment.</p>
+<h3 id="get-songs"><span class='get'>GET</span> /songs</h3>
+<p>When requested from a Web browser (with the <code>Accept: text/html</code> header) this should render the complete song table page from the previous assignment.</p>
+<h3 id="get-songsartistalbumgenre"><span class='get'>GET</span> /songs?artist&amp;album&amp;genre</h3>
+<p>When requested from a Web browser (with the <code>Accept: text/html</code> header) this should render the filtered song table page from the previous assignment.</p>
+<h3 id="get-songsupload"><span class='get'>GET</span> /songs/upload</h3>
+<p>When requested from a Web browser (with the <code>Accept: text/html</code> header) this should render the upload form.</p>
+<p>The form of Exercise 1 should be adapted to include the fields matching the API 
+specification found in Task 1. </p>
+<p>The values of the fields of the upload form should be sent to the <code><span class='post'>POST</span> /songs</code> API and associated with the song so that their values can be retrieved via the API.</p>
+<p>Hint: Make sure that the form field names match what the <span class='post'>POST</span> route expects.</p>
+<h3 id="get-songsid"><span class='get'>GET</span> /songs/:id</h3>
+<p>When requested from a Web browser (with the <code>Accept: text/html</code> header) this should render the player from the previous assignment.</p>
+<p>The player should also display the song metadata and include links or form buttons to:</p>
+<ul>
+<li>edit the song metadata</li>
+<li>delete the song from the collection</li>
+</ul>
+<h3 id="get-songsidedit"><span class='get'>GET</span> /songs/:id/edit</h3>
+<p>When requested from a Web browser (with the <code>Accept: text/html</code> header) this should render a form which allows to edit the song metadata and save the changes using the corresponding <code><span class='put'>PUT</span> /songs/:id</code> API route.</p>
+<p>The form fields should be pre-populated with values stored on the server.</p>
+<p>It should be possible to leave this page and go back to the player page or the song table without making any changes.</p>
+<p>Hint: use the <code>method-override</code> middleware to be able to submit HTML forms with methods beyond <span class='get'>GET</span> or <span class='post'>POST</span> (as explained in the hands-on).</p>
+<h2 id="task---song-file-access"><span class='task'>Task 3.</span>  Song File Access</h2>
+<p>The <code>.mp3</code> files of the songs should be published at the following routes:</p>
+<pre><span class='get'>GET</span> /music/*.mp3</pre><table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Path</th>
+<th>Request Parameters</th>
+<th>Status Code</th>
+<th>Response</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code><span class='get'>GET</span></code></td>
+<td><code>/music/*.mp3</code></td>
+<td><code>*.mp3</code> song filename</td>
+<td>200</td>
+<td>The song file</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>404</td>
+<td>Empty response (if the song does not exist with the given filename)</td>
+</tr>
+</tbody></table>
+<p>Hint: configure the <code>static</code> middleware to solve this task (1 line of code required)</p>
+<h2 id="task---browser-playlist-optional"><span class='task'>Task 4.</span>  Browser Playlist (Optional)</h2>
+<p>Integrate the browser-side JavaScript code to implement the player and playlist, and the buttons to add songs to the playlist.</p>
+<pre><span class='get'>GET</span> /playlist</pre><p>When requested from a Web browser (with the <code>Accept: text/html</code> header) this should render the <code>playlist.html</code> page of the previous assignment.</p>
+<p>The Web server should serve the <code>init.js</code> and <code>script.js</code> code developed during the previous assignments.</p>
+<p>The playlist should still be stored in the Web browser <code>localStorage</code>.</p>
+<h2 id="task---server-playlist-optional"><span class='task'>Task 5.</span>  Server Playlist (Optional)</h2>
+<p>Store and add songs to the playlist on the server through the following routes</p>
+<pre><span class='get'>GET</span> /playlist
+<span class='put'>PUT</span> /playlist
+<span class='patch'>PATCH</span> /playlist
+<span class='delete'>DELETE</span> /playlist/<i class="param">:entry</i>
+</pre><table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Path</th>
+<th>Request Parameters</th>
+<th>Status Code</th>
+<th>Response</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code><span class='get'>GET</span></code></td>
+<td><code>/playlist</code></td>
+<td></td>
+<td>200</td>
+<td>Retrieve the playlist content</td>
+</tr>
+<tr>
+<td><code><span class='put'>PUT</span></code></td>
+<td><code>/playlist</code></td>
+<td>The playlist content (body)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code><span class='patch'>PATCH</span></code></td>
+<td><code>/playlist</code></td>
+<td>The song to be added to the playlist (body)</td>
+<td>200</td>
+<td>Updated playlist content</td>
+</tr>
+<tr>
+<td><code><span class='delete'>DELETE</span></code></td>
+<td><code>/playlist/:entry</code></td>
+<td>Entry to be removed</td>
+<td>200</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>404</td>
+<td>Entry does not exist</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>The playlist content (the Array of .mp3 URL) should be kept by the server in memory.</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>Update the add song button to submit a <code><span class='patch'>PATCH</span></code> request to the server. </p>
+<p>How to get the playlist page to refresh itself automatically when a song is added from the other pages?</p>
+<h2 id="mastery-check-topics">Mastery Check Topics</h2>
+<p>Solving this exercise will demonstrate mastery for the following topics:</p>
+<ul>
+<li>4. APIs <ul>
+<li>4.2. Server  <ul>
+<li>4.2.4. Express  <ul>
+<li>4.2.4.1. Routing  </li>
+<li>4.2.4.2. Middleware</li>
+<li>4.2.4.3. Request Body</li>
+<li>4.2.4.4. File Upload</li>
+<li>4.2.4.5. JSON response</li>
+<li>4.2.4.6. View Rendering</li>
+</ul>
+</li>
+<li>4.2.5. EJS  <ul>
+<li>4.2.5.1. Placeholders  </li>
+<li>4.2.5.2. Escaped Placeholders</li>
+<li>4.2.5.3. Includes</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>5. Networking  <ul>
+<li>5.1. HTTP  <ul>
+<li>5.1.3. Headers  <ul>
+<li>5.1.3.1. Accept/Content-Type  </li>
+</ul>
+</li>
+<li>5.1.4. Methods  <ul>
+<li>5.1.4.1. <span class='get'>GET</span>  </li>
+<li>5.1.4.2. <span class='post'>POST</span>  </li>
+<li>5.1.4.3. <span class='put'>PUT</span>  </li>
+<li>5.1.4.4. <span class='delete'>DELETE</span>  </li>
+<li>5.1.4.5. <span class='patch'>PATCH</span>   </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>6. Development Tools  <ul>
+<li>6.4. HTTP Client Tools<ul>
+<li>6.4.1. <span class='post'>POST</span>Man</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<footer></footer></body></html>
