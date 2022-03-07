@@ -1,0 +1,44 @@
+<%- include('includes/header', {title: "Edit", type: "edit"}); -%>
+<main class="upload">
+                <header class="upload" id="uptitle"> Modify the song</header>
+                
+                <form class="upload" id="upsec" method="POST" action="/songs/<%= song_info._id %>?_method=PUT" encType="multipart/form-data">
+                
+                    <label class="upload label" for="inputName">Title </label>
+                    <input class="input upload" type="text" placeholder="<%= song_info.title %>" id="inputName" name="title"/>
+
+                    <p class="upload label" >Artist</p>
+                    <input class="input upload" type="text" placeholder="<%= song_info.artist %>" name="artist"/>
+
+                    <p class="upload label" >Album</p>
+                    <input class="input upload" type="text" placeholder="<%= song_info.album %>" name="album"/>
+                    
+                    <p class="upload" id="label">Genre</p>
+                    <select id="dropdown" name="genre">
+                        <% options.forEach(o=>{ -%>
+                            <option value="<%=o%>" <%= selected == o ? "selected" : "" %>><%=o%></option>
+                        <% }) -%>
+                    </select>
+
+                    <p class="upload label" > Description</p>
+                    <textarea class="upload" id="description" name="desc" placeholder="<%= song_info.desc %>"></textarea>
+                    
+                    <p class="upload label" > Upload file</p>
+                    <p><input class="upload input" type="file" name="file"></p>
+
+                    <p class="upload label" > Favourite</p>
+                    <p class="upload star"><input class="upload" type="checkbox" title="favourite" id="star" name="favourite" value=true  <% if (song_info.favourite == true) { %>checked = "checked"<% } %>> </p>
+
+                    <p class="upload label" >Quality (1 - 10)</p>
+                    <input class="upload" type="range" min="1" max="10" id="qualityrange" value="<%= song_info.quality %>" name="quality"/>
+
+                    <p class="upload" id="labelS"></p>
+                    <input class="upload" id="submit" type="submit"  value="SUBMIT" />
+                </form>
+                
+            </main>
+
+            <aside class="upload">
+            </aside>
+        </section>
+<%- include('includes/footer', {type: "edit"}); -%>

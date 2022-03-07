@@ -1,0 +1,200 @@
+<html><head><title>exercises/6-mongodb</title><link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Fira+Sans|Fira+Mono"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.0/build/styles/default.min.css"><style>body,* {font-family: "Fira Sans";scroll-behavior: smooth;}body {margin: 1em;}#usi-logo {width: 75px;height: 75px;}header {display: flex;align-content: space-between;width: 100%;justify-items: center;}header ul {list-style: none;}header .title {flex: 1;margin-left: 1em;}html {min-height: 100vh;}pre,code {font-family: "Fira Mono"}pre {background: rgb(202, 227, 255);padding: 1em;}td {text-align: center}td:last-child {text-align: left;}th {font-weight: normal;color: rgb(0, 61, 131);border-bottom: 1px solid #003d83;}table {width: 100%}table tr:hover {background-color: rgb(151, 195, 236);}span.task {display: inline-flex;border-radius: 50%;border: 1px solid white;background: #ffbc00;width: 4em;height: 4em;justify-content: center;align-items: center;font-weight: normal;margin-top: 2em;}.deadline {text-align: right;}p.deadline {font-size: 2em;}.deadline b {border-bottom: 1px solid black;}span.get {font-weight: bold; color: #43a047;}span.post {font-weight: bold; color: #F3C142;}span.delete {font-weight: bold; color: #FF0000;}span.put {font-weight: bold; color: #4a90e2;}span.patch {font-weight: bold; color: #666666;}</style></head><body><header>    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="usi-logo" x="0px" y="0px" width="200" height="200" viewBox="0 0 200 200" style="enable-background:new 0 0 200 200;" xml:space="preserve" class="injected-svg svg"><g><path d="M180,41.7h-51.1V31.1h42.2C153.1,12.5,127.8,1,99.9,1C45.2,1.1,0.9,45.4,1,100.1c0,26.8,10.7,51.1,28.1,68.9   c-1.4-2-2.4-4.1-3-6.1c-1-3.5-1-5.9-1.1-15.8v-47.1h14.8v48.5c0,3.4-0.1,6.6,1,9.6c3,7.6,11.3,8.5,16,8.5c2.3,0,8.3-0.1,12.6-3.9   c4.4-3.9,4.4-8.4,4.4-15v-47.7h14.9v49.7c-0.1,8.9-0.1,16.3-8.5,23.5c-8,7-18.4,7.7-23.8,7.7c-4.8,0-9.5-0.6-14-2.1   c-1.8-0.6-3.5-1.4-5-2.3c17.1,14,39,22.4,62.8,22.4c54.7-0.1,99-44.4,98.9-99.1C199,78.1,191.9,58,180,41.7z M175.3,94.4l-6.3-9   c2.1-1.4,8.7-5.7,8.7-17.7c0-2-0.2-4.1-1-6.2c-1.7-4.1-4.6-4.9-6.6-4.9c-3.6,0-4.9,2.5-5.7,4.3c-0.5,1.3-0.6,1.5-1.8,6.6l-1.5,6.9   c-0.9,3.6-1.3,5.4-2,7.2c-1.1,2.6-4.5,9.6-14,9.6c-10.9,0-17.8-9.2-17.8-22.6c0-12.3,6.1-19,11.6-23l6.6,8.8   c-2.8,1.9-8.5,5.7-8.5,14.8c0,5.8,2.6,10.8,7,10.8c4.9,0,5.8-5.3,6.8-10.5l1.3-5.9c1.6-7.7,4.8-18.6,17-18.6   c13.1,0,18.4,12.2,18.4,24.3c0,3.2-0.3,6.7-1.3,10.2C185.1,83.4,182.3,90.1,175.3,94.4z"></path></g></svg><div class="title"><h2>Web Atelier 2021</h2><h1>Exercise  6 - MongoDB</h1></div><div class="deadline"><p>28.10.2021</p><p class="deadline">Deadline: <b>5.11.2021</b></p></div><ul><li>Prof. Cesare Pautasso</li><li>Dr. Andrea Gallidabino</li><li>Susanna Ardig&ograve;</li><li>Fabio Di Lauro</li><li>Souhaila Serbout</li><li>Abdalazim Nouran Ayman Roushdy </li></ul></header><aside><h1>GitHub Classroom: <a href="https://classroom.github.com/a/7KSqlYCE">Invite Link</a></h1></aside><h1 id="goal">Goal</h1>
+<p>In this exercise you will make the state of your music application persistent using the MongoDB database. </p>
+<p>As opposed to the previous assignment, where the song collection metadata was stored using a JSON file, in this exercise you will use the database. The songs <code>.mp3</code> files will remain stored in the filesystem as before.</p>
+<p>The API, views and the corresponding tests from the previous assignment remain unchanged.</p>
+<p>Also in this assignment, you should not need to run any JavaScript code in the browser.</p>
+<p>Developer Productivity Hint: <strong>do not start solving this assignment from scratch</strong>, but reuse as much as possible (routers and views) from your solution of assignment 5.</p>
+<h1 id="tests">Tests</h1>
+<p>As you develop your code, please run the automated tests to check your solution. Only submit solutions which pass all the tests.</p>
+<p>To run the tests, make sure your Web server <strong>and the database</strong> is running. Then use this command:</p>
+<pre><code class="language-bash">yarn <span class="hljs-keyword">run</span><span class="bash"> <span class="hljs-built_in">test</span></span>
+</code></pre>
+<p>You can check the results on the command line.</p>
+<p><strong>Getting Started</strong>: To install the dependencies for the tests use:</p>
+<pre><code class="language-bash">yarn <span class="hljs-keyword">install</span>
+</code></pre>
+<p>Important: </p>
+<ul>
+<li>The Web server should be manually started before running the tests. </li>
+<li>The test assumes that your Web server listens on port 8888. </li>
+<li>If some of the test fail with a connection refused error, it may mean that the server has crashed while running the tests.</li>
+<li>The database server should be running and listening on the default port (27017). </li>
+</ul>
+<p>Very Important: While you are free to place your .mp3 collection in any folder, please <strong>DO NOT</strong> modify the <code>.mp3</code> files in the <code>tests/assets</code> folder.</p>
+<p>Also, please do not push your <code>.mp3</code> collection to github with your solution.</p>
+<h2 id="task---replace-json-file-with-database"><span class='task'>Task 1.</span>  Replace JSON file with database</h2>
+<p>The name of the database and the collection are predefined into the</p>
+<pre><code>models/<span class="hljs-keyword">index</span>.js
+</code></pre>
+<p>If you require the model package from the controllers, you can access the picture collection with:</p>
+<pre><code class="language-js">const <span class="hljs-keyword">models</span> = require(<span class="hljs-string">&#x27;../models&#x27;</span>).<span class="hljs-keyword">model</span>;
+
+<span class="hljs-comment">//load all pictures from the database collection</span>
+<span class="hljs-keyword">models</span>.music.find({})
+</code></pre>
+<p>The database object representing pictures should contain at least the following fields:</p>
+<table>
+<thead>
+<tr>
+<th>Field Name</th>
+<th>Type</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>_id</code></td>
+<td></td>
+<td></td>
+<td>Unique identifier</td>
+</tr>
+<tr>
+<td><code>title</code></td>
+<td>String</td>
+<td><code>&quot;&quot;</code></td>
+<td>Title of the song</td>
+</tr>
+<tr>
+<td><code>artist</code></td>
+<td>String</td>
+<td><code>&quot;&quot;</code></td>
+<td>Name of the song artist</td>
+</tr>
+<tr>
+<td><code>album</code></td>
+<td>String</td>
+<td><code>&quot;&quot;</code></td>
+<td>Album of the song</td>
+</tr>
+<tr>
+<td><code>genre</code></td>
+<td>String</td>
+<td><code>&quot;&quot;</code></td>
+<td>Genre of the song</td>
+</tr>
+<tr>
+<td><code>desc</code></td>
+<td>String</td>
+<td><code>&quot;&quot;</code></td>
+<td>Description of the song</td>
+</tr>
+<tr>
+<td><code>favourite</code></td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td>Favourite flag</td>
+</tr>
+<tr>
+<td><code>filename</code></td>
+<td>String</td>
+<td></td>
+<td>song file name</td>
+</tr>
+<tr>
+<td><code>src</code></td>
+<td>URL</td>
+<td><code>/music/*.mp3</code></td>
+<td>URL to download the song file with <span class='get'>GET</span></td>
+</tr>
+<tr>
+<td><code>quality</code></td>
+<td>Integer</td>
+<td><code>5</code></td>
+<td>Quality rating (from 0 to 10)</td>
+</tr>
+</tbody></table>
+<ol>
+<li>Modify every route of the API to use the database to read, write and delete the corresponding objects as opposed to the JSON file.</li>
+</ol>
+<h2 id="task---synchronize-database-and-file-system-optional-for-pass-required-for-exceed"><span class='task'>Task 2.</span>  Synchronize database and file system (Optional for PASS, Required for EXCEED)</h2>
+<p>The database stores objects but should not be used to store the raw song mp3 files. Like in the previous assignment, these are still uploaded and downloaded from the <code>/music/*.mp3</code> public folders.</p>
+<p>What happens if the objects listed in the database are no longer consistent with the songs stored in the file system?</p>
+<ol>
+<li>The database object refers to a file which no longer exists</li>
+<li>There is no object in the database for a given file</li>
+</ol>
+<p>Implement a module called <code>models/sync.js</code> which exports a <code>check</code> function which is called:</p>
+<ul>
+<li>when starting the server (after connecting to the database)</li>
+<li>when a request to <code><span class='post'>POST</span> /sync-check</code> is received by the server</li>
+</ul>
+<pre><code class="language-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">check</span><span class="hljs-params">(db_music, folder)</span></span>
+</code></pre>
+<p><strong>Returns</strong>: <code>Promise</code></p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>db_music</td>
+<td><code>Collection</code></td>
+<td>The <code>music</code> database collection.</td>
+</tr>
+<tr>
+<td>folder</td>
+<td>path</td>
+<td>The path to the mp3 files stored on disk.</td>
+</tr>
+</tbody></table>
+<p>The <code>check</code> function should:</p>
+<ol>
+<li>Create missing objects in the database for every music file for which there is no corresponding database object. The title, artist, album, genre should be extracted from the <code>.mp3</code> file tags.</li>
+<li>Modify the database objects for which a file cannot be found with a <code>missing_file: true</code> flag.</li>
+<li>If there exists a file for the corresponding song object, ensure that the <code>missing_file</code> flag is either missing or set to <code>false</code>.</li>
+</ol>
+<p>The <code>check</code> function should return a promise which will resolve to the following object:</p>
+<pre><code class="language-js">{
+    missing_object: [<span class="hljs-string">&#x27;ids&#x27;</span>], 
+    missing_file: [<span class="hljs-string">&#x27;ids&#x27;</span>], 
+    object_file_ok: [<span class="hljs-string">&#x27;ids&#x27;</span>]
+}
+</code></pre>
+<ul>
+<li>The <code>missing_object</code> array lists the ids of the newly created song objects</li>
+<li>The <code>missing_file</code> array lists the ids of the objects flagged with <code>missing_file: true</code></li>
+<li>The <code>object_file_ok</code> array lists the ids of all other objects </li>
+</ul>
+<p>The listed &#39;ids&#39; can either be <code>ObjectId</code> or strings.</p>
+<p>Songs for which files are missing should not be included in the views but still be accessible via the API.</p>
+<p>Hint: reuse the <code>array_intersect</code> and <code>array_difference</code> functions from Assignment 2.</p>
+<h2 id="mastery-check-topics">Mastery Check Topics</h2>
+<p>Solving this exercise will demonstrate mastery for the following topics:</p>
+<ul>
+<li>3. JavaScript  <ul>
+<li>3.6. Promises<ul>
+<li>3.6.1. then</li>
+<li>3.6.2. catch</li>
+<li>3.6.3. all</li>
+</ul>
+</li>
+<li>3.7. async, await</li>
+</ul>
+</li>
+<li>4. APIs <ul>
+<li>4.2. Server  <ul>
+<li>4.2.6. MongoDB Client API <ul>
+<li>4.2.6.1. find</li>
+<li>4.2.6.2. insert  </li>
+<li>4.2.6.3. update  </li>
+<li>4.2.6.4. replace</li>
+<li>4.2.6.5. delete</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>6. Development Tools  <ul>
+<li>6.3. Database Tools<ul>
+<li>6.3.1. mongod</li>
+<li>6.3.2. Compass</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<footer></footer></body></html>

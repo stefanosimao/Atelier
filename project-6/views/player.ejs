@@ -1,0 +1,23 @@
+<%- include('includes/header', {title: "Player", type: "player"}); -%>
+<main class="player" id="playerOne">
+                        <header class="player" >
+                            <p class="title titleSong"><a class="title rest artist" href="/songs?artist=<%= song_info.artist %>" class="link"><%= song_info.artist %></a></p>
+                            <p class="title titleSong"><%= song_info.title %></p>
+                            <p class="title titleSong"><a class="title rest album" href="/songs?album=<%= song_info.album %>" class="link"><%= song_info.album %></a></p>
+                        </header>
+                        <section class="player seek play" >
+                            <audio controls id="playerControls" src=<%= song_info.src %>></audio>
+                        </section>  
+                        <section class="player actions" >
+                            <p class="title titleSong"><a class="title rest artist" href="/songs/<%= song_info._id %>/edit" class="link">Edit</a></p>
+                            <form class="title titleSong" method="POST" action="/songs/<%= song_info._id %>?_method=DELETE"><input class="titleD" type="submit" value="DELETE" /></form>
+                        </section>  
+                    </main>
+                        <aside class="player">  
+                            <p class="songs" id="gentitle"> Enjoy the music!</p>
+                    </aside>
+                </section>
+
+
+<%- include('includes/footer', {type: "player"}); -%>
+
