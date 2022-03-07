@@ -1,3 +1,3 @@
-# Software Aterlier
+# Software Atelier
 
-This repository contains the projects from the Web aterlier
+This repository contains the projects from the Web atelier
