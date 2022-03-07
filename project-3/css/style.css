@@ -1,0 +1,45 @@
+/*
+    Web Atelier 2021
+    Exercise 3
+    Object-Oriented JavaScript
+
+    Stylesheet
+
+    Author: Stefano Gonçalves Simao
+
+*/
+
+#player_body>h1 {
+    margin-bottom: 30px
+}
+
+* {
+    margin: 2px;
+    padding: 2px;
+    text-align: center;
+    font-family: Quicksand;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+section {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+
+main {
+    flex: 10;
+    height: fit-content;
+}
+
+.playlist_song{
+    border: 1px solid rgb(92, 70, 70);
+    font-size: max(0.8vw, 0.8em);
+    width: 95%;
+}
+

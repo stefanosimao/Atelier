@@ -1,0 +1,530 @@
+<html><head><title>exercises/2-js-f</title><link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Fira+Sans|Fira+Mono"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.0/build/styles/default.min.css"><style>body,* {font-family: "Fira Sans";scroll-behavior: smooth;}body {margin: 1em;}#usi-logo {width: 75px;height: 75px;}header {display: flex;align-content: space-between;width: 100%;justify-items: center;}header ul {list-style: none;}header .title {flex: 1;margin-left: 1em;}html {min-height: 100vh;}pre,code {font-family: "Fira Mono"}pre {background: rgb(202, 227, 255);padding: 1em;}td {text-align: center}td:last-child {text-align: left;}th {font-weight: normal;color: rgb(0, 61, 131);}thead {border-bottom: 2px solid rgb(202, 227, 255);}table {width: 100%}span.task {display: inline-flex;border-radius: 50%;border: 1px solid white;background: #ffbc00;width: 4em;height: 4em;justify-content: center;align-items: center;font-weight: normal;margin-top: 2em;}.deadline {text-align: right;}p.deadline {font-size: 2em;}.deadline b {border-bottom: 1px solid black;}</style></head><body><header>    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="usi-logo" x="0px" y="0px" width="200" height="200" viewBox="0 0 200 200" style="enable-background:new 0 0 200 200;" xml:space="preserve" class="injected-svg svg"><g><path d="M180,41.7h-51.1V31.1h42.2C153.1,12.5,127.8,1,99.9,1C45.2,1.1,0.9,45.4,1,100.1c0,26.8,10.7,51.1,28.1,68.9   c-1.4-2-2.4-4.1-3-6.1c-1-3.5-1-5.9-1.1-15.8v-47.1h14.8v48.5c0,3.4-0.1,6.6,1,9.6c3,7.6,11.3,8.5,16,8.5c2.3,0,8.3-0.1,12.6-3.9   c4.4-3.9,4.4-8.4,4.4-15v-47.7h14.9v49.7c-0.1,8.9-0.1,16.3-8.5,23.5c-8,7-18.4,7.7-23.8,7.7c-4.8,0-9.5-0.6-14-2.1   c-1.8-0.6-3.5-1.4-5-2.3c17.1,14,39,22.4,62.8,22.4c54.7-0.1,99-44.4,98.9-99.1C199,78.1,191.9,58,180,41.7z M175.3,94.4l-6.3-9   c2.1-1.4,8.7-5.7,8.7-17.7c0-2-0.2-4.1-1-6.2c-1.7-4.1-4.6-4.9-6.6-4.9c-3.6,0-4.9,2.5-5.7,4.3c-0.5,1.3-0.6,1.5-1.8,6.6l-1.5,6.9   c-0.9,3.6-1.3,5.4-2,7.2c-1.1,2.6-4.5,9.6-14,9.6c-10.9,0-17.8-9.2-17.8-22.6c0-12.3,6.1-19,11.6-23l6.6,8.8   c-2.8,1.9-8.5,5.7-8.5,14.8c0,5.8,2.6,10.8,7,10.8c4.9,0,5.8-5.3,6.8-10.5l1.3-5.9c1.6-7.7,4.8-18.6,17-18.6   c13.1,0,18.4,12.2,18.4,24.3c0,3.2-0.3,6.7-1.3,10.2C185.1,83.4,182.3,90.1,175.3,94.4z"></path></g></svg><div class="title"><h2>Web Atelier 2021</h2><h1>Exercise  2 - JavaScript</h1></div><div class="deadline"><p>30.9.2021</p><p class="deadline">Deadline: <b>8.10.2021</b></p></div><ul><li>Prof. Cesare Pautasso</li><li>Dr. Andrea Gallidabino</li><li>Susanna Ardig&ograve;</li><li>Fabio Di Lauro</li><li>Souhaila Serbout</li><li>Abdalazim Nouran Ayman Roushdy </li></ul></header><aside><h1>GitHub Classroom: <a href="https://classroom.github.com/a/LG6KNQXr">Invite Link</a></h1></aside><h1 id="goal">Goal</h1>
+<p>The goal of these exercises is to improve your understanding of JavaScript as a functional scripting language for the Web browser.</p>
+<p>We assume you know how to program these functions in some other programming language and would like to explore how to program them in JavaScript.</p>
+<p>All the code should be written directly into the template (<code>script.js</code>) provided in the skeleton package. After completing the exercise, make sure all the tests are green and push your changes to your GitHub class repository.</p>
+<h3 id="automated-tests">Automated tests</h3>
+<p>Open the <code>test.html</code> page in a Web browser to run the tests automatically. The source of the test cases is found in <code>js/test.js</code>, you are welcome to read them but should not modify them.</p>
+<p>Property based tests may take a while to run, so if you do not see anything for a little while, please patiently wait for the browser to finish running the tests. This delay may happen especially at the beginning when most tests fail.</p>
+<h2 id="task---functional-javascript"><span class='task'>Task 1.</span>  Functional JavaScript</h2>
+<p>In this task you are required to implement some functions. Notice that for each function we give you a <a href="http://usejsdoc.org/">JSDoc</a> documentation of its <strong>arguments</strong> and and <strong>return</strong> value (these are known as the <em>signature</em> of the function). There are also test cases available to check your code.</p>
+<p>While you should be able to program from scratch all of the algorithms required to implement the following functions, it is ok to take advantage of the JavaScript built-in functions to speed up your development efforts. Still, no external modules or libraries are allowed.</p>
+<ol>
+<li><p><strong>Time Formatter</strong></p>
+<p> Implement a function <code>format_seconds(s)</code> which returns a string computed by transforming the <code>s</code> number into its string representation with the M:SS format.</p>
+<p> The input parameter can be any positive or negative number. If it is negative, the result should follow the same -M:SS format, with <code>-</code> in front of the string.</p>
+<p> <code>SS</code> stands for 0-padded number. If the number of seconds is less than 10, the string should contain one extra <code>0</code> character before it. This is not required for the minute digit.</p>
+<p> If the number is not integer, simply drop the fractional digits.</p>
+<p> If the input parameter is undefined or not a number, return the string <code>?:??</code></p>
+<p> Examples:</p>
+<p>   <code>format_seconds(61)</code> should return <code>&quot;1:01&quot;</code>.</p>
+<p>   <code>format_seconds(-111)</code> should return <code>&quot;-1:51&quot;</code>.</p>
+<p>   <code>format_seconds(10.423)</code> should return <code>&quot;0:10&quot;</code>.</p>
+<pre><code class="language-js"><span class="hljs-keyword">function</span> format<span class="hljs-constructor">_seconds(<span class="hljs-params">s</span>)</span>
+</code></pre>
+<p> <strong>Returns</strong>: <code>String</code> in M:SS format.  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>s</td>
+<td><code>number</code></td>
+<td>The number of seconds (can be positive or negative).</td>
+</tr>
+</tbody></table>
+</li>
+<li><p><strong>Scalar Product</strong></p>
+<p> Implement a function <code>scalar_product(a, c)</code> which returns an array computed by multiplying each element of the input array <code>a</code> with the input scalar value <code>c</code>.</p>
+<p> Examples:</p>
+<p> <code>scalar_product([1,2,3],-1)</code> should return <code>[-1,-2,-3]</code>.</p>
+<p> <code>scalar_product([1,2,3],0)</code> should return <code>[0,0,0]</code>.</p>
+<pre><code class="language-js"><span class="hljs-keyword">function</span> scalar<span class="hljs-constructor">_product(<span class="hljs-params">a</span>, <span class="hljs-params">c</span>)</span>
+</code></pre>
+<p> <strong>Returns</strong>: <code>Array</code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>a</td>
+<td><code>Array&lt;Number&gt;</code></td>
+<td>The array of numbers.</td>
+</tr>
+<tr>
+<td>c</td>
+<td><code>number</code></td>
+<td>The scalar multiplier.</td>
+</tr>
+</tbody></table>
+</li>
+<li><p><strong>Inner Product</strong></p>
+<p> Implement a function <code>inner_product(a, b)</code> which returns a value computed by summing the products of each pair of elements of its input arrays <code>a</code>, <code>b</code> in the same position.</p>
+<p> Examples:</p>
+<p> <code>inner_product([1,2,3],[2,3,-1])</code> should return <code>5</code>.</p>
+<p> <code>inner_product([1,2,3],[2,3])</code> should return <code>undefined</code>.</p>
+<pre><code class="language-js"><span class="hljs-keyword">function</span> inner<span class="hljs-constructor">_product(<span class="hljs-params">a</span>, <span class="hljs-params">b</span>)</span>
+</code></pre>
+<p> <strong>Returns</strong>: <code>number</code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>a</td>
+<td><code>Array&lt;Number&gt;</code></td>
+<td>The first array of numbers.</td>
+</tr>
+<tr>
+<td>b</td>
+<td><code>Array&lt;Number&gt;</code></td>
+<td>The second array of numbers.</td>
+</tr>
+</tbody></table>
+</li>
+<li><p><strong>MapReduce</strong></p>
+<p>A MapReduce function is composed of:</p>
+<ol>
+<li><p>the <code>Map()</code> function which performs an operation on each element of an array;  </p>
+</li>
+<li><p>the <code>Reduce()</code> function that performs a summary operation and aggregates the result of the <code>Map()</code> function into a scalar value.</p>
+</li>
+</ol>
+<p>Implement a function <code>mapReduce(a, mapfn, reducefn, seed)</code> which performs the following two steps:</p>
+<p> <strong>Map step</strong>: given an array <code>a</code>, it creates a new array with the results of executing <code>mapfn</code> for each element of the array <code>a</code>.</p>
+<p> <strong>Reduce step</strong>: applies the function <code>reducefn</code> starting from the initial <code>seed</code> value and each element in the new array that was returned from <strong>step a</strong>. (from left to right) to reduce it to a single value.</p>
+<p> If <code>reducefn</code> is not specified, use the <code>+</code> operator. </p>
+<p> The <code>seed</code> is an <strong>optional</strong> parameter, which defaults to the empty string <code>&quot;&quot;</code>.</p>
+<p>Examples:</p>
+<p> <code>mapReduce([1,2,3], (x)=&gt;x+1)</code> should return <code>&quot;234&quot;</code>.</p>
+<p> <code>mapReduce([1,2,3], (x)=&gt;x+1, (a,b)=&gt;a+b, 0)</code> should return <code>9</code>.</p>
+<p> <code>mapReduce([1,2,3], f, g, s)</code> should return <code>g(g(g(s, f(1)), f(2)), f(3))</code>. </p>
+<pre><code class="language-js"><span class="hljs-keyword">function</span> map<span class="hljs-constructor">Reduce(<span class="hljs-params">a</span>, <span class="hljs-params">mapfn</span>, <span class="hljs-params">reducefn</span>, <span class="hljs-params">seed</span>)</span>
+</code></pre>
+<p> <strong>Returns</strong>:  The reduced value after the map and reduce steps.  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>a</td>
+<td><code>Array</code></td>
+<td></td>
+<td>The array.</td>
+</tr>
+<tr>
+<td>mapfn</td>
+<td><code>Function</code></td>
+<td></td>
+<td>The function for the map step.</td>
+</tr>
+<tr>
+<td>[reducefn]</td>
+<td><code>Function</code></td>
+<td><code>function(x,y) { return x+y; }</code></td>
+<td>The function for the reduce step.</td>
+</tr>
+<tr>
+<td>[seed]</td>
+<td><code>String</code></td>
+<td><code>&quot;&quot;</code></td>
+<td>The accumulator for the reduce step.</td>
+</tr>
+</tbody></table>
+<p> Hint: you can reuse the standard <code>Array.map</code> and <code>Array.reduce</code> functions, but also reimplement them from scratch.</p>
+</li>
+<li><p><strong>Range</strong></p>
+<p>Implement a function <code>range(x, y, step)</code> which take two integers <code>x</code> and <code>y</code> with <code>x &lt;= y</code> (if <code>step</code> &gt; 0) or <code>y &lt;= x</code> (if <code>step &lt; 0</code>) and returns an array containing numbers <code>x</code>, <code>x+step</code>, ... <code>last</code>, where:</p>
+<ul>
+<li><code>last</code> equals <code>x + n*step</code> for some <code>n &gt; 0</code>, </li>
+<li><code>last &lt;= y &lt; last + step</code> if <code>step &gt; 0</code> and</li>
+<li><code>last + step &lt; y &lt;= last</code> if <code>step &lt; 0</code>.</li>
+</ul>
+<p><code>step</code> is <strong>optional</strong> with the default <code>1</code>. If <code>step</code> is zero, return <code>undefined</code>.</p>
+<p>The output should be <strong>empty</strong> if <code>x</code> and <code>y</code> are in the wrong direction (<code>x &gt; y</code> with <code>step &gt; 0</code> or vice versa).
+The output should be one element array <code>[x]</code> if <code>x</code> equals <code>y</code> and <code>step != 0</code>.</p>
+<p>Examples:</p>
+<p> <code>range(0,10,1)</code> should return <code>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</code>.</p>
+<p> <code>range(-9,10,3)</code> should return <code>[-9, -6, -3, 0, 3, 6, 9]</code>.</p>
+<p> <code>range(10,0,-2)</code> should return <code>[10, 8, 6, 4, 2, 0]</code>.</p>
+<p> <code>range(0,1,-1)</code> should return <code>[]</code>.</p>
+<p> <code>range(1,0,1)</code> should return <code>[]</code>.</p>
+<p> <code>range(0,0)</code> should return <code>[0]</code>.</p>
+<pre><code class="language-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">range</span><span class="hljs-params">(x, y, <span class="hljs-keyword">step</span>)</span></span>
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>x</td>
+<td><code>integer</code></td>
+<td></td>
+<td>The first integer.</td>
+</tr>
+<tr>
+<td>y</td>
+<td><code>integer</code></td>
+<td></td>
+<td>The last integer.</td>
+</tr>
+<tr>
+<td>[step]</td>
+<td><code>integer</code></td>
+<td><code>1</code></td>
+<td>The value to add at each step.</td>
+</tr>
+</tbody></table>
+</li>
+<li><p><strong>Array Intersect</strong></p>
+<p> Implement a function which returns an array with the common elements between two arrays.</p>
+<p> You can assume that the arrays contain distinct values.</p>
+<p> Examples:</p>
+<p> <code>array_intersect([1,2,3],[1,4])</code> should return <code>[1]</code>.</p>
+<p> <code>array_intersect([1,2,3],[4,5])</code> should return <code>[]</code>.</p>
+<p> <code>array_intersect([1,2,3,4],[3,2,1,0])</code> should return <code>[1,2,3]</code>.</p>
+<pre><code class="language-js"><span class="hljs-keyword">function</span> <span class="hljs-built_in">array</span><span class="hljs-constructor">_intersect(<span class="hljs-params">a</span>, <span class="hljs-params">b</span>)</span>
+</code></pre>
+<p> <strong>Returns</strong>: <code>Array</code> - An array with the elements found both in <code>a</code> and <code>b</code>.  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>a</td>
+<td><code>Array</code></td>
+<td>The first array.</td>
+</tr>
+<tr>
+<td>b</td>
+<td><code>Array</code></td>
+<td>The second array.</td>
+</tr>
+</tbody></table>
+</li>
+<li><p><strong>Array Difference</strong></p>
+<p> Implement a function which returns an array with the elements found only in the first array, but not in the second one.</p>
+<p> You can assume that the arrays contain distinct values.</p>
+<p> Examples:</p>
+<p> <code>array_difference([1,2,3],[1,4])</code> should return <code>[2,3]</code>.</p>
+<p> <code>array_difference([1,4],[1,2,3])</code> should return <code>[4]</code>.</p>
+<p> <code>array_difference([1,2,3,4],[3,2,1,0])</code> should return <code>[4]</code>.</p>
+<p> <code>array_difference([1,2,3,4],[4,2,3,1])</code> should return <code>[]</code>.</p>
+<p> <code>array_difference([1,2,3,4],[])</code> should return <code>[1,2,3,4]</code>.</p>
+<pre><code class="language-js"><span class="hljs-keyword">function</span> <span class="hljs-built_in">array</span><span class="hljs-constructor">_difference(<span class="hljs-params">a</span>, <span class="hljs-params">b</span>)</span>
+</code></pre>
+<p> <strong>Returns</strong>: <code>Array</code> - An array with the elements found in <code>a</code> but not in <code>b</code>.  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>a</td>
+<td><code>Array</code></td>
+<td>The first array.</td>
+</tr>
+<tr>
+<td>b</td>
+<td><code>Array</code></td>
+<td>The second array.</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<h2 id="task---closures"><span class='task'>Task 2.</span>  Closures</h2>
+<ol>
+<li><p><strong>Iterator</strong></p>
+<pre><code class="language-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">iterator</span><span class="hljs-params">(a)</span></span>
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>a</td>
+<td><code>Array</code></td>
+<td>The iterator should be called with an array. The result is <code>undefined</code> otherwise</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Returns</strong>: <code>Function</code> - A function <code>next</code> which, starting from the first element of the array <code>a</code>, returns the next element every time it is called.  The returned function <code>next</code> can have the following parameters:</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+</li>
+<li><p><strong>Next</strong></p>
+<pre><code class="language-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">next</span><span class="hljs-params">(b)</span></span>
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>b</td>
+<td><code>undefined</code></td>
+<td>By default, if called with no parameters, the iterator returns the value in the next position, or throws an exception if there are no more values left in the array.</td>
+</tr>
+<tr>
+<td>b</td>
+<td><code>Array</code></td>
+<td>If called with an array, the original array is replaced with the one passed as parameter. The iterator position is reset to the initial element of the new array. The result should be a reference to the function <code>next</code> itself.</td>
+</tr>
+<tr>
+<td>b</td>
+<td><code>integer</code></td>
+<td>If called with an integer, the current position is shifted by <code>b</code> elements. The result in this case is the updated position of the iterator, which corresponds to the element which would be returned by calling <code>next()</code> again with no parameters. You do not have to throw an exception if the new position would be out of range.</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<h2 id="task---music-player"><span class='task'>Task 3.</span>  Music Player</h2>
+<ol>
+<li><p>__init_player__</p>
+<pre><code class="language-js"><span class="hljs-keyword">function</span> init<span class="hljs-constructor">_player(<span class="hljs-params">dom_audio</span>, <span class="hljs-params">mp3_urls</span>, <span class="hljs-params">volume</span>)</span>
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>dom_audio</td>
+<td><code>Audio</code></td>
+<td></td>
+<td><code>&lt;audio&gt;</code> element in which to play one song at a time</td>
+</tr>
+<tr>
+<td>mp3_urls</td>
+<td><code>Array</code></td>
+<td></td>
+<td>Array of MP3 urls part of the playlist</td>
+</tr>
+<tr>
+<td>volume</td>
+<td><code>Boolean</code></td>
+<td><code>true</code></td>
+<td>If true, the player will allow users to control the volume of the audio playback. If false, the volume controls should be hidden</td>
+</tr>
+</tbody></table>
+<p> <strong>Returns</strong>: <code>Function(Array)</code> - a function which can be used to replace the current playlist.</p>
+<p> This function initializes a new music player which will play a playlist of songs passed as an Array of <code>mp3_urls</code>. The player begins playing the first song when the user clicks on the <code>#play</code> <code>&lt;button&gt;</code>. The player will advance to the next song in the list automatically (when the previous song has finished) or manually (when the user clicks on the <code>#next</code> <code>&lt;button&gt;</code>). When it runs out of songs to play, the player should continue from the first song.</p>
+<p> The function should assume that in the <code>document</code>, within the <code>#player</code> container are present the following elements which are meant to be used to control the player:</p>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>ID</th>
+<th>Event</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&lt;button&gt;</code></td>
+<td><code>#play</code></td>
+<td><code>click</code></td>
+<td>Start playing the current song</td>
+</tr>
+<tr>
+<td><code>&lt;button&gt;</code></td>
+<td><code>#pause</code></td>
+<td><code>click</code></td>
+<td>Stop playing the current song</td>
+</tr>
+<tr>
+<td><code>&lt;button&gt;</code></td>
+<td><code>#next</code></td>
+<td><code>click</code></td>
+<td>Advance to the next song</td>
+</tr>
+<tr>
+<td><code>&lt;button&gt;</code></td>
+<td><code>#prev</code></td>
+<td><code>click</code></td>
+<td>Seek the beginning of the current song</td>
+</tr>
+<tr>
+<td><code>&lt;button&gt;</code></td>
+<td><code>#loud</code></td>
+<td><code>click</code></td>
+<td>Increase the volume</td>
+</tr>
+<tr>
+<td><code>&lt;button&gt;</code></td>
+<td><code>#low</code></td>
+<td><code>click</code></td>
+<td>Lower the volume</td>
+</tr>
+<tr>
+<td><code>&lt;button&gt;</code></td>
+<td><code>#mute</code></td>
+<td><code>click</code></td>
+<td>Mute/Unmute the player</td>
+</tr>
+<tr>
+<td><code>&lt;input type=&quot;range&quot;&gt;</code></td>
+<td></td>
+<td><code>input</code></td>
+<td>Set the volume level</td>
+</tr>
+</tbody></table>
+<p> The function should assume that the following elements of the document can be used to visualize information about the song being played:</p>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&lt;p class=&quot;title&quot;&gt;</code></td>
+<td>Display the current song url</td>
+</tr>
+<tr>
+<td><code>&lt;progress id=&quot;seek&quot;&gt;</code></td>
+<td>Visualize the current song position</td>
+</tr>
+<tr>
+<td><code>&lt;p class=&quot;elapsed&quot;&gt;</code></td>
+<td>Print the current song position as M:SS</td>
+</tr>
+<tr>
+<td><code>&lt;p class=&quot;remain&quot;&gt;</code></td>
+<td>Print the current song duration as M:SS</td>
+</tr>
+</tbody></table>
+<p> The function will set up the necessary event listeners to connect the previously listed HTML elements with the given <code>dom_audio</code> element, which may remain hidden while each song is playing.</p>
+<p> <em>Hint</em>: reuse the previous <code>iterator</code> and <code>format_seconds</code> functions.</p>
+</li>
+<li><p>Connect the <code>init_player</code> function with the elements you find in the <code>player.html</code> page. Make sure your HTML from the previous assignment fits with the above assumptions, which are also reflected in the test cases. </p>
+<p> When the page is loaded, the player should be initialized from the given playlist. Feel free to replace the .mp3 urls with your own, the ones provided are for testing purposes only.</p>
+<p> <em>Hint</em>: consider handling the <code>ended</code>, <code>canplay</code>, <code>durationchange</code>, <code>timeupdate</code> events of the <code>&lt;audio&gt;</code> element as described <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement">here</a>.</p>
+</li>
+</ol>
+<h2 id="task---mini-markdown-parser-optional"><span class='task'>Task 4.</span>  Mini Markdown Parser (Optional)</h2>
+<ol>
+<li><p>Write the <code>mini_md</code> function which given a mini markdown string will transform it into HTML. </p>
+<pre><code class="language-js"><span class="hljs-keyword">function</span> mini<span class="hljs-constructor">_md(<span class="hljs-params">text</span>)</span> 
+</code></pre>
+</li>
+</ol>
+<ul>
+<li><p>The <code>text</code> string can have multiple lines (separated by <code>\n</code>).</p>
+</li>
+<li><p>If a line starts with &quot;<code>#</code>&quot; it represents a <code>&lt;h1&gt;</code> element, which contains the text following the &quot;<code># </code>&quot; character.</p>
+</li>
+<li><p>If a line starts with &quot;<code>##</code>&quot; it represents a <code>&lt;h2&gt;</code> element, which contains the text following the &quot;<code>## </code>&quot; characters.</p>
+</li>
+<li><p>Empty lines separate different paragraphs (<code>&lt;p&gt;&lt;/p&gt;</code>).</p>
+</li>
+<li><p>Multiple consecutive empty lines will result in empty paragraphs.</p>
+</li>
+<li><p>Otherwise, the input lines are just directly copied in the output.</p>
+<p>Note: the <code>\n</code> line breaks should be preserved in the output.</p>
+<p>See the test cases for examples. You can use the <code>minimd.html</code> page to interactively test your function.</p>
+</li>
+</ul>
+<img src="https://i.imgur.com/8al73Dr.gif" alt="Mini Markdown Demo" style="height: 512px">
+
+
+
+
+<h2 id="mastery-check-topics">Mastery Check Topics</h2>
+<p>Solving this exercise will demonstrate mastery for the following topics:</p>
+<ul>
+<li><p>3. <strong>JavaScript</strong></p>
+<ul>
+<li>3.1. Functional JavaScript<ul>
+<li>3.1.1. Recursion    </li>
+<li>3.1.3. Closures   </li>
+</ul>
+</li>
+<li>3.2. Data Types  <ul>
+<li>3.2.1. Strings<ul>
+<li>3.2.1.1. split</li>
+<li>3.2.1.2. trim</li>
+</ul>
+</li>
+<li>3.2.2. Arrays<ul>
+<li>3.2.2.1. forEach </li>
+<li>3.2.2.2. map</li>
+<li>3.2.2.3. join</li>
+<li>3.2.2.4. filter   </li>
+</ul>
+</li>
+<li>3.2.3. undefined   </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>4. <strong>APIs</strong></p>
+<ul>
+<li>4.1. Browser  <ul>
+<li>4.1.2. DOM  <ul>
+<li>4.1.2.1. getElementByID  </li>
+<li>4.1.2.2. innerHTML  </li>
+<li>4.1.2.3. querySelector</li>
+</ul>
+</li>
+<li>4.1.4. Events  </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>6. <strong>Development Tools</strong> </p>
+<ul>
+<li>6.1. Browser  <ul>
+<li>6.1.1. Inspector  </li>
+<li>6.1.2. JavaScript Debugger  </li>
+<li>6.1.3. Console  </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<footer></footer></body></html>

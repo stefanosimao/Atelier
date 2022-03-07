@@ -1,0 +1,81 @@
+<!--
+    Web Atelier 2021
+    Exercise 1
+    HTML and CSS
+
+    Player Page
+
+    Author: Stefano Gonçalves Simao
+
+-->
+<html>
+    <head>
+        <title> Player </title>
+        <meta name="author" content="Stefano Gonçalves Simao">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="style.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
+    </head>
+    <body class="player">
+        <header class="player" id="bigtitle"> Stefano's Music </header>
+        <hr class="player">
+        <section class="player">
+
+            <nav class="player">  <img src = "images/place.svg" alt="Place" class="player" id="place"/>
+                <a href="index.html" target="_blank" class="player link" >Homepage</a>
+                <a href="songs.html" target="_blank" class="player link">Song catalog</a>
+                <a href="player.html" target="_blank" class="player link" id="current">Player Page</a>
+                <a href="upload.html" target="_blank" class="player link">Song Upload Form</a>                                
+            </nav>
+
+
+
+            <main class="player" id="player">
+                <header class="player" id="player">
+                    <p class="title rest">Artist</p>
+                    <p class="title title">Title</p>  
+                    <p class="title rest">Album</p>  
+                </header>
+                <section class="play buttons">
+                    <button type="button" class="small" id="prev"></button>
+                    <button type="button" id="play"></button>
+                    <button type="button" id="pause"></button>
+                    <button type="button" class="small" id="next"></button>
+                </section>
+                <section class="player seek play" id="player">
+                    <p class="elapsed">02:02</p>
+                    <progress id="file" value="32" max="100"> 32% </progress>
+                    <p class="remain">00:30</p>
+                </section>  
+                <aside class="player volume" id="player"> 
+                        <button type="button" id="loud"></button>
+                        <button type="button" id="mute"></button>
+                        <button type="button" id="low"></button>
+                        <input type="range" min="0" max="50" value="75"/>
+                </aside>
+
+            </main>
+
+
+
+            <aside class="player"> Favourite Musicians
+                <a href="songs.html" target="_blank" class="player link">Artist1</a>
+                <a href="songs.html" target="_blank" class="player link">Artist2</a>
+                <a href="songs.html" target="_blank" class="player link">Artist3</a>
+                <a href="songs.html" target="_blank" class="player link">Artist4</a> 
+                <a href="songs.html" target="_blank" class="player link">Artist5</a> 
+                <a href="songs.html" target="_blank" class="player link">Artist6</a> 
+                <a href="songs.html" target="_blank" class="player link">Artist7</a> 
+                <a href="songs.html" target="_blank" class="player link">Artist8</a> 
+                <a href="songs.html" target="_blank" class="player link">Artist9</a> 
+                <a href="songs.html" target="_blank" class="player link">Artist10</a> 
+            </aside>
+        </section>
+        <hr class="player">
+        <footer class="player"> 
+            <span class="player footer">@StefanoGonçalvesSimao </span> 
+            <span class="player footer">Fri 01 Oct 2021</span> 
+            <span class="player footer"><a href="https://en.wikipedia.org/wiki/Disclaimer" target="_blank" class="player">Legal Disclaimer</a></span>  
+        </footer>
+    </body>
+</html>

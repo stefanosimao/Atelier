@@ -1,0 +1,81 @@
+<!--
+    Web Atelier 2021
+    Exercise 2
+    JavaScript
+
+    Player Page
+
+    Author: Stefano Gonçalves Simao
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title> Player </title>
+        <meta name="author" content="Stefano Gonçalves Simao">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="css/style.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
+    </head>
+
+<body class="player" onload="init()">
+
+    <h1>Exercise 2 - JavaScript - Music Player</h1>
+
+
+    <!-- Include here your #player element -->
+    <hr class="player">
+    <section class="player" >
+            <main class="player" id="player">
+            <header class="player" >
+                <p class="title rest artist"></p>
+                <p class="title titleSong"></p>  
+                <p class="title rest album"></p>  
+            </header>
+            <section class="play buttons">
+                <button type="button" class="small" id="prev"></button>
+                <button type="button" id="play"></button>
+                <button type="button" id="pause"></button>
+                <button type="button" class="small" id="next"></button>
+            </section>
+            <section class="player seek play" >
+                <p class="elapsed"></p>
+                <progress id="file" value="0" max="100"></progress>
+                <p class="remain"></p>
+            </section>  
+            <aside class="player volume" > 
+                    <button type="button" id="loud"></button>
+                    <button type="button" id="mute"></button>
+                    <button type="button" id="low"></button>
+                    <input type="range" id="slide" min="0" max="100" value="75"/>
+            </aside>
+
+        </main>
+        </section>
+
+
+    <!-- This is the hidden audio element which will play your songs
+         controlled from the #player buttons -->
+    <audio id="player-audio" style="display:none"></audio>
+
+
+    <!-- Script where the init_player function is implemented -->
+    <script src="js/script.js"></script>
+
+    <script>
+        //Task 3
+
+        //This function will call the init_player function passing a test playlist
+        //You are welcome to change the playlist
+        function init() {
+            let songs = ['music/one.mp3', 'music/grace.mp3', 'music/two.mp3','music/three.mp3','music/four.mp3','music/five.mp3','music/seven.mp3','music/six.mp3'];
+
+            let audio = document.getElementById("player-audio");
+
+            init_player(audio, songs, true);
+
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,227 @@
+<html><head><title>exercises/4-node</title><link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Fira+Sans|Fira+Mono"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.0/build/styles/default.min.css"><style>body,* {font-family: "Fira Sans";scroll-behavior: smooth;}body {margin: 1em;}#usi-logo {width: 75px;height: 75px;}header {display: flex;align-content: space-between;width: 100%;justify-items: center;}header ul {list-style: none;}header .title {flex: 1;margin-left: 1em;}html {min-height: 100vh;}pre,code {font-family: "Fira Mono"}pre {background: rgb(202, 227, 255);padding: 1em;}td {text-align: center}td:last-child {text-align: left;}th {font-weight: normal;color: rgb(0, 61, 131);}thead {border-bottom: 2px solid rgb(202, 227, 255);}table {width: 100%}span.task {display: inline-flex;border-radius: 50%;border: 1px solid white;background: #ffbc00;width: 4em;height: 4em;justify-content: center;align-items: center;font-weight: normal;margin-top: 2em;}.deadline {text-align: right;}p.deadline {font-size: 2em;}.deadline b {border-bottom: 1px solid black;}</style></head><body><header>    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="usi-logo" x="0px" y="0px" width="200" height="200" viewBox="0 0 200 200" style="enable-background:new 0 0 200 200;" xml:space="preserve" class="injected-svg svg"><g><path d="M180,41.7h-51.1V31.1h42.2C153.1,12.5,127.8,1,99.9,1C45.2,1.1,0.9,45.4,1,100.1c0,26.8,10.7,51.1,28.1,68.9   c-1.4-2-2.4-4.1-3-6.1c-1-3.5-1-5.9-1.1-15.8v-47.1h14.8v48.5c0,3.4-0.1,6.6,1,9.6c3,7.6,11.3,8.5,16,8.5c2.3,0,8.3-0.1,12.6-3.9   c4.4-3.9,4.4-8.4,4.4-15v-47.7h14.9v49.7c-0.1,8.9-0.1,16.3-8.5,23.5c-8,7-18.4,7.7-23.8,7.7c-4.8,0-9.5-0.6-14-2.1   c-1.8-0.6-3.5-1.4-5-2.3c17.1,14,39,22.4,62.8,22.4c54.7-0.1,99-44.4,98.9-99.1C199,78.1,191.9,58,180,41.7z M175.3,94.4l-6.3-9   c2.1-1.4,8.7-5.7,8.7-17.7c0-2-0.2-4.1-1-6.2c-1.7-4.1-4.6-4.9-6.6-4.9c-3.6,0-4.9,2.5-5.7,4.3c-0.5,1.3-0.6,1.5-1.8,6.6l-1.5,6.9   c-0.9,3.6-1.3,5.4-2,7.2c-1.1,2.6-4.5,9.6-14,9.6c-10.9,0-17.8-9.2-17.8-22.6c0-12.3,6.1-19,11.6-23l6.6,8.8   c-2.8,1.9-8.5,5.7-8.5,14.8c0,5.8,2.6,10.8,7,10.8c4.9,0,5.8-5.3,6.8-10.5l1.3-5.9c1.6-7.7,4.8-18.6,17-18.6   c13.1,0,18.4,12.2,18.4,24.3c0,3.2-0.3,6.7-1.3,10.2C185.1,83.4,182.3,90.1,175.3,94.4z"></path></g></svg><div class="title"><h2>Web Atelier 2021</h2><h1>Exercise  4 - JavaScript on the Server-side</h1></div><div class="deadline"><p>14.10.2021</p><p class="deadline">Deadline: <b>22.10.2021</b></p></div><ul><li>Prof. Cesare Pautasso</li><li>Dr. Andrea Gallidabino</li><li>Susanna Ardig&ograve;</li><li>Fabio Di Lauro</li><li>Souhaila Serbout</li><li>Abdalazim Nouran Ayman Roushdy </li></ul></header><aside><h1>GitHub Classroom: <a href="https://classroom.github.com/a/zTUhBNGU">Invite Link</a></h1></aside><h1 id="goal">Goal</h1>
+<p>The goal of these exercises is to improve your understanding of JavaScript as a server-side programming language.</p>
+<p>This exercise builds on and extends the code of the previous assignments. </p>
+<p>We will run JavaScript exclusively on the server-side. No JavaScript running in the browser is necessary to solve the assignment.</p>
+<p>You will learn how to use node.js to build a static site generator based on the song metadata extracted from your own music collection. Then you will write a tiny Web server using JavaScript to host your static website.</p>
+<h1 id="tests">Tests</h1>
+<p>As you develop your code, please run the automated tests to check your solution. Only submit solutions which pass all the tests.</p>
+<p>To run the tests use this command:</p>
+<pre><code class="language-bash">yarn <span class="hljs-keyword">run</span><span class="bash"> <span class="hljs-built_in">test</span></span>
+</code></pre>
+<p>You can check the results on the command line.</p>
+<p><strong>Getting Started</strong>: To install the dependencies for the tests use:</p>
+<pre><code class="language-bash">yarn <span class="hljs-keyword">install</span>
+</code></pre>
+<p>Important: The Web server will be started and stopped automatically by the test. The test assumes that your Web server listens on port 8888. The output of the Web server is captured in the file:</p>
+<pre><code class="language-bash"><span class="hljs-keyword">server</span>.<span class="hljs-keyword">log</span>
+</code></pre>
+<p>While running the tests, the console.log from your <code>metadata.js</code> script is found in the <code>metadata.log</code> file. Likewise, the output of your <code>static.js</code> script will be stored in the <code>static.log</code> file.</p>
+<p>Very Important: While you are free to place your .mp3 collection in any folder, please <strong>DO NOT</strong> modify the <code>.mp3</code> files in the <code>tests/assets</code> folder.</p>
+<p>Also, please do not push your <code>.mp3</code> collection to github with your solution.</p>
+<h2 id="task---song-metadata-extractor"><span class='task'>Task 1.</span>  Song Metadata Extractor</h2>
+<p>Everything starts with a folder in which you store your own .mp3 files. The files should contain metadata tags.</p>
+<p>Write a script which reads the content of your music folder; for each file, extract the metadata and store it as an Array of Objects in a JSON file called <code>data.json</code></p>
+<pre><code class="language-bash"><span class="hljs-keyword">node</span> <span class="hljs-title">metadata</span>.js [music] [output]
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>music</td>
+<td><code>path</code></td>
+<td><code>./music</code></td>
+<td>The music path containing the .mp3 files of your song collection.</td>
+</tr>
+<tr>
+<td>output</td>
+<td><code>path</code></td>
+<td><code>./data.json</code></td>
+<td>The path of the JSON file in which to store the song metadata</td>
+</tr>
+</tbody></table>
+<p>This command will enumerate the content of the <code>/music</code> folder and for each <code>.mp3</code> file found will store the metadata extracted from the file in an object.</p>
+<p>The song metadata objects will be collected in an Array and stored in a JSON file on disk at the given <code>output</code> path.</p>
+<p>The metadata should include at least the following information:</p>
+<ul>
+<li>title</li>
+<li>artist</li>
+<li>album</li>
+<li>genre</li>
+<li>filename (without path)</li>
+<li>src (relative URL)</li>
+<li>size (in bytes)</li>
+</ul>
+<p>Hint: use a library (like jsmediatags) to parse the metadata from the .mp3 files.</p>
+<p>If no metadata can be found, then log an error on the console for the particular file and use empty strings to populate the object.</p>
+<p>It should always be possible to measure the size of the .mp3 file.</p>
+<p>Challenge: while the first version of your code can use Synchronous file system calls, the goal is to practice using Asynchronous callbacks to receive the result of the file system calls. The metadata parsers will only work asynchronosly anyway.</p>
+<h2 id="task---static-site-generator"><span class='task'>Task 2.</span>  Static Site Generator</h2>
+<p>Now that we have the data in a JSON file, we can write another script to transform it into a set of HTML pages.</p>
+<p>The HTML pages will reuse the markup you built in previous assignments. Also, to populate their content based on the data loaded from the JSON file, you can reuse the <code>group_by</code>, <code>filter_by</code> functions implemented in the previous assignments.</p>
+<p>The script should run with the following command line:</p>
+<pre><code class="language-bash"><span class="hljs-keyword">node</span> <span class="hljs-title">static</span>.js [input.json] [output]
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>input.json</td>
+<td><code>path</code></td>
+<td><code>./data.json</code></td>
+<td>The path of the JSON file from which to load the song metadata</td>
+</tr>
+<tr>
+<td>output</td>
+<td><code>path</code></td>
+<td><code>./public</code></td>
+<td>The path in which to store the generated HTML files. It should be created if it does not exist.</td>
+</tr>
+</tbody></table>
+<p>Which pages should you generate?</p>
+<ul>
+<li><p>The homepage at <code>index.html</code>, which should contain statistics about the music collection and, for every artist, genre found in the collection it should link to the corresponding song table page.</p>
+</li>
+<li><p>The songs table pages. Since the site is generated statically, there will be different pages for each subset of songs.</p>
+<ul>
+<li><code>songs.html</code> - the entire music collection, with links in the sidebar pointing to the song tables for each genre of the collection.</li>
+<li><code>songs-genre-*.html</code> - all songs of the given genre, with links in the sidebar to the song tables pages which list the songs of the artists of the particular genre</li>
+<li><code>songs-artist-*.html</code> - all songs of the given artist, with links to the song table pages which list each album of that artist in the sidebar</li>
+<li><code>songs-album-*.html</code> - all songs of the given album</li>
+</ul>
+</li>
+<li><p>Since the <code>player.html</code> requires JavaScript to work, we revert back to using the <code>&lt;audio controls&gt;</code> HTML element to listen to the music. Add them directly next to each song in the song table: instead of showing a link to the player, just show the corresponding <code>&lt;audio&gt;</code> element. There should still be a link to download the original <code>mp3</code> file. In this assignment those links should all work, since you are providing your own music files.</p>
+</li>
+</ul>
+<h2 id="task---web-server"><span class='task'>Task 3.</span>  Web Server</h2>
+<p>Serve the content of the static website from your own Web server implemented using JavaScript.</p>
+<p>The server script should be initialized by pointing it at the location of the static website:</p>
+<pre><code class="language-bash"><span class="hljs-keyword">node</span> <span class="hljs-title">index</span>.js [static_path]
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>static_path</td>
+<td><code>path</code></td>
+<td><code>./public</code></td>
+<td>The path of the JSON file from which to load the song metadata</td>
+</tr>
+</tbody></table>
+<p>The server should provide access to every file stored in the <code>static_path</code> folder as follows:</p>
+<pre><code>GET <span class="hljs-string">/index.html</span>
+GET <span class="hljs-string">/songs.html</span>
+GET <span class="hljs-string">/songs-artist-</span>*<span class="hljs-string">.html</span>
+GET <span class="hljs-string">/songs-genre-</span>*<span class="hljs-string">.html</span>
+GET <span class="hljs-string">/songs-album-</span>*<span class="hljs-string">.html</span>
+GET <span class="hljs-string">/style.css</span>
+GET <span class="hljs-string">/music/</span>*<span class="hljs-string">.mp3</span>
+</code></pre>
+<p>should download to the browser the corresponding file found in:</p>
+<pre><code>{static_path}<span class="hljs-string">/index.html</span>
+{static_path}<span class="hljs-string">/songs.html</span>
+{static_path}<span class="hljs-string">/songs-artist-</span>*<span class="hljs-string">.html</span>
+{static_path}<span class="hljs-string">/songs-genre-</span>*<span class="hljs-string">.html</span>
+{static_path}<span class="hljs-string">/songs-album-</span>*<span class="hljs-string">.html</span>
+{static_path}<span class="hljs-string">/style.css</span>
+{static_path}<span class="hljs-string">/music/</span>*<span class="hljs-string">.mp3</span>
+</code></pre>
+<p>If the given path is not found on the file system, the Web server should respond with HTTP status code 404 (not found).</p>
+<p>If the path exists, but the request method is different than GET, the Web server should responod with HTTP status code 405 (method not allowed).</p>
+<p>Make sure to set the right <code>Content-Type</code> header depending on the file extension, or the browser may not correctly display the web pages.</p>
+<p>The server should also handle two special requests:</p>
+<ol>
+<li><p>Homepage redirect</p>
+<pre><code class="language-http"><span class="hljs-builtin-name">GET</span> /
+</code></pre>
+<p> should respond with a redirect to the <code>index.html</code> page using the <code>302</code> status code and the <code>Location</code> header.</p>
+</li>
+<li><p>Refresh static website and song metadata</p>
+<pre><code class="language-http">POST /<span class="hljs-built_in">ref</span>resh
+</code></pre>
+<p> The JSON file stored on disk and the corresponding HTML files should be updated by the Web server to reflect the current content of the music folder.</p>
+<p> After the operation completes, you can send the content of the <code>index.html</code> as a response adding a message which informs the user that the site has been refreshed.</p>
+<p> Also, add a <code>&lt;form action=&quot;/refresh&quot; method=&quot;POST&quot;&gt;...&lt;/form&gt;</code> so that you can test sending this request from the web browser. The form with the <code>Refresh</code> button can be placed in every page, but at least in the homepage.</p>
+<p> You can implement this by running the <code>metadata.js</code> and <code>static.js</code> scripts from the <code>index.js</code> script.</p>
+<p> Alternatively, refactor the code of the previous scripts so that it is possible to reuse them as modules. The modules can be required from all scripts (<code>metadata.js</code>, <code>static.js</code> and <code>index.js</code>) and the corresponding behaviour invoked as local functions, without having to start an external <code>node</code> process.</p>
+<p> What happens to the rest of your site while the refresh is running? Is it a good idea to run two refresh operations at the same time?</p>
+</li>
+</ol>
+<h2 id="task---player-optional"><span class='task'>Task 4.</span>  Player (Optional)</h2>
+<p>Extend your web server to dynamically generate the player page and populate it with content loaded from the <code>data.json</code> file.</p>
+<p>The web server should respond to:</p>
+<pre><code class="language-http"><span class="hljs-builtin-name">GET</span> /player?<span class="hljs-attribute">src</span>=*.mp3
+</code></pre>
+<p>with an HTML page that displays the corresponding song metadata and include an <code>&lt;audio&gt;</code> element which can play the corresponding song.</p>
+<p>The artist, genre and album information should link to the corresponding <code>song-*.html</code> pages.</p>
+<h2 id="mastery-check-topics">Mastery Check Topics</h2>
+<p>Solving this exercise will demonstrate mastery for the following topics:</p>
+<ul>
+<li>3. JavaScript  <ul>
+<li>3.4. Modules  </li>
+<li>3.5. Callbacks  </li>
+</ul>
+</li>
+<li>4. APIs  <ul>
+<li>4.2. Server  <ul>
+<li>4.2.1. HTTP Server  </li>
+<li>4.2.2. File System</li>
+<li>4.2.5. Simple Routing  </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>5. Networking  <ul>
+<li>5.1. HTTP  <ul>
+<li>5.1.1. Request/Response  </li>
+<li>5.1.2. URL  </li>
+<li>5.1.4. Methods  <ul>
+<li>5.1.4.1. GET  </li>
+<li>5.1.4.2. POST  </li>
+</ul>
+</li>
+<li>5.1.5. Status Codes  <ul>
+<li>5.1.5.1. Redirect  </li>
+<li>5.1.5.2. Method not Allowed  </li>
+<li>5.1.5.3. Not found</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>6. Development Tools  <ul>
+<li>6.1. Browser  <ul>
+<li>6.1.1. Inspector: Network tab</li>
+<li>6.1.2. JavaScript Debugger  </li>
+<li>6.1.3. Console  </li>
+<li>6.1.4. REST Client  </li>
+</ul>
+</li>
+<li>6.2. Server and Command Line Tools<ul>
+<li>6.2.1. Console  </li>
+<li>6.2.2. Yarn  </li>
+<li>6.2.3. Dependency Management with package.json</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<footer></footer></body></html>

@@ -1,0 +1,90 @@
+<!--
+    Web Atelier 2021
+    Exercise 1
+    HTML and CSS
+
+    Song Upload Page
+
+    Author: Stefano Gonçalves Simao
+
+-->
+
+<html>
+    <head>
+        <title> Upload Song </title>
+        <meta name="author" content="Stefano Gonçalves Simao">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="style.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
+    </head>
+    <body class="upload">
+        <header class="upload" id="bigtitle"> Stefano's Music </header>
+        <hr class="upload">
+        <section class="upload">
+
+            <nav class="upload">  <img src = "images/place.svg" alt="Place" class="upload" id="place"/>
+                <a href="index.html" target="_blank" class="upload link" >Homepage</a>
+                <a href="songs.html" target="_blank" class="upload link">Song catalog</a>
+                <a href="player.html" target="_blank" class="upload link">Player Page</a>
+                <a href="upload.html" target="_blank" class="upload link" id="current">Song Upload Form</a>                                
+            </nav>
+
+            <main class="upload">
+                <header class="upload" id="uptitle"> Upload a song</header>
+                <section class="upload" id="upsec">
+                    <p class="upload" id="label">Name of the song</p>
+                    <input class="upload" type="text" placeholder="Name" id="input"/>
+
+                    <p class="upload" id="label">Artist of the song</p>
+                    <input class="upload" type="text" placeholder="Artist" id="input"/>
+
+                    <p class="upload" id="label">Album of the song</p>
+                    <input class="upload" type="text" placeholder="Album" id="input"/>
+                    
+                    <p class="upload" id="label">Genre of the song</p>
+                    <select name="Genre" id="dropdown">
+                        <option value="volvo">Classical</option>
+                        <option value="saab">Jazz</option>
+                        <option value="opel">Pop</option>
+                        <option value="audi">Tango</option>
+                        <option value="audi">Hip-Hop</option>
+                    </select>
+
+                    <p class="upload" id="label">Description</p>
+                    <textarea class="upload" id="description" name="description"></textarea>
+                    
+                    <p class="upload" id="label">Upload file</p>
+                    <p><input class="upload" type="file" id="input"></p>
+
+                    <p class="upload" id="label"> Favourite</p>
+                    <p class="upload star"><input class="upload" type="checkbox" title="favourite" id="star"></p>
+
+                    <p class="upload" id="label">Quality (1 - 10)</p>
+                    <input class="upload" type="range" min="1" max="10" id="qualityrange"/>
+
+                    <p class="upload" id="labelS"></p>
+                    <input class="upload" id="submit" type="button" value="SUBMIT" />
+                </section>
+            </main>
+
+            <aside class="upload"> Favourite Musicians
+                <a href="songs.html" target="_blank" class="upload link">Artist1</a>
+                <a href="songs.html" target="_blank" class="upload link">Artist2</a>
+                <a href="songs.html" target="_blank" class="upload link">Artist3</a>
+                <a href="songs.html" target="_blank" class="upload link">Artist4</a> 
+                <a href="songs.html" target="_blank" class="upload link">Artist5</a> 
+                <a href="songs.html" target="_blank" class="upload link">Artist6</a> 
+                <a href="songs.html" target="_blank" class="upload link">Artist7</a> 
+                <a href="songs.html" target="_blank" class="upload link">Artist8</a> 
+                <a href="songs.html" target="_blank" class="upload link">Artist9</a> 
+                <a href="songs.html" target="_blank" class="upload link">Artist10</a> 
+            </aside>
+        </section>
+        <hr class="upload">
+        <footer class="upload"> 
+            <span class="upload footer">@StefanoGonçalvesSimao </span> 
+            <span class="upload footer">Fri 01 Oct 2021</span> 
+            <span class="upload footer"><a href="https://en.wikipedia.org/wiki/Disclaimer" target="_blank" class="upload">Legal Disclaimer</a></span>  
+        </footer>
+    </body>
+</html>

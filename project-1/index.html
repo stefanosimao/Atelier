@@ -1,0 +1,105 @@
+<!--
+    Web Atelier 2021
+    Exercise 1
+    HTML and CSS
+
+    Home Page
+
+    Author: Stefano Gonçalves Simao
+
+-->
+<html>
+    <head>
+        <title> Homepage </title>
+        <meta name="author" content="Stefano Gonçalves Simao">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="style.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
+    </head>
+    <body class="home">
+        <header class="home" id="bigtitle"> Stefano's Music </header>
+        <hr class="home">
+        <section class="home">
+
+            <nav class="home">  <img src = "images/place.svg" alt="Place" class="home" id="place"/>
+                <a href="index.html" target="_blank" class="home link" id="current">Homepage</a>
+                <a href="songs.html" target="_blank" class="home link">Song catalog</a>
+                <a href="player.html" target="_blank" class="home link">Player Page</a>
+                <a href="upload.html" target="_blank" class="home link">Song Upload Form</a>                                
+            </nav>
+
+            <main class="home">
+                <p class="home" id="favstitle"> My Favourite Songs </p> 
+                <article class="home" id="favs"> 
+                    <a href="player.html" target="_blank" class="home favssong" id="favssong1">Song 1</a>
+                    <a href="player.html" target="_blank" class="home favssong" id="favssong2">Song 2</a>
+                    <a href="player.html" target="_blank" class="home favssong" id="favssong3">Song 3</a>
+                    <a href="player.html" target="_blank" class="home favssong" id="favssong4">Song 4</a>
+                    <a href="player.html" target="_blank" class="home favssong" id="favssong5">Song 5</a>
+                    <a href="player.html" target="_blank" class="home favssong" id="favssong6">Song 6</a>
+                    <a href="player.html" target="_blank" class="home favssong" id="favssong7">Song 7</a>
+                    <a href="player.html" target="_blank" class="home favssong" id="favssong8">Song 8</a>
+                    <a href="player.html" target="_blank" class="home favssong" id="favssong9">Song 9</a>
+                    <a href="player.html" target="_blank" class="home favssong" id="favssong10">Song 10</a>
+                </article>
+                <p class="home" id="playtitle"> Play Song 1 </p> 
+                <audio controls autoplay class="home song1" id="playsong1"><source src="music/Reynolds and Farrell Grace Kelly.mp3" type="audio/mp3">
+                    Your browser does not support the audio element.</audio>
+                <p class="home" id="statstitle"> Stats </p>
+                <article class="home" id="stats"> 
+                    <figure>
+                         <img src="images/songs.svg" alt="Songs" style="width:75%" class="home statsicon">
+                         <figcaption class="home figcap">100 Songs</figcaption>
+                    </figure>
+                    <figure>
+                         <img src="images/albums.svg" alt="Albums" style="width:75%" class="home statsicon">
+                         <figcaption class="home figcap">90 Albums</figcaption>
+                    </figure> 
+                    <figure>
+                         <img src="images/playlist.svg" alt="Playlist" style="width:75%" class="home statsicon">
+                         <figcaption class="home figcap">3 Playlists</figcaption>
+                    </figure>   
+                    <figure>
+                         <img src="images/genres.svg" alt="Genres" style="width:85%" class="home statsicon">
+                         <figcaption class="home figcap">3 Genres</figcaption>
+                    </figure>                    
+                </article>
+                <p class="home" id="fasttitle"> Jump right into it </p>
+                 <article class="home" id="fastlinks"> 
+                    <a href="songs.html" target="_blank" class="home fastlink" >ARTIST1</a>
+                    <a href="songs.html" target="_blank" class="home fastlink" >ARTIST2</a>
+                    <a href="songs.html" target="_blank" class="home fastlink" >ARTIST3</a>                
+                </article>
+                <article class="home" id="fastlinks"> 
+                    <a href="songs.html" target="_blank" class="home fastlink" >ALBUM1</a>
+                    <a href="songs.html" target="_blank" class="home fastlink" >ALBUM2</a>
+                    <a href="songs.html" target="_blank" class="home fastlink" >ALBUM3</a>                 
+                </article>
+                <article class="home" id="fastlinks"> 
+                    <a href="songs.html" target="_blank" class="home fastlink" >GENRE1</a>
+                    <a href="songs.html" target="_blank" class="home fastlink" >GENRE2</a>
+                    <a href="songs.html" target="_blank" class="home fastlink" >GENRE3</a>              
+                </article>
+            </main>
+
+            <aside class="home"> Favourite Musicians
+                <a href="songs.html" target="_blank" class="home link">Artist1</a>
+                <a href="songs.html" target="_blank" class="home link">Artist2</a>
+                <a href="songs.html" target="_blank" class="home link">Artist3</a>
+                <a href="songs.html" target="_blank" class="home link">Artist4</a> 
+                <a href="songs.html" target="_blank" class="home link">Artist5</a> 
+                <a href="songs.html" target="_blank" class="home link">Artist6</a> 
+                <a href="songs.html" target="_blank" class="home link">Artist7</a> 
+                <a href="songs.html" target="_blank" class="home link">Artist8</a> 
+                <a href="songs.html" target="_blank" class="home link">Artist9</a> 
+                <a href="songs.html" target="_blank" class="home link">Artist10</a> 
+            </aside>
+        </section>
+        <hr class="home">
+        <footer class="home"> 
+            <span class="home footer">@StefanoGonçalvesSimao </span> 
+            <span class="home footer">Fri 01 Oct 2021</span> 
+            <span class="home footer"><a href="https://en.wikipedia.org/wiki/Disclaimer" target="_blank" class="home">Legal Disclaimer</a></span>  
+        </footer>
+    </body>
+</html>

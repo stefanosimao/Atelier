@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title> Song Catalog </title>
+        <meta name="author" content="Stefano Gonçalves Simao">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="style.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
+    </head>
+    <body class="songs">
+    <!-- Include here your songs table HTML, leaving placeholders
+         so that the content can be dynamically generated -->
+        <header class="songs" id="bigtitle"> Stefano's Music </header>
+        <hr class="songs">
+        <section class="songs">
+
+            <nav class="songs">  <img src = "images/place.svg" alt="Place" class="songs" id="place"/>
+                <a href="index.html" target="_blank" class="songs link" >Homepage</a>
+                <a href="songs.html" target="_blank" class="songs link" id="current">Song catalog</a>
+                <a href="player.html" target="_blank" class="songs link">Player Page</a>
+                <a href="upload.html" target="_blank" class="songs link">Song Upload Form</a>                                
+            </nav>
+
+            <main class="song_table">
+            
+                <header>
+                    <span></span>
+                    <a href="songs.html?sort=filename">Filename</a>
+                    <a href="songs.html?sort=duration">Duration (MM:SS)</a>
+                    <a href="songs.html?sort=size">Size (MB)</a>
+                    <a href="songs.html?sort=title">Title</a>
+                    <a href="songs.html?sort=album">Album</a>
+                    <a href="songs.html?sort=artist">Artist</a>
+                    <a href="songs.html?sort=genre">Genre</a>
+                </header>
+                 <article class="song">
+                <audio controls src=/Users/stefanosimao/ex4-node--stefanosimao/test/assets/six.mp3></audio>
+                <span class="filename">six.mp3</span>
+                <span class="duration">0:26</span>
+                <span class="size">1007500</span>
+                <span class="title">Six</span>
+                <span class="album">Numbers</span>
+                <span class="artist">Renée Fleming</span>
+                <span class="genre">Opera</span>
+                <a href=/Users/stefanosimao/ex4-node--stefanosimao/test/assets/six.mp3 download=six.mp3>
+                <button type="button" class="download_button" >Download</button></a>
+            </article>
+            </main>
+
+            <aside class="songs" id='sidebar';> 
+                 <a href="./songs-artist-renée fleming.html" class="link">Renée Fleming</a> 
+
+            </aside>
+        </section>
+        <form action="/refresh" method="POST"><input type="submit" value="REFRESH and go back to Home"></form>
+        <hr class="songs">
+        <footer class="songs"> 
+            <span class="songs footer">@StefanoGonçalvesSimao </span> 
+            <span class="songs footer">Fri 01 Oct 2021</span> 
+            <span class="songs footer"><a href="https://en.wikipedia.org/wiki/Disclaimer" target="_blank" class="songs">Legal Disclaimer</a></span>  
+        </footer>
+        </body>
+    </html>

@@ -1,0 +1,338 @@
+<html><head><title>exercises/3-js-oo</title><link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Fira+Sans|Fira+Mono"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.0/build/styles/default.min.css"><style>body,* {font-family: "Fira Sans";scroll-behavior: smooth;}body {margin: 1em;}#usi-logo {width: 75px;height: 75px;}header {display: flex;align-content: space-between;width: 100%;justify-items: center;}header ul {list-style: none;}header .title {flex: 1;margin-left: 1em;}html {min-height: 100vh;}pre,code {font-family: "Fira Mono"}pre {background: rgb(202, 227, 255);padding: 1em;}td {text-align: center}td:last-child {text-align: left;}th {font-weight: normal;color: rgb(0, 61, 131);}thead {border-bottom: 2px solid rgb(202, 227, 255);}table {width: 100%}span.task {display: inline-flex;border-radius: 50%;border: 1px solid white;background: #ffbc00;width: 4em;height: 4em;justify-content: center;align-items: center;font-weight: normal;margin-top: 2em;}.deadline {text-align: right;}p.deadline {font-size: 2em;}.deadline b {border-bottom: 1px solid black;}</style></head><body><header>    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="usi-logo" x="0px" y="0px" width="200" height="200" viewBox="0 0 200 200" style="enable-background:new 0 0 200 200;" xml:space="preserve" class="injected-svg svg"><g><path d="M180,41.7h-51.1V31.1h42.2C153.1,12.5,127.8,1,99.9,1C45.2,1.1,0.9,45.4,1,100.1c0,26.8,10.7,51.1,28.1,68.9   c-1.4-2-2.4-4.1-3-6.1c-1-3.5-1-5.9-1.1-15.8v-47.1h14.8v48.5c0,3.4-0.1,6.6,1,9.6c3,7.6,11.3,8.5,16,8.5c2.3,0,8.3-0.1,12.6-3.9   c4.4-3.9,4.4-8.4,4.4-15v-47.7h14.9v49.7c-0.1,8.9-0.1,16.3-8.5,23.5c-8,7-18.4,7.7-23.8,7.7c-4.8,0-9.5-0.6-14-2.1   c-1.8-0.6-3.5-1.4-5-2.3c17.1,14,39,22.4,62.8,22.4c54.7-0.1,99-44.4,98.9-99.1C199,78.1,191.9,58,180,41.7z M175.3,94.4l-6.3-9   c2.1-1.4,8.7-5.7,8.7-17.7c0-2-0.2-4.1-1-6.2c-1.7-4.1-4.6-4.9-6.6-4.9c-3.6,0-4.9,2.5-5.7,4.3c-0.5,1.3-0.6,1.5-1.8,6.6l-1.5,6.9   c-0.9,3.6-1.3,5.4-2,7.2c-1.1,2.6-4.5,9.6-14,9.6c-10.9,0-17.8-9.2-17.8-22.6c0-12.3,6.1-19,11.6-23l6.6,8.8   c-2.8,1.9-8.5,5.7-8.5,14.8c0,5.8,2.6,10.8,7,10.8c4.9,0,5.8-5.3,6.8-10.5l1.3-5.9c1.6-7.7,4.8-18.6,17-18.6   c13.1,0,18.4,12.2,18.4,24.3c0,3.2-0.3,6.7-1.3,10.2C185.1,83.4,182.3,90.1,175.3,94.4z"></path></g></svg><div class="title"><h2>Web Atelier 2021</h2><h1>Exercise  3 - Object-Oriented JavaScript</h1></div><div class="deadline"><p>7.10.2021</p><p class="deadline">Deadline: <b>15.10.2021</b></p></div><ul><li>Prof. Cesare Pautasso</li><li>Dr. Andrea Gallidabino</li><li>Susanna Ardig&ograve;</li><li>Fabio Di Lauro</li><li>Souhaila Serbout</li><li>Abdalazim Nouran Ayman Roushdy </li></ul></header><aside><h1>GitHub Classroom: <a href="https://classroom.github.com/a/5m-BWTiH">Invite Link</a></h1></aside><h1 id="goal">Goal</h1>
+<p>The goal of these exercises is to improve your understanding of JavaScript as an object-oriented programming language for the Web browser.</p>
+<p>We assume you know how to program with objects in some other object-oriented programming language.</p>
+<p>All the code should be written directly into the template (<code>init.js</code>) provided in the skeleton package. After completing the exercise, make sure all the tests are green and push your changes to your GitHub class repository.</p>
+<p>This exercise builds on and extends the code of the previous assignments. You may reuse all functions from the <code>script.js</code>.</p>
+<h3 id="automated-tests">Automated tests</h3>
+<p>Open the <code>test.html</code> page in a Web browser to run the tests automatically. The source of the test cases is found in <code>js/test.js</code>, you are welcome to read them but should not modify them.</p>
+<h2 id="task---basic-functions"><span class='task'>Task 1.</span>  Basic Functions</h2>
+<p>In this task you are required to implement some functions. Notice that for each function we give you a <a href="http://usejsdoc.org/">JSDoc</a> documentation of its <strong>arguments</strong> and and <strong>return</strong> value (these are known as the <em>signature</em> of the function). There are also test cases available to check your code.</p>
+<p>While you should be able to program from scratch all of the algorithms required to implement the following functions, it is ok to take advantage of the JavaScript built-in functions to speed up your development efforts. Still, no external modules or libraries are allowed.</p>
+<ol>
+<li><p><strong>Group By</strong></p>
+<p> Implement a <code>group_by</code> function, which given an array of objects, returns a dictionary of arrays of objects, indexed by the values of the given field. The original objects should not be copied.</p>
+<p> Example, with this array of objects <code>a</code>:</p>
+<pre><code class="language-json">[
+  {
+    <span class="hljs-attr">&quot;genre&quot;</span>: <span class="hljs-string">&quot;Jazz&quot;</span>,
+    <span class="hljs-attr">&quot;artist&quot;</span>: <span class="hljs-string">&quot;Armstrong&quot;</span>,
+    <span class="hljs-attr">&quot;title&quot;</span>: <span class="hljs-string">&quot;A&quot;</span>
+  },
+  {
+    <span class="hljs-attr">&quot;genre&quot;</span>: <span class="hljs-string">&quot;Jazz&quot;</span>,
+    <span class="hljs-attr">&quot;artist&quot;</span>: <span class="hljs-string">&quot;Marsalis&quot;</span>,
+    <span class="hljs-attr">&quot;title&quot;</span>: <span class="hljs-string">&quot;B&quot;</span>
+  },
+  {
+    <span class="hljs-attr">&quot;genre&quot;</span>: <span class="hljs-string">&quot;Blues&quot;</span>,
+    <span class="hljs-attr">&quot;artist&quot;</span>: <span class="hljs-string">&quot;Marsalis&quot;</span>,
+    <span class="hljs-attr">&quot;title&quot;</span>: <span class="hljs-string">&quot;C&quot;</span>
+  }
+]
+</code></pre>
+<p> <code>group_by(a, &quot;genre&quot;)</code> should return</p>
+<pre><code class="language-json">{
+  <span class="hljs-attr">&quot;Jazz&quot;</span>: [
+    {
+      <span class="hljs-attr">&quot;genre&quot;</span>: <span class="hljs-string">&quot;Jazz&quot;</span>,
+      <span class="hljs-attr">&quot;artist&quot;</span>: <span class="hljs-string">&quot;Armstrong&quot;</span>,
+      <span class="hljs-attr">&quot;title&quot;</span>: <span class="hljs-string">&quot;A&quot;</span>
+    },
+    {
+      <span class="hljs-attr">&quot;genre&quot;</span>: <span class="hljs-string">&quot;Jazz&quot;</span>,
+      <span class="hljs-attr">&quot;artist&quot;</span>: <span class="hljs-string">&quot;Marsalis&quot;</span>,
+      <span class="hljs-attr">&quot;title&quot;</span>: <span class="hljs-string">&quot;B&quot;</span>
+    }
+  ],
+  <span class="hljs-attr">&quot;Blues&quot;</span>: [
+    {
+      <span class="hljs-attr">&quot;genre&quot;</span>: <span class="hljs-string">&quot;Blues&quot;</span>,
+      <span class="hljs-attr">&quot;artist&quot;</span>: <span class="hljs-string">&quot;Marsalis&quot;</span>,
+      <span class="hljs-attr">&quot;title&quot;</span>: <span class="hljs-string">&quot;C&quot;</span>
+    }
+  ]
+}
+</code></pre>
+<p> while, <code>group_by(a, &quot;artist&quot;)</code> should return:</p>
+<pre><code class="language-json">{
+  <span class="hljs-attr">&quot;Armstrong&quot;</span>: [
+    {
+      <span class="hljs-attr">&quot;genre&quot;</span>: <span class="hljs-string">&quot;Jazz&quot;</span>,
+      <span class="hljs-attr">&quot;artist&quot;</span>: <span class="hljs-string">&quot;Armstrong&quot;</span>,
+      <span class="hljs-attr">&quot;title&quot;</span>: <span class="hljs-string">&quot;A&quot;</span>
+    }
+  ],
+  <span class="hljs-attr">&quot;Marsalis&quot;</span>: [
+    {
+      <span class="hljs-attr">&quot;genre&quot;</span>: <span class="hljs-string">&quot;Jazz&quot;</span>,
+      <span class="hljs-attr">&quot;artist&quot;</span>: <span class="hljs-string">&quot;Marsalis&quot;</span>,
+      <span class="hljs-attr">&quot;title&quot;</span>: <span class="hljs-string">&quot;B&quot;</span>
+    },
+    {
+      <span class="hljs-attr">&quot;genre&quot;</span>: <span class="hljs-string">&quot;Blues&quot;</span>,
+      <span class="hljs-attr">&quot;artist&quot;</span>: <span class="hljs-string">&quot;Marsalis&quot;</span>,
+      <span class="hljs-attr">&quot;title&quot;</span>: <span class="hljs-string">&quot;C&quot;</span>
+    }
+  ]
+}
+</code></pre>
+<p> If the field <code>k</code> is not found in some of the objects, these objects should be listed under the <code>undefined</code> index key.</p>
+<p> For example, <code>group_by(a, &quot;album&quot;)</code> should return:</p>
+<pre><code class="language-json">{
+  <span class="hljs-attr">&quot;undefined&quot;</span>: [
+    {
+      <span class="hljs-attr">&quot;genre&quot;</span>: <span class="hljs-string">&quot;Jazz&quot;</span>,
+      <span class="hljs-attr">&quot;artist&quot;</span>: <span class="hljs-string">&quot;Armstrong&quot;</span>,
+      <span class="hljs-attr">&quot;title&quot;</span>: <span class="hljs-string">&quot;A&quot;</span>
+    },
+    {
+      <span class="hljs-attr">&quot;genre&quot;</span>: <span class="hljs-string">&quot;Jazz&quot;</span>,
+      <span class="hljs-attr">&quot;artist&quot;</span>: <span class="hljs-string">&quot;Marsalis&quot;</span>,
+      <span class="hljs-attr">&quot;title&quot;</span>: <span class="hljs-string">&quot;B&quot;</span>
+    },
+    {
+      <span class="hljs-attr">&quot;genre&quot;</span>: <span class="hljs-string">&quot;Blues&quot;</span>,
+      <span class="hljs-attr">&quot;artist&quot;</span>: <span class="hljs-string">&quot;Marsalis&quot;</span>,
+      <span class="hljs-attr">&quot;title&quot;</span>: <span class="hljs-string">&quot;C&quot;</span>
+    }
+  ]
+}
+</code></pre>
+</li>
+</ol>
+<ol start="2">
+<li><p><strong>Find By</strong></p>
+<p> Implement a <code>find_by</code> function, which given an array of objects, returns an array with the objects which share the same field whose values exactly match the given filter object.</p>
+<p> For example, given the same array of objects as before:</p>
+<p> <code>find_by(a, {&quot;genre&quot;: &quot;Blues&quot;})</code> should return:</p>
+<pre><code class="language-json">[
+  {
+    <span class="hljs-attr">&quot;genre&quot;</span>: <span class="hljs-string">&quot;Blues&quot;</span>,
+    <span class="hljs-attr">&quot;artist&quot;</span>: <span class="hljs-string">&quot;Marsalis&quot;</span>,
+    <span class="hljs-attr">&quot;title&quot;</span>: <span class="hljs-string">&quot;C&quot;</span>
+  }
+]
+</code></pre>
+<p> <code>find_by(a, {&quot;genre&quot;: &quot;Jazz&quot;, &quot;artist&quot;: &quot;Armstrong&quot;})</code> should return:</p>
+<pre><code class="language-json">[
+  {
+    <span class="hljs-attr">&quot;genre&quot;</span>: <span class="hljs-string">&quot;Jazz&quot;</span>,
+    <span class="hljs-attr">&quot;artist&quot;</span>: <span class="hljs-string">&quot;Armstrong&quot;</span>,
+    <span class="hljs-attr">&quot;title&quot;</span>: <span class="hljs-string">&quot;A&quot;</span>
+  }
+]
+</code></pre>
+<p> <code>find_by(a, {})</code> should return the original array</p>
+<pre><code class="language-json">[
+  {
+    <span class="hljs-attr">&quot;genre&quot;</span>: <span class="hljs-string">&quot;Jazz&quot;</span>,
+    <span class="hljs-attr">&quot;artist&quot;</span>: <span class="hljs-string">&quot;Armstrong&quot;</span>,
+    <span class="hljs-attr">&quot;title&quot;</span>: <span class="hljs-string">&quot;A&quot;</span>
+  },
+  {
+    <span class="hljs-attr">&quot;genre&quot;</span>: <span class="hljs-string">&quot;Jazz&quot;</span>,
+    <span class="hljs-attr">&quot;artist&quot;</span>: <span class="hljs-string">&quot;Marsalis&quot;</span>,
+    <span class="hljs-attr">&quot;title&quot;</span>: <span class="hljs-string">&quot;B&quot;</span>
+  },
+  {
+    <span class="hljs-attr">&quot;genre&quot;</span>: <span class="hljs-string">&quot;Blues&quot;</span>,
+    <span class="hljs-attr">&quot;artist&quot;</span>: <span class="hljs-string">&quot;Marsalis&quot;</span>,
+    <span class="hljs-attr">&quot;title&quot;</span>: <span class="hljs-string">&quot;C&quot;</span>
+  }
+]
+</code></pre>
+<p> If no object matches the filter, like with: </p>
+<p> <code>find_by(a, {&quot;album&quot; : &quot;Improv&quot;})</code></p>
+<p> then an empty array should be returned</p>
+<pre><code class="language-json">[]
+</code></pre>
+<p> Any <code>undefined</code> or <code>null</code> value of the filter object should be ignored</p>
+<p> <code>find_by(a, {&quot;album&quot; : undefined, &quot;title&quot;: &quot;C&quot;})</code></p>
+<p> results in:</p>
+<pre><code class="language-json">[
+  {
+    <span class="hljs-attr">&quot;genre&quot;</span>: <span class="hljs-string">&quot;Blues&quot;</span>,
+    <span class="hljs-attr">&quot;artist&quot;</span>: <span class="hljs-string">&quot;Marsalis&quot;</span>,
+    <span class="hljs-attr">&quot;title&quot;</span>: <span class="hljs-string">&quot;C&quot;</span>
+  }
+]
+</code></pre>
+</li>
+</ol>
+<h2 id="task---dynamic-song-table"><span class='task'>Task 2.</span>  Dynamic song table</h2>
+<p>Load the <code>js/data.js</code> script which will create a global variable <code>song_data</code> which contains the information to be represented in the <code>songs.html</code> page.</p>
+<p>In particular, it should be possible to:</p>
+<ul>
+<li>Display the entire song table (if no URL parameter are given)</li>
+<li>Filter the song table by artist (using the <code>?artist=Name</code> URL query parameter)</li>
+<li>Filter the song table by album (using the <code>?album=Name</code> URL query parameter)</li>
+<li>Filter the song table by genre (using the <code>?genre=Name</code> URL query parameter)</li>
+</ul>
+<p>When displaying the filtered song table, the title of the page should change to reflect the chosen filter. Also indicate how many songs are listed.</p>
+<p>When displaying the song table filtered by genre, display the list of artists for the given genre in the sidebar. The sidebar artists should  link to their corresponding filtered song table (filtered by artist)</p>
+<p>When displaying the song table filtered by artist, display the list of albums for the given artist in the sidebar. The sidebar albums should link to their corresponding filtered song table (filtered by album)</p>
+<p>Hint: use the previously implemented <code>find_by</code> function.</p>
+<p>Hint: use the standard <code>URL</code> parser and the <a href="https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams">URLSearchParams</a>.</p>
+<h2 id="task---dynamic-home-page-optional"><span class='task'>Task 3.</span>  Dynamic home page (Optional)</h2>
+<p>Load the <code>js/data.js</code> script which will create a global variable <code>song_data</code>. </p>
+<p>Dynamically populate the homepage based on the data to show:</p>
+<ul>
+<li>The names of all artists found in the collection, with links to the corresponding filtered song tables</li>
+<li>The names of all genres found in the collection (indicating how many songs are present for each genre), with links to the corresponding filtered song tables</li>
+<li>Some statistics, like for example, the total number of songs, distinct genres, albums and unique artists found in the collection, or the total size (MB) of the audio files.</li>
+</ul>
+<p>Hint: use the previously implemented <code>group_by</code> function.</p>
+<h2 id="task---parametric-player-page"><span class='task'>Task 4.</span>  Parametric Player Page</h2>
+<p>Extend the <code>player.html</code> code so that it receives the URL of the song to be played as a URL search parameter.</p>
+<p>Opening the player with the URL: <code>player.html?src=music/one.mp3</code> should initialize the player with the corresponding song.</p>
+<p>Hint: use the standard <code>URL</code> parser and the <a href="https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams">URLSearchParams</a>.</p>
+<p>It should be possible to pass to the player the song to be played from the links found on the homepage and the songs table.</p>
+<p>Suggestion: use the <code>&lt;a target=&quot;player&quot;&gt;</code> so that the player opens in its own popup window.</p>
+<h2 id="task---playlist-object"><span class='task'>Task 5.</span>  Playlist Object</h2>
+<p>Rewrite the playlist so that it becomes object-oriented. You may implement it as a <code>class</code> or as a plain object created using the constructor function <code>Playlist</code>.</p>
+<p>The Playlist object provides the following methods</p>
+<pre><code><span class="hljs-bullet">*</span> <span class="hljs-code">`Playlist(a, repeat)`</span>
+<span class="hljs-bullet">*</span> <span class="hljs-code">`toJSON()`</span>
+<span class="hljs-bullet">*</span> <span class="hljs-code">`load(json)`</span>
+<span class="hljs-bullet">*</span> <span class="hljs-code">`next()`</span>
+<span class="hljs-bullet">*</span> <span class="hljs-code">`prev()`</span>
+<span class="hljs-bullet">*</span> <span class="hljs-code">`appendSong(s)`</span>
+<span class="hljs-bullet">*</span> <span class="hljs-code">`toHTML()`</span>
+</code></pre>
+<p>The Playlist object provides the following public fields: </p>
+<pre><code><span class="hljs-bullet">*</span> <span class="hljs-code">`index`</span>
+<span class="hljs-bullet">*</span> <span class="hljs-code">`songs`</span>
+<span class="hljs-bullet">*</span> <span class="hljs-code">`repeat`</span>
+</code></pre>
+<ol>
+<li><p><code>Playlist(a, repeat)</code> </p>
+<p> Initialize a playlist from the song URL array <code>a</code> and set it to the initial <code>index</code> position (0).</p>
+<p> The <code>repeat</code> Boolean property determines whether the playlist is supposed to be played multiple times around (<code>true</code>), or only once (<code>false</code>). By default it is <code>false</code>. </p>
+</li>
+</ol>
+<ol start="2">
+<li><p><code>toJSON()</code></p>
+<p> Return the entire state of the playlist object as a JSON string.</p>
+</li>
+<li><p><code>load(json)</code></p>
+<p> Initialize the playlist object from the corresponding JSON string representation.</p>
+<p> If the given json is invalid it should fail silently and preserve the existing state of the object.</p>
+</li>
+<li><p><code>next()</code></p>
+<p> Advance the playlist <code>index</code> position by one song and return the new song URL.</p>
+<p> If the <code>repeat</code> property is set, wrap back to the beginning when running out of songs. Otherwise, simply return undefined and keep the current position so that calling <code>prev()</code> will return the last song again.</p>
+</li>
+<li><p><code>prev()</code></p>
+<p> Return the previous song URL and update the playlist <code>index</code> position accordingly.</p>
+<p> If the <code>repeat</code> property is set, wrap around to the end when running out of songs. Otherwise, simply return undefined and keep the current position so that calling <code>next()</code> will return the first song again.</p>
+</li>
+<li><p><code>appendSong(s)</code></p>
+<p> add the song URL <code>s</code> at the end of the playlist. </p>
+</li>
+<li><p><code>toHTML()</code></p>
+<p> render the content of the playlist as an HTML string</p>
+</li>
+</ol>
+<!--
+1.  `getSongs()`
+
+    return the song URL array
+
+7.  `getCurrentSong()`
+
+    return the song URL at the current position
+
+8.  `getCurrentSongIndex()`
+
+    return the current position
+
+9.  `setRepeat(b)`
+
+    change the `repeat` property. 
+    
+    If set, invoke the `ef` function to notify that the playlist state has changed.
+
+10.  `getRepeat()`
+
+    retrieve the `repeat` property
+-->
+
+
+<h2 id="task---player-with-playlist"><span class='task'>Task 6.</span>  Player with Playlist</h2>
+<p>The Player initialization code should be extended with encapsulate the ability to create the HTML markup necessary to control and display the state of the audio player element and its playlist.</p>
+<p>Use the <code>playlist.html</code> page to display the extended Player and its Playlist objects.</p>
+<p>If done right, it should be possible to instantiate two or more independent player objects on the same page.</p>
+<p>The playlist page should be initialized with this function:</p>
+<ul>
+<li><code>init_player_with_playlist(dom, key, a)</code></li>
+</ul>
+<p>More in detail:</p>
+<ol>
+<li><p>__init_player_with_playlist(dom, key, a)__</p>
+<p> Given a placeholder <code>dom</code> element, inject the player HTML markup and the corresponding hidden audio element and setup the necessary event listeners to control the player (as in the previous assignment) from the HTML buttons.</p>
+<p> Create an internal playlist object by loading its state from the given <code>localStorage</code> <code>key</code>. Use the given array of song URL <code>a</code> as the default value, in case the <code>localStorage</code> copy cannot be loaded.</p>
+<p> Visualize the content of the playlist as part of the player markup. Highlight the currently playing song and add a <code>&lt;button&gt;</code> to control the playlist <code>repeat</code> property.</p>
+<p> Connect the <code>next</code> and <code>prev</code> buttons to the corresponding methods of the playlist object.</p>
+<p> Add a new <code>repeat</code> button which can be used to toggle the <code>repeat</code> property of the playlist.</p>
+</li>
+</ol>
+<h2 id="task---append-to-playlist"><span class='task'>Task 7.</span>  Append to Playlist</h2>
+<p>Add a button next to each song displayed on the <code>songs.html</code> table to append the corresponding song to the playlist stored in <code>localStorage</code> at the same <code>key</code> used for initializing the playlist in the <code>playlist.html</code> page. </p>
+<p>If the playlist changes, the player on <code>playlist.html</code> should reload it without interrupting the currently playing song.</p>
+<h2 id="task---remove-from-playlist-optional"><span class='task'>Task 8.</span>  Remove from Playlist (Optional)</h2>
+<p>On the <code>playlist.html</code> page, add buttons to remove individual playlist entries and one button to remove all entries with one click.</p>
+<h2 id="task---extract-metadata-before-upload-advanced-optional"><span class='task'>Task 9.</span>  Extract metadata before upload (Advanced, Optional)</h2>
+<p>Extend the <code>upload.html</code> page so that when the user chooses a <code>.mp3</code> file:</p>
+<ul>
+<li><p>the file size and song duration (in M:SS) are shown on the upload form before the user clicks on the <code>Submit</code> button.</p>
+</li>
+<li><p>the corresponding metadata is automatically entered by parsing the ID3 tag found in the file and used to populate the corresponding input fields.</p>
+</li>
+</ul>
+<p>Even better, instead of using the file chooser input, let the user drag and drop the <code>.mp3</code> file on the browser window.</p>
+<p>Hint: use a library to parse the .mp3 file metadata, such as <a href="https://github.com/aadsm/jsmediatags">jsmediatags</a>.</p>
+<p style="margin-top:8em"></p>
+
+<h2 id="mastery-check-topics">Mastery Check Topics</h2>
+<p>Solving this exercise will demonstrate mastery for the following topics:</p>
+<ul>
+<li>3. JavaScript  <ul>
+<li>3.3. Objects Data Types  <ul>
+<li>3.3.1. Fields  </li>
+<li>3.2.2. Methods  </li>
+<li>3.3.3. Constructors</li>
+<li>3.3.4. this</li>
+<li>3.3.5. bind, call, apply   </li>
+<li>3.3.6. JSON </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>4. APIs  <ul>
+<li>4.1. Browser  <ul>
+<li>4.1.2. DOM  <ul>
+<li>4.1.2.1. getElementByID  </li>
+<li>4.1.2.2. innerHTML  </li>
+<li>4.1.2.4. contentEditable    </li>
+</ul>
+</li>
+<li>4.1.4. Events  <ul>
+<li>4.1.4.1. Mouse  </li>
+<li>4.1.4.2. Drag and Drop</li>
+</ul>
+</li>
+<li>4.1.6. Local Storage</li>
+<li>4.1.7. Audio    </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>5. Networking  <ul>
+<li>5.1. HTTP <ul>
+<li>5.1.2. URL</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<footer></footer></body></html>

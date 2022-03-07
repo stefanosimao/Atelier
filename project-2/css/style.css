@@ -1,0 +1,378 @@
+/*
+    Web Atelier 2021
+    Exercise 2
+    JavaScript
+
+    Stylesheet
+
+    Author: Stefano Gonçalves Simao
+
+*/
+
+/* You can copy here your styles from Exercise 1*/
+
+
+
+@media screen and (min-width: 768px) {
+    * {
+        margin: 2px;
+        padding: 2px;
+        text-align: center;
+        font-family: Quicksand;
+    }
+
+    body {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+    }
+
+
+    section {
+        display: flex;
+        flex-direction: row;
+        flex-grow: 1;
+    }
+
+    main {
+        flex: 10;
+        height: fit-content;
+    }
+
+    body>hr {
+        background-color: black;
+        border: none;
+        height: 0.5px;
+        border-radius: 85px;
+    }
+
+    #player {
+        text-align: center;
+    }
+
+    #player {
+        display: grid;
+        grid-template-columns: 8fr 2fr;
+    }
+
+    #player>header {
+        grid-column: 1;
+    }
+
+    #player>section {
+        grid-column: 1;
+    }
+
+    #player>aside {
+        grid-column: 2;
+        grid-row: 1/4;
+    }
+
+    #player header {
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+    }
+
+    #player header p {
+        flex: 1;
+    }
+
+    #player header p.title {
+        font-size: 2em;
+    }
+
+    #player section {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+
+    #player section.seek {
+        margin-top: 1em;
+        justify-content: center;
+    }
+
+    #player section.seek p {
+        margin: 1em;
+    }
+
+    #player section.seek p.elapsed {
+        color: black;
+    }
+
+    #player section.seek p.remain {
+        color: gray;
+    }
+
+    #player section.seek progress {
+        width: 45vw;
+        height: 32px;
+    }
+
+
+
+    #player section.play.buttons {
+        justify-content: center;
+    }
+
+    #player button {
+        border-radius: 50%;
+        border-width: 10px;
+    }
+
+    #player button:hover {
+        background-color: rgb(0, 132, 255);
+    }
+
+    #player button {
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+
+    #player button#prev {
+        background-image: url("images/prev.svg");
+    }
+
+    #player button#play {
+        background-image: url("images/play.svg");
+    }
+
+    #player button#pause {
+        background-image: url("images/pause.svg");
+    }
+
+    #player button#next {
+        background-image: url("images/next.svg");
+    }
+
+    #player button#loud {
+        background-image: url("images/loud.svg");
+        margin: 10px;
+    }
+
+    #player button#mute {
+        background-image: url("images/mute.svg");
+    }
+
+    #player button#low {
+        background-image: url("images/low.svg");
+    }
+
+
+    #player button.small {
+        width: 75px;
+        height: 75px;
+    }
+
+    #player button {
+        width: 125px;
+        height: 125px;
+    }
+
+    #player aside.volume button {
+        width: 50px;
+        height: 50px;
+        background-size: 50%;
+    }
+
+
+    #player aside.volume {
+        display: grid;
+        grid-template-columns: 100px 100px;
+        grid-template-rows: 2fr 1fr 2fr 1fr 2fr;
+        align-content: space-around;
+        align-items: center;
+        justify-items: center;
+        justify-content: start;
+    }
+
+    #player .volume button {
+        border-width: 5px;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-items: center;
+        align-items: center;
+    }
+
+    #player .volume button#mute {
+        margin-left: 1em;
+        grid-row: 3;
+        grid-column: 1;
+    }
+
+    #player .volume button#loud {
+        grid-row: 1;
+        grid-column: 2;
+    }
+
+    #player .volume button#low {
+        grid-row: 5;
+        grid-column: 2;
+    }
+
+    #player .volume input[type=range] {
+        grid-row: 3;
+        grid-column: 2;
+        transform: rotate(-90deg) translate(-85px, 65px);
+        transform-origin: 0 0;
+        width: 150px;
+    }
+}
+
+
+@media screen and (max-width: 767px) {
+    * {
+        margin: 5px;
+        padding: 2px;
+        text-align: center;
+    }
+
+    body {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+    }
+
+
+    section {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+
+    main {
+        flex: 0;
+        height: fit-content;
+    }
+
+    body>hr {
+        background-color: black;
+        border: none;
+        height: 2px;
+        border-radius: 85px;
+    }
+
+    
+    #player {
+        text-align: center;
+    }
+
+    #player {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #player>aside {
+        display: none;
+    }
+
+
+
+    #player header {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #player header p {
+        flex: 1;
+    }
+
+    #player header p.title {
+        font-size: 10vw;
+    }
+
+    #player header p.rest {
+        font-size: 5vw;
+    }
+
+    #player section {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+
+    #player section.seek {
+        margin-top: 1em;
+        justify-content: center;
+    }
+
+    #player section.seek p {
+        font-size: 4vw;
+    }
+
+    #player section.seek p.elapsed {
+        color: black;
+    }
+
+    #player section.seek p.remain {
+        color: gray;
+    }
+
+    #player section.seek progress {
+        width: 65vw;
+        height: 22px;
+    }
+
+
+
+    #player section.play.buttons {
+        justify-content: center;
+        width: 100%;
+        height: 10vh;
+    }
+
+    #player button {
+        border-radius: 50%;
+        border-width: 3px;
+    }
+
+    #player button:hover {
+        background-color: rgb(0, 132, 255);
+    }
+
+    #player button {
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+
+    #player button#prev {
+        background-image: url("images/prev.svg");
+    }
+
+    #player button#play {
+        background-image: url("images/play.svg");
+    }
+
+    #player button#pause {
+        background-image: url("images/pause.svg");
+    }
+
+    #player button#next {
+        background-image: url("images/next.svg");
+    }
+
+
+    #player button.small {
+        width: 7vh;
+        height: 7vh;
+    }
+
+    #player button {
+        width: 10vh;
+        height: 10vh;
+    }
+
+
+    #player aside.volume {
+        display: none;
+    }
+
+
+}

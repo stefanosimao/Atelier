@@ -1,0 +1,563 @@
+<!--
+    Web Atelier 2021
+    Exercise 1
+    HTML and CSS
+
+    Songs Table Page
+
+    Author: Stefano Gonçalves Simao
+
+-->
+<!--
+
+    This file contains the content of the <main> and should be extended with the rest of the page elements (header, footer, navigation, sidebar)
+
+    This content should be styled without modifying the HTML markup found within the <main> element
+
+-->
+
+
+<html>
+    <head>
+        <title> Song Catalog </title>
+        <meta name="author" content="Stefano Gonçalves Simao">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="style.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
+    </head>
+    <body class="songs">
+        <header class="songs" id="bigtitle"> Stefano's Music </header>
+        <hr class="songs">
+        <section class="songs">
+
+            <nav class="songs">  <img src = "images/place.svg" alt="Place" class="songs" id="place"/>
+                <a href="index.html" target="_blank" class="songs link" >Homepage</a>
+                <a href="songs.html" target="_blank" class="songs link" id="current">Song catalog</a>
+                <a href="player.html" target="_blank" class="songs link">Player Page</a>
+                <a href="upload.html" target="_blank" class="songs link">Song Upload Form</a>                                
+            </nav>
+
+
+
+            <main class="song_table">
+
+            <header>
+                <span></span>
+                <a href="songs.html?sort=filename">Filename</a>
+                <a href="songs.html?sort=duration">Duration (MM:SS)</a>
+                <a href="songs.html?sort=size">Size (MB)</a>
+                <a href="songs.html?sort=title">Title</a>
+                <a href="songs.html?sort=album">Album</a>
+                <a href="songs.html?sort=artist">Artist</a>
+                <a href="songs.html?sort=genre">Genre</a>
+                <a href="songs.html?sort=desc">Description</a>
+                <a href="songs.html?sort=quality">Quality</a>
+                <a href="songs.html?sort=favourite">Fav</a>
+            </header>
+
+
+
+
+
+            <article class="song" data-sid="61460e91efd0d795bff2e3d5">
+                <a rel="play" href="player.html?61460e91efd0d795bff2e3d5" target="player">Play</a>
+                <span class="filename">01-GalloCiego.mp3</span>
+                <span class="duration">3:36</span>
+                <span class="size">3.291 MB</span>
+                <span class="title">Gallo Ciego</span>
+                <span class="album">Instrumentales Inolvidables Vol 3</span>
+                <span class="artist">Osváldo Pugliese</span>
+                <span class="genre">Tango</span>
+                <span class="desc"></span>
+                <span><progress class="quality" min="0" max="10" value="3"></progress></span>
+                <button data-action="fav" id="fav_61460e91efd0d795bff2e3d5" data-fav="true">&#9733;</button>
+                <button data-action="delete" id="delete_61460e91efd0d795bff2e3d5">&#215;</button>
+                <a rel="edit" href="/music/61460e91efd0d795bff2e3d5/edit">Edit</a>
+                <a rel="download" href="/download/01-GalloCiego.mp3" download>MP3</a>
+            </article>
+
+
+
+
+            <article class="song playing" data-sid="61460ec8efd0d795bff2e3d6">
+                <a rel="play" href="player.html?61460ec8efd0d795bff2e3d6" target="player">Play</a>
+                <span class="filename">02-YuntaDeOro.mp3</span>
+                <span class="duration">3:33</span>
+                <span class="size">3.258 MB</span>
+                <span class="title">Yunta De Oro</span>
+                <span class="album">Instrumentales Inolvidables Vol 3</span>
+                <span class="artist">Osváldo Pugliese</span>
+                <span class="genre">Tango</span>
+                <span class="desc"></span>
+                <span><progress class="quality" min="0" max="10" value="5"></progress></span>
+                <button data-action="fav" id="fav_61460ec8efd0d795bff2e3d6" data-fav="true">&#9733;</button>
+                <button data-action="delete" id="delete_61460ec8efd0d795bff2e3d6">&#215;</button>
+                <a rel="edit" href="/music/61460ec8efd0d795bff2e3d6/edit">Edit</a>
+                <a rel="download" href="/download/02-YuntaDeOro.mp3" download>MP3</a>
+            </article>
+
+
+
+
+            <article class="song" data-sid="61460edcefd0d795bff2e3d7">
+                <a rel="play" href="player.html?61460edcefd0d795bff2e3d7" target="player">Play</a>
+                <span class="filename">03-Quejumbroso.mp3</span>
+                <span class="duration">3:36</span>
+                <span class="size">3.299 MB</span>
+                <span class="title">Quejumbroso</span>
+                <span class="album">Instrumentales Inolvidables Vol 3</span>
+                <span class="artist">Osváldo Pugliese</span>
+                <span class="genre">Tango</span>
+                <span class="desc"></span>
+                <span><progress class="quality" min="0" max="10" value="5"></progress></span>
+                <button data-action="fav" id="fav_61460edcefd0d795bff2e3d7" data-fav="false">&#9734;</button>
+                <button data-action="delete" id="delete_61460edcefd0d795bff2e3d7">&#215;</button>
+                <a rel="edit" href="/music/61460edcefd0d795bff2e3d7/edit">Edit</a>
+                <a rel="download" href="/download/03-Quejumbroso.mp3" download>MP3</a>
+            </article>
+
+
+
+
+            <article class="song" data-sid="61460f34fd594a37613d7aa6">
+                <a rel="play" href="player.html?61460f34fd594a37613d7aa6" target="player">Play</a>
+                <span class="filename">04-MatoYVoy.mp3</span>
+                <span class="duration">3:35</span>
+                <span class="size">3.275 MB</span>
+                <span class="title">Mato Y Voy</span>
+                <span class="album">Instrumentales Inolvidables Vol 3</span>
+                <span class="artist">Osváldo Pugliese</span>
+                <span class="genre">Tango</span>
+                <span class="desc"></span>
+                <span><progress class="quality" min="0" max="10" value="5"></progress></span>
+                <button data-action="fav" id="fav_61460f34fd594a37613d7aa6" data-fav="false">&#9734;</button>
+                <button data-action="delete" id="delete_61460f34fd594a37613d7aa6">&#215;</button>
+                <a rel="edit" href="/music/61460f34fd594a37613d7aa6/edit">Edit</a>
+                <a rel="download" href="/download/04-MatoYVoy.mp3" download>MP3</a>
+            </article>
+
+
+
+
+            <article class="song" data-sid="61460f3efd594a37613d7aa7">
+                <a rel="play" href="player.html?61460f3efd594a37613d7aa7" target="player">Play</a>
+                <span class="filename">05-PataAncha.mp3</span>
+                <span class="duration">3:23</span>
+                <span class="size">3.107 MB</span>
+                <span class="title">Pata Ancha</span>
+                <span class="album">Instrumentales Inolvidables Vol 3</span>
+                <span class="artist">Osváldo Pugliese</span>
+                <span class="genre">Tango</span>
+                <span class="desc"></span>
+                <span><progress class="quality" min="0" max="10" value="5"></progress></span>
+                <button data-action="fav" id="fav_61460f3efd594a37613d7aa7" data-fav="true">&#9733;</button>
+                <button data-action="delete" id="delete_61460f3efd594a37613d7aa7">&#215;</button>
+                <a rel="edit" href="/music/61460f3efd594a37613d7aa7/edit">Edit</a>
+                <a rel="download" href="/download/05-PataAncha.mp3" download>MP3</a>
+            </article>
+
+
+
+
+            <article class="song" data-sid="614610babcfe881c3287c1d0">
+                <a rel="play" href="player.html?614610babcfe881c3287c1d0" target="player">Play</a>
+                <span class="filename">01SymphonyNo1inC-durOp21-IAdagiomolto-Allegroconbrio.mp3</span>
+                <span class="duration">9:55</span>
+                <span class="size">22.705 MB</span>
+                <span class="title">Symphony No.1 in C-dur, Op.21 - I. Adagio molto - Allegro con brio</span>
+                <span class="album">Complete Symphonies and Piano Concertos</span>
+                <span class="artist">Beethoven (Klemperer)</span>
+                <span class="genre">Classical</span>
+                <span class="desc"></span>
+                <span><progress class="quality" min="0" max="10" value="5"></progress></span>
+                <button data-action="fav" id="fav_614610babcfe881c3287c1d0" data-fav="false">&#9734;</button>
+                <button data-action="delete" id="delete_614610babcfe881c3287c1d0">&#215;</button>
+                <a rel="edit" href="/music/614610babcfe881c3287c1d0/edit">Edit</a>
+                <a rel="download" href="/download/01SymphonyNo1inC-durOp21-IAdagiomolto-Allegroconbrio.mp3" download>MP3</a>
+            </article>
+
+
+
+
+            <article class="song" data-sid="614610dabcfe881c3287c1d1">
+                <a rel="play" href="player.html?614610dabcfe881c3287c1d1" target="player">Play</a>
+                <span class="filename">01SymphonyNo3inEs-durOp55-IAllegroconbrio.mp3</span>
+                <span class="duration">NaN:NaN</span>
+                <span class="size">38.198 MB</span>
+                <span class="title">Symphony No.3 in Es-dur, Op.55 - I. Allegro con brio</span>
+                <span class="album">Complete Symphonies and Piano Concertos</span>
+                <span class="artist">Beethoven (Klemperer)</span>
+                <span class="genre">Classical</span>
+                <span class="desc"></span>
+                <span><progress class="quality" min="0" max="10" value="5"></progress></span>
+                <button data-action="fav" id="fav_614610dabcfe881c3287c1d1" data-fav="false">&#9734;</button>
+                <button data-action="delete" id="delete_614610dabcfe881c3287c1d1">&#215;</button>
+                <a rel="edit" href="/music/614610dabcfe881c3287c1d1/edit">Edit</a>
+                <a rel="download" href="/download/01SymphonyNo3inEs-durOp55-IAllegroconbrio.mp3" download>MP3</a>
+            </article>
+
+
+
+
+            <article class="song" data-sid="614610f3bcfe881c3287c1d2">
+                <a rel="play" href="player.html?614610f3bcfe881c3287c1d2" target="player">Play</a>
+                <span class="filename">01SymphonyNo2inD-durOp36-IAdagiomolto-Allegroconbrio.mp3</span>
+                <span class="duration">13:27</span>
+                <span class="size">30.801 MB</span>
+                <span class="title">Symphony No.2 in D-dur, Op.36 - I. Adagio molto - Allegro con brio</span>
+                <span class="album">Complete Symphonies and Piano Concertos</span>
+                <span class="artist">Beethoven (Klemperer)</span>
+                <span class="genre">Classical</span>
+                <span class="desc"></span>
+                <span><progress class="quality" min="0" max="10" value="5"></progress></span>
+                <button data-action="fav" id="fav_614610f3bcfe881c3287c1d2" data-fav="true">&#9733;</button>
+                <button data-action="delete" id="delete_614610f3bcfe881c3287c1d2">&#215;</button>
+                <a rel="edit" href="/music/614610f3bcfe881c3287c1d2/edit">Edit</a>
+                <a rel="download" href="/download/01SymphonyNo2inD-durOp36-IAdagiomolto-Allegroconbrio.mp3" download>MP3</a>
+            </article>
+
+
+
+
+            <article class="song" data-sid="6146110ebcfe881c3287c1d3">
+                <a rel="play" href="player.html?6146110ebcfe881c3287c1d3" target="player">Play</a>
+                <span class="filename">01SymphonyNo4inB-durOp60-IAdagio-Allegrovivace.mp3</span>
+                <span class="duration">12:28</span>
+                <span class="size">28.527 MB</span>
+                <span class="title">Symphony No.4 in B-dur, Op.60 - I. Adagio - Allegro vivace</span>
+                <span class="album">Complete Symphonies and Piano Concertos</span>
+                <span class="artist">Beethoven (Klemperer)</span>
+                <span class="genre">Classical</span>
+                <span class="desc"></span>
+                <span><progress class="quality" min="0" max="10" value="6"></progress></span>
+                <button data-action="fav" id="fav_6146110ebcfe881c3287c1d3" data-fav="false">&#9734;</button>
+                <button data-action="delete" id="delete_6146110ebcfe881c3287c1d3">&#215;</button>
+                <a rel="edit" href="/music/6146110ebcfe881c3287c1d3/edit">Edit</a>
+                <a rel="download" href="/download/01SymphonyNo4inB-durOp60-IAdagio-Allegrovivace.mp3" download>MP3</a>
+            </article>
+
+
+
+
+            <article class="song" data-sid="6146111fbcfe881c3287c1d4">
+                <a rel="play" href="player.html?6146111fbcfe881c3287c1d4" target="player">Play</a>
+                <span class="filename">05SymphonyNo7inA-durOp92-IPocosostenuto-Vivace.mp3</span>
+                <span class="duration">12:52</span>
+                <span class="size">29.456 MB</span>
+                <span class="title">Symphony No.7 in A-dur, Op.92 - I. Poco sostenuto - Vivace</span>
+                <span class="album">Complete Symphonies and Piano Concertos</span>
+                <span class="artist">Beethoven (Klemperer)</span>
+                <span class="genre">Classical</span>
+                <span class="desc"></span>
+                <span><progress class="quality" min="0" max="10" value="5"></progress></span>
+                <button data-action="fav" id="fav_6146111fbcfe881c3287c1d4" data-fav="false">&#9734;</button>
+                <button data-action="delete" id="delete_6146111fbcfe881c3287c1d4">&#215;</button>
+                <a rel="edit" href="/music/6146111fbcfe881c3287c1d4/edit">Edit</a>
+                <a rel="download" href="/download/05SymphonyNo7inA-durOp92-IPocosostenuto-Vivace.mp3" download>MP3</a>
+            </article>
+
+
+
+
+            <article class="song" data-sid="6146115fbcfe881c3287c1d5">
+                <a rel="play" href="player.html?6146115fbcfe881c3287c1d5" target="player">Play</a>
+                <span class="filename">01-Jechante.mp3</span>
+                <span class="duration">2:47</span>
+                <span class="size">6.442 MB</span>
+                <span class="title">Je chante</span>
+                <span class="album">CD 01: 1937-1939</span>
+                <span class="artist">Charles Trenet</span>
+                <span class="genre">Pop</span>
+                <span class="desc"></span>
+                <span><progress class="quality" min="0" max="10" value="1"></progress></span>
+                <button data-action="fav" id="fav_6146115fbcfe881c3287c1d5" data-fav="false">&#9734;</button>
+                <button data-action="delete" id="delete_6146115fbcfe881c3287c1d5">&#215;</button>
+                <a rel="edit" href="/music/6146115fbcfe881c3287c1d5/edit">Edit</a>
+                <a rel="download" href="/download/01-Jechante.mp3" download>MP3</a>
+            </article>
+
+
+
+
+            <article class="song" data-sid="61461192bcfe881c3287c1d6">
+                <a rel="play" href="player.html?61461192bcfe881c3287c1d6" target="player">Play</a>
+                <span class="filename">10-Vousoubliezvotrecheval.mp3</span>
+                <span class="duration">3:00</span>
+                <span class="size">6.935 MB</span>
+                <span class="title">Vous oubliez votre cheval</span>
+                <span class="album">CD 01: 1937-1939</span>
+                <span class="artist">Charles Trenet</span>
+                <span class="genre">Pop</span>
+                <span class="desc"></span>
+                <span><progress class="quality" min="0" max="10" value="10"></progress></span>
+                <button data-action="fav" id="fav_61461192bcfe881c3287c1d6" data-fav="false">&#9734;</button>
+                <button data-action="delete" id="delete_61461192bcfe881c3287c1d6">&#215;</button>
+                <a rel="edit" href="/music/61461192bcfe881c3287c1d6/edit">Edit</a>
+                <a rel="download" href="/download/10-Vousoubliezvotrecheval.mp3" download>MP3</a>
+            </article>
+
+
+
+
+            <article class="song" data-sid="614611b1bcfe881c3287c1d7">
+                <a rel="play" href="player.html?614611b1bcfe881c3287c1d7" target="player">Play</a>
+                <span class="filename">13-Boum.mp3</span>
+                <span class="duration">2:34</span>
+                <span class="size">5.939 MB</span>
+                <span class="title">Boum!</span>
+                <span class="album">CD 01: 1937-1939</span>
+                <span class="artist">Charles Trenet</span>
+                <span class="genre">Pop</span>
+                <span class="desc"></span>
+                <span><progress class="quality" min="0" max="10" value="5"></progress></span>
+                <button data-action="fav" id="fav_614611b1bcfe881c3287c1d7" data-fav="false">&#9734;</button>
+                <button data-action="delete" id="delete_614611b1bcfe881c3287c1d7">&#215;</button>
+                <a rel="edit" href="/music/614611b1bcfe881c3287c1d7/edit">Edit</a>
+                <a rel="download" href="/download/13-Boum.mp3" download>MP3</a>
+            </article>
+
+
+
+
+            <article class="song" data-sid="614611e6bcfe881c3287c1d8">
+                <a rel="play" href="player.html?614611e6bcfe881c3287c1d8" target="player">Play</a>
+                <span class="filename">SymphonyinFKApp223.mp3</span>
+                <span class="duration">12:57</span>
+                <span class="size">17.561 MB</span>
+                <span class="title">Symphony in F, K.App.223</span>
+                <span class="album">Mozart: The Symphonies</span>
+                <span class="artist">Wiener Philharmoniker, James Levine</span>
+                <span class="genre">Classical</span>
+                <span class="desc"></span>
+                <span><progress class="quality" min="0" max="10" value="8"></progress></span>
+                <button data-action="fav" id="fav_614611e6bcfe881c3287c1d8" data-fav="false">&#9734;</button>
+                <button data-action="delete" id="delete_614611e6bcfe881c3287c1d8">&#215;</button>
+                <a rel="edit" href="/music/614611e6bcfe881c3287c1d8/edit">Edit</a>
+                <a rel="download" href="/download/SymphonyinFKApp223.mp3" download>MP3</a>
+            </article>
+
+
+
+
+            <article class="song" data-sid="614612c5d2d41eda85d44124">
+                <a rel="play" href="player.html?614612c5d2d41eda85d44124" target="player">Play</a>
+                <span class="filename">SymphonyNo1inE-FlatK16.mp3</span>
+                <span class="duration">14:19</span>
+                <span class="size">19.321 MB</span>
+                <span class="title">Symphony No.1 in E-Flat, K.16</span>
+                <span class="album">Mozart: The Symphonies</span>
+                <span class="artist">Wiener Philharmoniker, James Levine</span>
+                <span class="genre">Classical</span>
+                <span class="desc"></span>
+                <span><progress class="quality" min="0" max="10" value="6"></progress></span>
+                <button data-action="fav" id="fav_614612c5d2d41eda85d44124" data-fav="false">&#9734;</button>
+                <button data-action="delete" id="delete_614612c5d2d41eda85d44124">&#215;</button>
+                <a rel="edit" href="/music/614612c5d2d41eda85d44124/edit">Edit</a>
+                <a rel="download" href="/download/SymphonyNo1inE-FlatK16.mp3" download>MP3</a>
+            </article>
+
+
+
+
+            <article class="song" data-sid="614612eed2d41eda85d44125">
+                <a rel="play" href="player.html?614612eed2d41eda85d44125" target="player">Play</a>
+                <span class="filename">SymphonyNo4inDK19.mp3</span>
+                <span class="duration">11:40</span>
+                <span class="size">15.995 MB</span>
+                <span class="title">Symphony No.4 in D, K.19</span>
+                <span class="album">Mozart: The Symphonies</span>
+                <span class="artist">Wiener Philharmoniker, James Levine</span>
+                <span class="genre">Classical</span>
+                <span class="desc"></span>
+                <span><progress class="quality" min="0" max="10" value="2"></progress></span>
+                <button data-action="fav" id="fav_614612eed2d41eda85d44125" data-fav="true">&#9733;</button>
+                <button data-action="delete" id="delete_614612eed2d41eda85d44125">&#215;</button>
+                <a rel="edit" href="/music/614612eed2d41eda85d44125/edit">Edit</a>
+                <a rel="download" href="/download/SymphonyNo4inDK19.mp3" download>MP3</a>
+            </article>
+
+
+
+
+            <article class="song" data-sid="6146137ad2d41eda85d44126">
+                <a rel="play" href="player.html?6146137ad2d41eda85d44126" target="player">Play</a>
+                <span class="filename">01BrightSizeLife.mp3</span>
+                <span class="duration">4:45</span>
+                <span class="size">10.94 MB</span>
+                <span class="title">Bright Size Life</span>
+                <span class="album">Bright Size Life</span>
+                <span class="artist">Pat Metheny</span>
+                <span class="genre">Jazz</span>
+                <span class="desc"></span>
+                <span><progress class="quality" min="0" max="10" value="5"></progress></span>
+                <button data-action="fav" id="fav_6146137ad2d41eda85d44126" data-fav="false">&#9734;</button>
+                <button data-action="delete" id="delete_6146137ad2d41eda85d44126">&#215;</button>
+                <a rel="edit" href="/music/6146137ad2d41eda85d44126/edit">Edit</a>
+                <a rel="download" href="/download/01BrightSizeLife.mp3" download>MP3</a>
+            </article>
+
+
+
+
+            <article class="song" data-sid="61461382d2d41eda85d44127">
+                <a rel="play" href="player.html?61461382d2d41eda85d44127" target="player">Play</a>
+                <span class="filename">02Sirabhorn.mp3</span>
+                <span class="duration">5:30</span>
+                <span class="size">12.638 MB</span>
+                <span class="title">Sirabhorn</span>
+                <span class="album">Bright Size Life</span>
+                <span class="artist">Pat Metheny</span>
+                <span class="genre">Jazz</span>
+                <span class="desc"></span>
+                <span><progress class="quality" min="0" max="10" value="5"></progress></span>
+                <button data-action="fav" id="fav_61461382d2d41eda85d44127" data-fav="false">&#9734;</button>
+                <button data-action="delete" id="delete_61461382d2d41eda85d44127">&#215;</button>
+                <a rel="edit" href="/music/61461382d2d41eda85d44127/edit">Edit</a>
+                <a rel="download" href="/download/02Sirabhorn.mp3" download>MP3</a>
+            </article>
+
+
+
+
+            <article class="song" data-sid="61461388d2d41eda85d44128">
+                <a rel="play" href="player.html?61461388d2d41eda85d44128" target="player">Play</a>
+                <span class="filename">03UnityVillage.mp3</span>
+                <span class="duration">3:40</span>
+                <span class="size">8.464 MB</span>
+                <span class="title">Unity Village</span>
+                <span class="album">Bright Size Life</span>
+                <span class="artist">Pat Metheny</span>
+                <span class="genre">Jazz</span>
+                <span class="desc"></span>
+                <span><progress class="quality" min="0" max="10" value="5"></progress></span>
+                <button data-action="fav" id="fav_61461388d2d41eda85d44128" data-fav="false">&#9734;</button>
+                <button data-action="delete" id="delete_61461388d2d41eda85d44128">&#215;</button>
+                <a rel="edit" href="/music/61461388d2d41eda85d44128/edit">Edit</a>
+                <a rel="download" href="/download/03UnityVillage.mp3" download>MP3</a>
+            </article>
+
+
+
+
+            <article class="song" data-sid="614616e848dcefcf9ec22f83">
+                <a rel="play" href="player.html?614616e848dcefcf9ec22f83" target="player">Play</a>
+                <span class="filename">04MissouriUncompromised.mp3</span>
+                <span class="duration">4:22</span>
+                <span class="size">10.049 MB</span>
+                <span class="title">Missouri Uncompromised</span>
+                <span class="album">Bright Size Life</span>
+                <span class="artist">Pat Metheny</span>
+                <span class="genre">Jazz</span>
+                <span class="desc"></span>
+                <span><progress class="quality" min="0" max="10" value="5"></progress></span>
+                <button data-action="fav" id="fav_614616e848dcefcf9ec22f83" data-fav="true">&#9733;</button>
+                <button data-action="delete" id="delete_614616e848dcefcf9ec22f83">&#215;</button>
+                <a rel="edit" href="/music/614616e848dcefcf9ec22f83/edit">Edit</a>
+                <a rel="download" href="/download/04MissouriUncompromised.mp3" download>MP3</a>
+            </article>
+
+
+
+
+            <article class="song" data-sid="61461d3c92d31e6041bf5503">
+                <a rel="play" href="player.html?61461d3c92d31e6041bf5503" target="player">Play</a>
+                <span class="filename">05MidwesternNightsDream.mp3</span>
+                <span class="duration">6:01</span>
+                <span class="size">13.819 MB</span>
+                <span class="title">Midwestern Nights Dream</span>
+                <span class="album">Bright Size Life</span>
+                <span class="artist">Pat Metheny</span>
+                <span class="genre">Jazz</span>
+                <span class="desc"></span>
+                <span><progress class="quality" min="0" max="10" value="5"></progress></span>
+                <button data-action="fav" id="fav_61461d3c92d31e6041bf5503" data-fav="true">&#9733;</button>
+                <button data-action="delete" id="delete_61461d3c92d31e6041bf5503">&#215;</button>
+                <a rel="edit" href="/music/61461d3c92d31e6041bf5503/edit">Edit</a>
+                <a rel="download" href="/download/05MidwesternNightsDream.mp3" download>MP3</a>
+            </article>
+
+
+
+
+            <article class="song" data-sid="61461efd5d9b880240dda9c0">
+                <a rel="play" href="player.html?61461efd5d9b880240dda9c0" target="player">Play</a>
+                <span class="filename">06UnquityRoad.mp3</span>
+                <span class="duration">3:36</span>
+                <span class="size">NaN MB</span>
+                <span class="title">Unquity Road</span>
+                <span class="album">Bright Size Life</span>
+                <span class="artist">Pat Metheny</span>
+                <span class="genre">Jazz</span>
+                <span class="desc"></span>
+                <span><progress class="quality" min="0" max="10" value="5"></progress></span>
+                <button data-action="fav" id="fav_61461efd5d9b880240dda9c0" data-fav="false">&#9734;</button>
+                <button data-action="delete" id="delete_61461efd5d9b880240dda9c0">&#215;</button>
+                <a rel="edit" href="/music/61461efd5d9b880240dda9c0/edit">Edit</a>
+                <a rel="download" href="/download/06UnquityRoad.mp3" download>MP3</a>
+            </article>
+
+
+
+
+            <article class="song" data-sid="61463308e71ee3d8bdd0b7bc">
+                <a rel="play" href="player.html?61463308e71ee3d8bdd0b7bc" target="player">Play</a>
+                <span class="filename">07OmahaCelebration.mp3</span>
+                <span class="duration">4:19</span>
+                <span class="size">9.93 MB</span>
+                <span class="title">Omaha Celebration</span>
+                <span class="album">Bright Size Life</span>
+                <span class="artist">Pat Metheny</span>
+                <span class="genre">Jazz</span>
+                <span class="desc"></span>
+                <span><progress class="quality" min="0" max="10" value="5"></progress></span>
+                <button data-action="fav" id="fav_61463308e71ee3d8bdd0b7bc" data-fav="false">&#9734;</button>
+                <button data-action="delete" id="delete_61463308e71ee3d8bdd0b7bc">&#215;</button>
+                <a rel="edit" href="/music/61463308e71ee3d8bdd0b7bc/edit">Edit</a>
+                <a rel="download" href="/download/07OmahaCelebration.mp3" download>MP3</a>
+            </article>
+
+
+
+
+            <article class="song" data-sid="6146340dc081201e0fcb5222">
+                <a rel="play" href="player.html?6146340dc081201e0fcb5222" target="player">Play</a>
+                <span class="filename">08RoundTripBroadwayBlues.mp3</span>
+                <span class="duration">4:58</span>
+                <span class="size">11.437 MB</span>
+                <span class="title">Round Trip, Broadway Blues</span>
+                <span class="album">Bright Size Life</span>
+                <span class="artist">Pat Metheny</span>
+                <span class="genre">Jazz</span>
+                <span class="desc"></span>
+                <span><progress class="quality" min="0" max="10" value="5"></progress></span>
+                <button data-action="fav" id="fav_6146340dc081201e0fcb5222" data-fav="false">&#9734;</button>
+                <button data-action="delete" id="delete_6146340dc081201e0fcb5222">&#215;</button>
+                <a rel="edit" href="/music/6146340dc081201e0fcb5222/edit">Edit</a>
+                <a rel="download" href="/download/08RoundTripBroadwayBlues.mp3" download>MP3</a>
+            </article>
+
+            </main>
+
+
+
+            <aside class="songs"> Favourite Musicians
+                <a href="songs.html" target="_blank" class="player link">Artist1</a>
+                <a href="songs.html" target="_blank" class="player link">Artist2</a>
+                <a href="songs.html" target="_blank" class="player link">Artist3</a>
+                <a href="songs.html" target="_blank" class="player link">Artist4</a> 
+                <a href="songs.html" target="_blank" class="player link">Artist5</a> 
+                <a href="songs.html" target="_blank" class="player link">Artist6</a> 
+                <a href="songs.html" target="_blank" class="player link">Artist7</a> 
+                <a href="songs.html" target="_blank" class="player link">Artist8</a> 
+                <a href="songs.html" target="_blank" class="player link">Artist9</a> 
+                <a href="songs.html" target="_blank" class="player link">Artist10</a> 
+            </aside>
+        </section>
+        <hr class="songs">
+        <footer class="songs"> 
+            <span class="songs footer">@StefanoGonçalvesSimao </span> 
+            <span class="songs footer">Fri 01 Oct 2021</span> 
+            <span class="songs footer"><a href="https://en.wikipedia.org/wiki/Disclaimer" target="_blank" class="songs">Legal Disclaimer</a></span>  
+        </footer>
+    </body>
+</html>

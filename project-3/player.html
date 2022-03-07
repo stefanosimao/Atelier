@@ -1,0 +1,110 @@
+<!--
+    Web Atelier 2021
+    Exercise 3
+    Object-Oriented JavaScript
+
+    Player Page
+
+    Author: Stefano Gonçalves Simao
+
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title> Player </title>
+        <meta name="author" content="Stefano Gonçalves Simao">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="style.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
+    </head>
+
+<body class="player" onload="init()">
+
+    <header class="player" id="bigtitle"> Stefano's Music </header>
+        <hr class="player">
+        <section class="player">
+
+            <nav class="player">  <img src = "images/place.svg" alt="Place" class="player" id="place"/>
+                <a href="index.html" target="_blank" class="player link" >Homepage</a>
+                <a href="songs.html" target="_blank" class="player link">Song catalog</a>
+                <a href="player.html" target="_blank" class="player link" id="current">Player Page</a>
+                <a href="upload.html" target="_blank" class="player link">Song Upload Form</a>                                
+            </nav>
+
+
+
+            <main class="player" id="player">
+                <header class="player" >
+                    <p class="title rest artist"></p>
+                    <p class="title titleSong"></p>  
+                    <p class="title rest album"></p>  
+                </header>
+                <section class="play buttons">
+                    <button type="button" class="small" id="prev"></button>
+                    <button type="button" id="play"></button>
+                    <button type="button" id="pause"></button>
+                    <button type="button" class="small" id="next"></button>
+                </section>
+                <section class="player seek play" >
+                    <p class="elapsed"></p>
+                    <progress id="file" value="0" max="100"></progress>
+                    <p class="remain"></p>
+                </section>  
+                <aside class="player volume" > 
+                        <button type="button" id="loud"></button>
+                        <button type="button" id="mute"></button>
+                        <button type="button" id="low"></button>
+                        <input type="range" id="slide" min="0" max="100" value="75"/>
+                </aside>
+            </main>
+                <aside class="player">  
+            </aside>
+        </section>
+        <hr class="player">
+        <footer class="player"> 
+            <span class="player footer">@StefanoGonçalvesSimao </span> 
+            <span class="player footer">Fri 01 Oct 2021</span> 
+            <span class="player footer"><a href="https://en.wikipedia.org/wiki/Disclaimer" target="_blank" class="player">Legal Disclaimer</a></span>  
+        </footer>
+
+    <!-- Include here your #player element -->
+
+    <!-- This is the hidden audio element which will play your songs
+         controlled from the #player buttons -->
+    <audio id="player-audio" style="display:none"></audio>
+
+    <!-- Script where the init_player function is implemented -->
+    <script src="js/script.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/data.js"></script>
+
+    <script>
+        //This function will call the init_player function passing a test playlist
+        //You are welcome to change the playlist
+
+        function init() {
+            let songs = ['music/one.mp3','music/two.mp3','music/three.mp3','music/four.mp3','music/five.mp3','music/seven.mp3','music/six.mp3'];
+
+            let audio = document.getElementById("player-audio");
+
+            //TODO read the browser address bar parameter src (Task 4)
+            let url = new URL(window.location);
+            const songFileName = url.searchParams.get('src');
+            
+            if (songFileName !=  undefined){
+                if (songs.includes(songFileName)){
+                    songs = songs.filter(item => item != songFileName);
+                    
+                } 
+                song = songs.unshift(songFileName);
+            }
+            
+            init_player(audio, songs, true);
+        }
+    </script>
+  </body>
+</html>
+
+</body>
+</html>
