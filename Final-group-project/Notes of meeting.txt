@@ -1,0 +1,25 @@
+List of socket’s messages:
+
+-Lovnesh
+-start_lobby -> eventBus('gameStarted') // Not needed
+-player_joined → send player name (and save it in the local storage) (use hash to hide quiz)
+-start_game→ all player browsers 
+-show_leaderboard (only the host sees it) (displayed when every player answers)
+-ending_the_game (display podium for host) (show standing for players)
+
+-Michele
+-correct_answer 
+-wrong_answer (sent also if player runs out of time)
+-next_question (index sent on reconnect) (send everyone the position of the correct answer)
+-return_to_title (change flag to host a new game) -> deprecated (use GET '/game/exitGame' instead)
+
+-Stefano
+-refresh_list (refreshing list of ids being edited)
+-quiz.created
+-quiz.modified (only one person at a time, cannot edit, remove or play a quiz being edited)
+-quiz_removed
+-start_edit
+-stop_edit
+-game_started
+-game_stopped
+-update disconnect socket

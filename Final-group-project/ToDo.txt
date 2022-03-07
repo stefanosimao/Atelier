@@ -1,0 +1,7 @@
+Known Bugs:
+-server response to POST "/game/joinGame" is not json, cannot render page within sendUsername() in ajax.js
+
+
+Fixed:
+-when adding an additional question in the quiz creation form, the previous fields are deleted.
+-almost all the responses are 304 -> 304 means nothing changed from what you have in the cache
